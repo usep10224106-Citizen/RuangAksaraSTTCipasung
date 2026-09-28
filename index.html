@@ -1,331 +1,417 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ruang Aksara STTCipasung</title>
+    <title>Ruang Aksara | STT Cipasung</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <header>
-        <div class="logo">Ruang Aksara</div>
+<!-- SIDEBAR -->
+<aside class="sidebar">
 
-        <nav>
-            <a href="#beranda">Beranda</a>
-            <a href="#tentang">Tentang</a>
-            <a href="#karya">Karya</a>
-            <a href="#kontak">Kontak</a>
-        </nav>
+    <div class="brand">
+        <div class="logo-circle">RA</div>
+        <div>
+            <h2>Ruang Aksara</h2>
+            <span>STT Cipasung</span>
+        </div>
+    </div>
+
+    <nav class="menu">
+
+        <a href="#beranda" class="menu-item active">
+            <span>🏠</span>
+            <span>Beranda</span>
+        </a>
+
+        <a href="#karya" class="menu-item">
+            <span>📚</span>
+            <span>Karya</span>
+        </a>
+
+        <a href="#galeri" class="menu-item">
+            <span>🖼️</span>
+            <span>Galeri</span>
+        </a>
+
+        <a href="#tentang" class="menu-item">
+            <span>👤</span>
+            <span>Tentang</span>
+        </a>
+
+        <a href="#kontak" class="menu-item">
+            <span>📩</span>
+            <span>Kontak</span>
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+        <button id="darkModeBtn">🌙 Mode Gelap</button>
+    </div>
+
+</aside>
+
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+
+        <button class="mobile-menu" id="mobileMenu">
+            ☰
+        </button>
+
+        <div class="search-box">
+            🔍
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Cari karya..."
+            >
+        </div>
+
+        <div class="top-profile">
+            <span>🔔</span>
+            <div class="profile-avatar">
+                RA
+            </div>
+        </div>
+
     </header>
 
 
     <!-- BERANDA -->
-    <section class="hero" id="beranda">
-        <div class="hero-content">
+    <section id="beranda" class="page-section">
 
-            <p class="subtitle">RUANG LITERASI STTCIPASUNG</p>
+        <div class="hero">
 
-            <h1>Ruang Aksara</h1>
+            <div class="hero-text">
 
-            <p class="description">
-                Where words find meaning and stories find their place.
-            </p>
+                <span class="label">
+                    RUANG LITERASI STT CIPASUNG
+                </span>
 
-            <a href="#karya" class="button">
-                Jelajahi Karya
+                <h1>
+                    Selamat Datang di
+                    <strong>Ruang Aksara</strong>
+                </h1>
+
+                <p>
+                    Tempat mahasiswa berbagi kata, cerita,
+                    gagasan, dan kreativitas melalui tulisan.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#karya" class="btn-primary">
+                        Jelajahi Karya →
+                    </a>
+
+                    <a href="#tentang" class="btn-secondary">
+                        Tentang Kami
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img
+                    src="images/hero.jpg"
+                    alt="Ruang Literasi"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- STATISTIK -->
+
+        <div class="stats">
+
+            <div class="stat-card">
+                <span>📚</span>
+                <div>
+                    <strong>120+</strong>
+                    <p>Total Karya</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span>✍️</span>
+                <div>
+                    <strong>45+</strong>
+                    <p>Puisi</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span>📖</span>
+                <div>
+                    <strong>38+</strong>
+                    <p>Cerita</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span>📝</span>
+                <div>
+                    <strong>37+</strong>
+                    <p>Artikel</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- KARYA TERBARU -->
+
+        <div class="section-heading">
+
+            <div>
+                <span>TERBARU</span>
+                <h2>Karya Terbaru</h2>
+            </div>
+
+            <a href="#karya">
+                Lihat Semua →
             </a>
 
         </div>
-    </section>
 
 
-    <!-- TENTANG -->
-    <section class="about" id="tentang">
+        <div class="work-grid">
 
-        <div class="section-title">
-            <p>TENTANG KAMI</p>
-            <h2>Ruang untuk Berbagi Aksara</h2>
+            <article class="work-card">
+
+                <img
+                    src="images/puisi.jpg"
+                    alt="Puisi"
+                >
+
+                <div class="work-content">
+
+                    <span class="category">
+                        PUISI
+                    </span>
+
+                    <h3>
+                        Langkah di Balik Aksara
+                    </h3>
+
+                    <p>
+                        Setiap kata menyimpan cerita
+                        dan perjalanan.
+                    </p>
+
+                    <button onclick="openWork('puisi')">
+                        Baca Karya →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="work-card">
+
+                <img
+                    src="images/cerita.jpg"
+                    alt="Cerita"
+                >
+
+                <div class="work-content">
+
+                    <span class="category">
+                        CERITA
+                    </span>
+
+                    <h3>
+                        Awal Sebuah Perjalanan
+                    </h3>
+
+                    <p>
+                        Sebuah langkah kecil yang
+                        menjadi awal perjalanan.
+                    </p>
+
+                    <button onclick="openWork('cerita')">
+                        Baca Karya →
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="work-card">
+
+                <img
+                    src="images/artikel.jpg"
+                    alt="Artikel"
+                >
+
+                <div class="work-content">
+
+                    <span class="category">
+                        ARTIKEL
+                    </span>
+
+                    <h3>
+                        Menulis di Era Digital
+                    </h3>
+
+                    <p>
+                        Menulis sebagai cara berbagi
+                        gagasan di era digital.
+                    </p>
+
+                    <button onclick="openWork('artikel')">
+                        Baca Karya →
+                    </button>
+
+                </div>
+
+            </article>
+
         </div>
-
-        <p class="about-text">
-            Ruang Aksara STTCipasung merupakan wadah literasi
-            dan kreativitas untuk berbagi tulisan, cerita,
-            gagasan, dan karya.
-        </p>
-
-        <p class="about-text">
-            Melalui Ruang Aksara, setiap kata menjadi ruang
-            untuk belajar, berekspresi, dan menginspirasi.
-        </p>
 
     </section>
 
 
     <!-- KARYA -->
-    <section class="karya" id="karya">
 
-        <div class="section-title">
-            <p>EKSPRESI</p>
+    <section id="karya" class="page-section">
+
+        <div class="page-title">
+
+            <span>EKSPRESI</span>
 
             <h2>Karya & Tulisan</h2>
 
-            <span>
-                Temukan berbagai karya dan tulisan
-                dari Ruang Aksara.
-            </span>
+            <p>
+                Jelajahi berbagai karya dari
+                mahasiswa dan komunitas Ruang Aksara.
+            </p>
+
         </div>
 
 
-        <!-- KARTU KARYA -->
-        <div class="cards">
+        <div class="category-grid">
 
-            <!-- PUISI -->
-            <div class="card">
-                <div class="card-icon">✍️</div>
+            <div
+                class="category-card"
+                onclick="filterWorks('Puisi')"
+            >
+
+                <div class="category-icon">
+                    ✍️
+                </div>
 
                 <h3>Puisi</h3>
 
                 <p>
-                    Kumpulan puisi yang menuangkan
-                    perasaan, pengalaman, dan pemikiran
-                    melalui rangkaian kata.
+                    Kata-kata yang mengungkapkan
+                    rasa dan pemikiran.
                 </p>
 
-                <a href="#puisi">
+                <span>
                     Lihat Puisi →
-                </a>
+                </span>
+
             </div>
 
 
-            <!-- CERITA -->
-            <div class="card">
-                <div class="card-icon">📖</div>
+            <div
+                class="category-card"
+                onclick="filterWorks('Cerita')"
+            >
+
+                <div class="category-icon">
+                    📖
+                </div>
 
                 <h3>Cerita</h3>
 
                 <p>
-                    Cerita pendek dan pengalaman yang
-                    menghadirkan berbagai sudut pandang
-                    serta pesan kehidupan.
+                    Kisah dan pengalaman dalam
+                    berbagai sudut pandang.
                 </p>
 
-                <a href="#cerita">
+                <span>
                     Lihat Cerita →
-                </a>
+                </span>
+
             </div>
 
 
-            <!-- ARTIKEL -->
-            <div class="card">
-                <div class="card-icon">📝</div>
+            <div
+                class="category-card"
+                onclick="filterWorks('Artikel')"
+            >
+
+                <div class="category-icon">
+                    📝
+                </div>
 
                 <h3>Artikel</h3>
 
                 <p>
-                    Tulisan mengenai pendidikan,
-                    teknologi, budaya, literasi,
-                    dan kehidupan mahasiswa.
+                    Gagasan mengenai pendidikan,
+                    teknologi dan kehidupan.
                 </p>
 
-                <a href="#artikel">
+                <span>
                     Lihat Artikel →
-                </a>
+                </span>
+
             </div>
 
         </div>
 
 
-        <!-- PUISI -->
-        <div class="content-list" id="puisi">
+        <div class="all-works">
 
-            <h2>Puisi Pilihan</h2>
+            <div class="section-heading">
 
-            <article>
+                <div>
+                    <span>KOLEKSI</span>
+                    <h2>Semua Karya</h2>
+                </div>
 
-                <h3>Langkah di Balik Aksara</h3>
-
-                <p>
-                    Setiap kata menyimpan cerita,
-                    setiap baris menyimpan perjalanan.
-                    Dari aksara kita belajar memahami
-                    dunia dan diri sendiri.
-                </p>
-
-                <small>
-                    Ruang Aksara · 2026
-                </small>
-
-            </article>
-
-        </div>
+            </div>
 
 
-        <!-- CERITA -->
-        <div class="content-list" id="cerita">
+            <div class="work-grid">
 
-            <h2>Cerita Pilihan</h2>
+                <article class="work-card searchable" data-category="Puisi">
 
-            <article>
+                    <img src="images/puisi.jpg">
 
-                <h3>Awal Sebuah Perjalanan</h3>
+                    <div class="work-content">
 
-                <p>
-                    Setiap perjalanan dimulai dari
-                    sebuah langkah. Begitu pula sebuah
-                    cerita, bermula dari keberanian
-                    untuk menuliskan kata pertama.
-                </p>
+                        <span class="category">
+                            PUISI
+                        </span>
 
-                <small>
-                    Ruang Aksara · 2026
-                </small>
+                        <h3>
+                            Langkah di Balik Aksara
+                        </h3>
 
-            </article>
+                        <p>
+                            Setiap kata menyimpan cerita.
+                        </p>
 
-        </div>
+                        <button
+```
 
-
-        <!-- ARTIKEL -->
-        <div class="content-list" id="artikel">
-
-            <h2>Artikel Pilihan</h2>
-
-            <article>
-
-                <h3>Menulis di Era Digital</h3>
-
-                <p>
-                    Di tengah perkembangan teknologi,
-                    menulis tetap menjadi salah satu
-                    cara untuk menyampaikan gagasan
-                    dan pengetahuan.
-                </p>
-
-                <small>
-                    Ruang Aksara · 2026
-                </small>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- KONTAK -->
-    <section class="contact" id="kontak">
-
-        <div class="section-title">
-            <p>TERHUBUNG</p>
-
-            <h2>Hubungi Ruang Aksara</h2>
-        </div>
-
-        <p>
-            Mari berbagi ide, karya, dan cerita
-            bersama Ruang Aksara STTCipasung.
-        </p>
-
-        <a href="#" class="button">
-            Hubungi Kami
-        </a>
-
-    </section>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-        <h3>Ruang Aksara</h3>
-
-        <p>
-            STTCipasung · Ruang Literasi dan Kreativitas
-        </p>
-
-        <p class="copyright">
-            © 2026 Ruang Aksara STTCipasung
-        </p>
-
-    </footer>
-
-</body>
-</html>
-/* ISI KARYA */
-.content-list {
-    max-width: 850px;
-    margin: 70px auto 0;
-}
-
-.content-list h2 {
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 25px;
-}
-
-.content-list article {
-    background: white;
-    padding: 30px;
-    margin-bottom: 25px;
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    transition: 0.3s;
-}
-
-.content-list article:hover {
-    transform: translateY(-5px);
-}
-
-.content-list article h3 {
-    font-size: 23px;
-    margin-bottom: 12px;
-}
-
-.content-list article p {
-    margin-bottom: 15px;
-    line-height: 1.8;
-}
-
-.content-list small {
-    color: #a87545;
-    font-weight: bold;
-}
-
-.card {
-    cursor: pointer;
-}
-
-.card a {
-    color: #a87545;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.card a:hover {
-    text-decoration: underline;
-}
-
-.contact {
-    text-align: center;
-    background: #e9dfd2;
-}
-
-.contact > p {
-    max-width: 650px;
-    margin: 0 auto 25px;
-}
-
-@media (max-width: 768px) {
-
-    .content-list {
-        margin-top: 50px;
-    }
-
-    .content-list article {
-        padding: 25px 20px;
-    }
-}
