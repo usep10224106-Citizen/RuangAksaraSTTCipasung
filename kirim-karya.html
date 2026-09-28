@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kirim Karya - Ruang Aksara</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">RA</div>
+
+            <div>
+                <h2>Ruang Aksara</h2>
+                <span>STT Cipasung</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="index.html">
+                🏠
+                <span>Dashboard</span>
+            </a>
+
+            <a href="index.html#karya">
+                📚
+                <span>Karya</span>
+            </a>
+
+            <a href="kirim-karya.html" class="active">
+                ✍️
+                <span>Kirim Karya</span>
+            </a>
+
+            <a href="favorit.html">
+                ❤️
+                <span>Favorit</span>
+            </a>
+
+            <a href="notifikasi.html">
+                🔔
+                <span>Notifikasi</span>
+            </a>
+
+            <a href="profil.html">
+                👤
+                <span>Profil</span>
+            </a>
+
+            <a href="index.html#kontak">
+                📩
+                <span>Kontak</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button id="darkModeBtn">
+                🌙
+                <span>Mode Gelap</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="mobile-menu" id="mobileMenu">
+                ☰
+            </div>
+
+            <div class="topbar-title">
+                <span>Ruang Aksara</span>
+                <small>Portal Literasi STT Cipasung</small>
+            </div>
+
+            <div class="topbar-right">
+
+                <button class="notification-btn" onclick="window.location.href='notifikasi.html'">
+                    🔔
+                    <span class="notification-badge">3</span>
+                </button>
+
+                <div class="profile-mini" onclick="window.location.href='profil.html'">
+                    <div class="profile-avatar">
+                        MA
+                    </div>
+
+                    <div class="profile-info">
+                        <strong>Mahasiswa</strong>
+                        <small>Informatika</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="page-section">
+
+            <div class="page-title">
+
+                <div>
+                    <span class="section-label">
+                        RUANG KREATIVITAS
+                    </span>
+
+                    <h1>Kirim Karya ✍️</h1>
+
+                    <p>
+                        Bagikan tulisan terbaikmu dan jadikan idemu
+                        bagian dari Ruang Aksara STT Cipasung.
+                    </p>
+                </div>
+
+                <a href="index.html" class="back-home">
+                    ← Kembali
+                </a>
+
+            </div>
+
+
+            <!-- FORM CARD -->
+            <div class="submission-container">
+
+                <div class="submission-info">
+
+                    <div class="submission-icon">
+                        ✨
+                    </div>
+
+                    <h2>
+                        Tuangkan Idemu
+                    </h2>
+
+                    <p>
+                        Setiap tulisan memiliki cerita.
+                        Kirim karya kamu dan biarkan karya tersebut
+                        dibaca oleh keluarga besar STT Cipasung.
+                    </p>
+
+                    <div class="submission-tips">
+
+                        <h3>💡 Tips sebelum mengirim</h3>
+
+                        <ul>
+                            <li>Gunakan judul yang menarik.</li>
+                            <li>Pastikan tulisan sudah diperiksa kembali.</li>
+                            <li>Gunakan bahasa yang sopan dan mudah dipahami.</li>
+                            <li>Pastikan karya merupakan tulisan sendiri.</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <div class="submission-form">
+
+                    <form id="karyaForm">
+
+                        <!-- JUDUL -->
+                        <div class="form-group">
+
+                            <label for="judul">
+                                Judul Karya
+                            </label>
+
+                            <input
+                                type="text"
+                                id="judul"
+                                name="judul"
+                                placeholder="Masukkan judul karya..."
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- PENULIS -->
+                        <div class="form-group">
+
+                            <label for="penulis">
+                                Nama Penulis
+                            </label>
+
+                            <input
+                                type="text"
+                                id="penulis"
+                                name="penulis"
+                                placeholder="Masukkan nama kamu..."
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- KATEGORI -->
+                        <div class="form-group">
+
+                            <label for="kategori">
+                                Kategori Karya
+                            </label>
+
+                            <select
+                                id="kategori"
+                                name="kategori"
+                                required
+                            >
+
+                                <option value="">
+                                    -- Pilih kategori --
+                                </option>
+
+                                <option value="Puisi">
+                                    📜 Puisi
+                                </option>
+
+                                <option value="Cerita">
+                                    📖 Cerita
+                                </option>
+
+                                <option value="Artikel">
+                                    📝 Artikel
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- GAMBAR -->
+                        <div class="form-group">
+
+                            <label for="gambar">
+                                Gambar Sampul
+                            </label>
+
+                            <div class="upload-box">
+
+                                <div class="upload-icon">
+                                    🖼️
+                                </div>
+
+                                <p>
+                                    Pilih gambar untuk sampul karya
+                                </p>
+
+                                <span>
+                                    JPG / PNG / WEBP
+                                </span>
+
+                                <input
+                                    type="file"
+                                    id="gambar"
+                                    accept="image/png,image/jpeg,image/webp"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ISI -->
+                        <div class="form-group">
+
+                            <label for="isi">
+                                Isi Karya
+                            </label>
+
+                            <textarea
+                                id="isi"
+                                name="isi"
+                                rows="12"
+                                placeholder="Tuliskan karya kamu di sini..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- CHECKBOX -->
+                        <div class="agreement">
+
+                            <input
+                                type="checkbox"
+                                id="agreement"
+                                required
+                            >
+
+                            <label for="agreement">
+                                Saya memastikan bahwa karya ini merupakan
+                                karya saya sendiri dan tidak melanggar
+                                hak cipta pihak lain.
+                            </label>
+
+                        </div>
+
+
+                        <!-- BUTTON -->
+                        <div class="form-actions">
+
+                            <button
+                                type="reset"
+                                class="btn-secondary"
+                            >
+                                Reset
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="btn-primary"
+                            >
+                                ✨ Kirim Karya
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="footer">
+
+            <p>
+                © 2026 Ruang Aksara — STT Cipasung
+            </p>
+
+            <p>
+                Wadah kreativitas dan literasi mahasiswa
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- SUCCESS MODAL -->
+    <div class="modal" id="successModal">
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                onclick="closeSuccessModal()"
+            >
+                ×
+            </button>
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>
+                Karya Berhasil Dikirim! 🎉
+            </h2>
+
+            <p>
+                Terima kasih sudah berbagi karya.
+                Karya kamu akan melalui proses pemeriksaan
+                sebelum ditampilkan di Ruang Aksara.
+            </p>
+
+            <button
+                class="btn-primary"
+                onclick="window.location.href='index.html'"
+            >
+                Kembali ke Dashboard
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+    <script>
+
+        const karyaForm = document.getElementById("karyaForm");
+        const successModal = document.getElementById("successModal");
+
+        karyaForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            successModal.classList.add("show");
+
+        });
+
+
+        function closeSuccessModal() {
+
+            successModal.classList.remove("show");
+
+        }
+
+    </script>
+
+</body>
+</html>
