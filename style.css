@@ -1651,3 +1651,430 @@ body.dark-mode .modal-content h2 {
     }
 
 }
+/* =========================================
+   KIRIM KARYA PAGE
+========================================= */
+
+.submit-page {
+    padding: 65px 42px 90px;
+}
+
+
+.submit-intro {
+    max-width: 700px;
+    margin-bottom: 45px;
+}
+
+
+.submit-intro h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 52px;
+
+    line-height: 1.08;
+
+    letter-spacing: -1.5px;
+
+    color: #203b33;
+
+    margin-top: 8px;
+}
+
+
+.submit-intro h1 em {
+    color: #a16e4e;
+    font-style: normal;
+}
+
+
+.submit-intro p {
+    max-width: 590px;
+
+    font-size: 12px;
+
+    color: #7f8984;
+
+    line-height: 1.8;
+
+    margin-top: 15px;
+}
+
+
+.submit-layout {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1.5fr) minmax(240px, 0.6fr);
+
+    gap: 25px;
+
+    align-items: start;
+}
+
+
+.submit-form-card {
+    background: white;
+
+    border: 1px solid #e8e2d9;
+
+    border-radius: 18px;
+
+    padding: 30px;
+}
+
+
+.form-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    padding-bottom: 22px;
+
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #eee9e1;
+}
+
+
+.form-heading h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 29px;
+
+    color: #203b33;
+
+    margin-top: 5px;
+}
+
+
+.form-step {
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    color: #9a8c7a;
+}
+
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+
+.form-group label {
+    display: block;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    color: #42544d;
+
+    margin-bottom: 8px;
+}
+
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    border: 1px solid #ded9d0;
+
+    background: #fbfaf7;
+
+    border-radius: 9px;
+
+    padding: 13px 14px;
+
+    outline: none;
+
+    font-size: 11px;
+
+    color: #33433d;
+
+    transition: 0.2s;
+}
+
+
+.form-group input[type="text"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #a88969;
+
+    background: white;
+
+    box-shadow: 0 0 0 3px rgba(168,137,105,0.08);
+}
+
+
+.form-group textarea {
+    resize: vertical;
+
+    line-height: 1.7;
+}
+
+
+.large-textarea {
+    min-height: 220px;
+}
+
+
+.upload-box {
+    position: relative;
+
+    min-height: 145px;
+
+    border: 1.5px dashed #cfc7bb;
+
+    border-radius: 12px;
+
+    background: #fbfaf7;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+.upload-icon {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 9px;
+
+    background: #e8dfd3;
+
+    color: #806b53;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+
+    margin-bottom: 8px;
+}
+
+
+.upload-box strong {
+    font-size: 11px;
+
+    color: #45554f;
+}
+
+
+.upload-box small {
+    font-size: 9px;
+
+    color: #9a9d99;
+
+    margin-top: 3px;
+}
+
+
+.upload-box input[type="file"] {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0;
+
+    cursor: pointer;
+}
+
+
+.form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding-top: 5px;
+}
+
+
+.form-actions .primary-button,
+.form-actions .outline-button {
+    border: none;
+
+    cursor: pointer;
+
+    width: auto;
+}
+
+
+.submit-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+.info-card {
+    background: #e9dfd0;
+
+    border-radius: 16px;
+
+    padding: 25px;
+}
+
+
+.info-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #18352e;
+
+    color: #e8d7bd;
+
+    margin-bottom: 15px;
+}
+
+
+.info-card h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 21px;
+
+    color: #30443d;
+}
+
+
+.info-card p {
+    font-size: 10px;
+
+    color: #6f7974;
+
+    line-height: 1.8;
+
+    margin-top: 8px;
+}
+
+
+.muted-info {
+    background: #f0ede6;
+}
+
+
+.info-number {
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px;
+
+    color: #a16e4e;
+}
+
+
+.muted-info h3 {
+    margin-top: 8px;
+}
+
+
+/* DARK MODE */
+
+body.dark-mode .submit-intro h1,
+body.dark-mode .form-heading h2 {
+    color: #edf2ef;
+}
+
+
+body.dark-mode .submit-form-card {
+    background: #192823;
+
+    border-color: #294039;
+}
+
+
+body.dark-mode .form-group label {
+    color: #b9c5c0;
+}
+
+
+body.dark-mode .form-group input[type="text"],
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea,
+body.dark-mode .upload-box {
+    background: #13201c;
+
+    border-color: #334a42;
+
+    color: #e7ece9;
+}
+
+
+body.dark-mode .info-card {
+    background: #263d35;
+}
+
+
+body.dark-mode .muted-info {
+    background: #1b2c27;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .submit-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .submit-info {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .submit-page {
+        padding: 45px 22px 70px;
+    }
+
+    .submit-intro h1 {
+        font-size: 40px;
+    }
+
+    .submit-form-card {
+        padding: 22px;
+    }
+
+    .submit-info {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .primary-button,
+    .form-actions .outline-button {
+        width: 100%;
+    }
+
+}
