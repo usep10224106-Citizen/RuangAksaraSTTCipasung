@@ -198,3 +198,22 @@ menuItems.forEach(item => {
 
 });
 ```
+// =========================================
+// FAVORITE BUTTON
+// =========================================
+
+function toggleFavorite(button) {
+
+    button.classList.toggle("active");
+
+    if (button.classList.contains("active")) {
+
+        button.innerHTML = "♥";
+
+    } else {
+
+        button.innerHTML = "♡";
+
+    }
+
+}
