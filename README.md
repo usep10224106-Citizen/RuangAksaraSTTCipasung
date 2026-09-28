@@ -1,1 +1,1 @@
-# RuangAksaraSTTCipasung
+# RuangAksara STTCipasung
