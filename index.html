@@ -1,290 +1,554 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ruang Aksara | STT Cipasung</title>
+    <title>Ruang Aksara — STT Cipasung</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
 </head>
 
 <body>
 
-<!-- SIDEBAR -->
+<!-- =========================================
+     SIDEBAR
+========================================= -->
+
 <aside class="sidebar">
 
     <div class="brand">
-        <div class="logo-circle">RA</div>
-        <div>
-            <h2>Ruang Aksara</h2>
+
+        <div class="brand-logo">
+            RA
+        </div>
+
+        <div class="brand-text">
+            <strong>Ruang Aksara</strong>
             <span>STT Cipasung</span>
         </div>
+
     </div>
 
-    <nav class="menu">
 
-        <a href="#beranda" class="menu-item active">
-            <span>🏠</span>
+    <div class="sidebar-label">
+        MENU UTAMA
+    </div>
+
+
+    <nav class="sidebar-menu">
+
+        <a href="index.html" class="menu-item active">
+            <span class="menu-icon">⌂</span>
             <span>Beranda</span>
         </a>
 
         <a href="#karya" class="menu-item">
-            <span>📚</span>
+            <span class="menu-icon">▤</span>
             <span>Karya</span>
         </a>
-        
-          <a href="kirim-karya.html">
-              class="menu-item">
-              <span>✍️</span>
-        <span>Kirim Karya</span>
-    </a>
 
-        <a href="#galeri" class="menu-item">
-            <span>🖼️</span>
-            <span>Galeri</span>
+        <a href="kirim-karya.html" class="menu-item">
+            <span class="menu-icon">✎</span>
+            <span>Kirim Karya</span>
+        </a>
+
+        <a href="favorit.html" class="menu-item">
+            <span class="menu-icon">♡</span>
+            <span>Favorit</span>
+        </a>
+
+        <a href="notifikasi.html" class="menu-item">
+            <span class="menu-icon">◌</span>
+            <span>Notifikasi</span>
+            <span class="menu-count">3</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-label second-label">
+        LAINNYA
+    </div>
+
+
+    <nav class="sidebar-menu">
+
+        <a href="profil.html" class="menu-item">
+            <span class="menu-icon">◯</span>
+            <span>Profil</span>
         </a>
 
         <a href="#tentang" class="menu-item">
-            <span>👤</span>
+            <span class="menu-icon">i</span>
             <span>Tentang</span>
         </a>
 
         <a href="#kontak" class="menu-item">
-            <span>📩</span>
+            <span class="menu-icon">✉</span>
             <span>Kontak</span>
         </a>
 
     </nav>
 
+
     <div class="sidebar-bottom">
-        <button id="darkModeBtn">🌙 Mode Gelap</button>
+
+        <button id="darkModeBtn" class="theme-button">
+            <span>☾</span>
+            <span>Mode Gelap</span>
+        </button>
+
+        <div class="sidebar-campus">
+            <span>INFORMATIKA</span>
+            <strong>STT CIPASUNG</strong>
+        </div>
+
     </div>
 
 </aside>
 
 
-<!-- MAIN CONTENT -->
+<!-- =========================================
+     MAIN
+========================================= -->
+
 <main class="main-content">
 
+
     <!-- TOPBAR -->
+
     <header class="topbar">
 
         <button class="mobile-menu" id="mobileMenu">
             ☰
         </button>
 
-        <div class="search-box">
-            🔍
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Cari karya..."
-            >
+
+        <div class="topbar-page">
+            <span>Ruang Aksara</span>
+            <small>Portal Literasi Mahasiswa</small>
         </div>
 
-        <div class="top-profile">
-            <span>🔔</span>
-            <div class="profile-avatar">
-                RA
+
+        <div class="topbar-actions">
+
+            <div class="search-box">
+
+                <span>⌕</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Cari karya..."
+                >
+
             </div>
+
+
+            <a href="notifikasi.html" class="top-icon">
+                ♡
+                <span class="notification-dot"></span>
+            </a>
+
+
+            <a href="profil.html" class="user-mini">
+
+                <div class="user-avatar">
+                    MA
+                </div>
+
+                <div class="user-mini-text">
+                    <strong>Mahasiswa</strong>
+                    <span>Informatika</span>
+                </div>
+
+            </a>
+
         </div>
 
     </header>
 
 
-    <!-- BERANDA -->
-    <section id="beranda" class="page-section">
+    <!-- =========================================
+         HERO
+    ========================================= -->
 
-        <div class="hero">
+    <section class="hero-section">
 
-            <div class="hero-text">
+        <div class="hero-content">
 
-                <span class="label">
-                    RUANG LITERASI STT CIPASUNG
+            <div class="hero-label">
+                RUANG LITERASI STT CIPASUNG
+            </div>
+
+            <h1>
+                Tempat ide tumbuh,<br>
+                <em>kata menjadi cerita.</em>
+            </h1>
+
+            <p>
+                Ruang Aksara adalah ruang digital bagi mahasiswa
+                STT Cipasung untuk membaca, menulis, berbagi,
+                dan mengapresiasi karya.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#karya" class="primary-button">
+                    Jelajahi Karya
+                    <span>→</span>
+                </a>
+
+                <a href="kirim-karya.html" class="outline-button">
+                    ✎ Tulis Karya
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-art">
+
+            <div class="hero-circle"></div>
+
+            <div class="hero-paper">
+
+                <span class="paper-small">
+                    RUANG AKSARA
                 </span>
 
-                <h1>
-                    Selamat Datang di
-                    <strong>Ruang Aksara</strong>
-                </h1>
+                <strong>
+                    “Tulisan adalah<br>
+                    cara kita<br>
+                    meninggalkan<br>
+                    jejak.”
+                </strong>
 
-                <p>
-                    Tempat mahasiswa berbagi kata, cerita,
-                    gagasan, dan kreativitas melalui tulisan.
-                </p>
+                <span class="paper-line"></span>
 
-                <div class="hero-buttons">
-
-                    <a href="#karya" class="btn-primary">
-                        Jelajahi Karya →
-                    </a>
-
-                    <a href="#tentang" class="btn-secondary">
-                        Tentang Kami
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="hero-image">
-
-                <img
-                    src="images/hero.jpg"
-                    alt="Ruang Literasi"
-                >
+                <small>
+                    STT CIPASUNG
+                </small>
 
             </div>
 
         </div>
 
+    </section>
 
-        <!-- STATISTIK -->
 
-        <div class="stats">
+    <!-- =========================================
+         STATISTICS
+    ========================================= -->
 
-            <div class="stat-card">
-                <span>📚</span>
-                <div>
-                    <strong>120+</strong>
-                    <p>Total Karya</p>
-                </div>
+    <section class="stats-section">
+
+        <div class="stat-box">
+
+            <div class="stat-number">
+                120+
             </div>
 
-            <div class="stat-card">
-                <span>✍️</span>
-                <div>
-                    <strong>45+</strong>
-                    <p>Puisi</p>
-                </div>
-            </div>
-
-            <div class="stat-card">
-                <span>📖</span>
-                <div>
-                    <strong>38+</strong>
-                    <p>Cerita</p>
-                </div>
-            </div>
-
-            <div class="stat-card">
-                <span>📝</span>
-                <div>
-                    <strong>37+</strong>
-                    <p>Artikel</p>
-                </div>
+            <div>
+                <strong>Total Karya</strong>
+                <span>Karya mahasiswa</span>
             </div>
 
         </div>
 
 
-        <!-- KARYA TERBARU -->
+        <div class="stat-box">
+
+            <div class="stat-number">
+                45
+            </div>
+
+            <div>
+                <strong>Puisi</strong>
+                <span>Ekspresi dalam kata</span>
+            </div>
+
+        </div>
+
+
+        <div class="stat-box">
+
+            <div class="stat-number">
+                38
+            </div>
+
+            <div>
+                <strong>Cerita</strong>
+                <span>Kisah dan pengalaman</span>
+            </div>
+
+        </div>
+
+
+        <div class="stat-box">
+
+            <div class="stat-number">
+                37
+            </div>
+
+            <div>
+                <strong>Artikel</strong>
+                <span>Ide dan pengetahuan</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         KARYA TERBARU
+    ========================================= -->
+
+    <section class="content-section" id="karya">
 
         <div class="section-heading">
 
             <div>
-                <span>TERBARU</span>
-                <h2>Karya Terbaru</h2>
+                <span class="eyebrow">
+                    PILIHAN HARI INI
+                </span>
+
+                <h2>
+                    Karya Terbaru
+                </h2>
+
+                <p>
+                    Temukan tulisan terbaru dari mahasiswa
+                    STT Cipasung.
+                </p>
             </div>
 
-            <a href="#karya">
-                Lihat Semua →
+            <a href="#semua-karya" class="see-all">
+                Lihat semua →
             </a>
 
         </div>
 
 
-        <div class="work-grid">
+        <div class="works-grid">
 
-            <article class="work-card">
 
-                <img
-                    src="images/puisi.jpg"
-                    alt="Puisi"
-                >
+            <!-- WORK 1 -->
 
-                <div class="work-content">
+            <article class="work-card searchable">
 
-                    <span class="category">
+                <div class="work-image">
+
+                    <img
+                        src="images/puisi.jpg"
+                        alt="Karya puisi"
+                    >
+
+                    <span class="work-category">
                         PUISI
                     </span>
 
+                    <button
+                        class="favorite-button"
+                        onclick="toggleFavorite(this)"
+                    >
+                        ♡
+                    </button>
+
+                </div>
+
+
+                <div class="work-body">
+
+                    <div class="work-date">
+                        28 SEPTEMBER 2026
+                    </div>
+
                     <h3>
-                        Langkah di Balik Aksara
+                        Senja di Kampus
                     </h3>
 
                     <p>
-                        Setiap kata menyimpan cerita
-                        dan perjalanan.
+                        Tentang sore, halaman kampus,
+                        dan mimpi yang perlahan tumbuh.
                     </p>
 
-                    <button onclick="openWork('puisi')">
-                        Baca Karya →
-                    </button>
+
+                    <div class="work-footer">
+
+                        <div class="author">
+
+                            <div class="author-avatar">
+                                MA
+                            </div>
+
+                            <span>
+                                Mahasiswa
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            class="read-button"
+                            onclick="openWork('puisi')"
+                        >
+                            Baca →
+                        </button>
+
+                    </div>
 
                 </div>
 
             </article>
 
 
-            <article class="work-card">
+            <!-- WORK 2 -->
 
-                <img
-                    src="images/cerita.jpg"
-                    alt="Cerita"
-                >
+            <article class="work-card searchable">
 
-                <div class="work-content">
+                <div class="work-image">
 
-                    <span class="category">
+                    <img
+                        src="images/cerita.jpg"
+                        alt="Karya cerita"
+                    >
+
+                    <span class="work-category">
                         CERITA
                     </span>
 
+                    <button
+                        class="favorite-button"
+                        onclick="toggleFavorite(this)"
+                    >
+                        ♡
+                    </button>
+
+                </div>
+
+
+                <div class="work-body">
+
+                    <div class="work-date">
+                        27 SEPTEMBER 2026
+                    </div>
+
                     <h3>
-                        Awal Sebuah Perjalanan
+                        Perjalanan Pulang
                     </h3>
 
                     <p>
-                        Sebuah langkah kecil yang
-                        menjadi awal perjalanan.
+                        Sebuah cerita tentang perjalanan,
+                        keluarga, dan arti sebuah rumah.
                     </p>
 
-                    <button onclick="openWork('cerita')">
-                        Baca Karya →
-                    </button>
+
+                    <div class="work-footer">
+
+                        <div class="author">
+
+                            <div class="author-avatar">
+                                RA
+                            </div>
+
+                            <span>
+                                R. Aksara
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            class="read-button"
+                            onclick="openWork('cerita')"
+                        >
+                            Baca →
+                        </button>
+
+                    </div>
 
                 </div>
 
             </article>
 
 
-            <article class="work-card">
+            <!-- WORK 3 -->
 
-                <img
-                    src="images/artikel.jpg"
-                    alt="Artikel"
-                >
+            <article class="work-card searchable">
 
-                <div class="work-content">
+                <div class="work-image">
 
-                    <span class="category">
+                    <img
+                        src="images/artikel.jpg"
+                        alt="Karya artikel"
+                    >
+
+                    <span class="work-category">
                         ARTIKEL
                     </span>
 
+                    <button
+                        class="favorite-button"
+                        onclick="toggleFavorite(this)"
+                    >
+                        ♡
+                    </button>
+
+                </div>
+
+
+                <div class="work-body">
+
+                    <div class="work-date">
+                        25 SEPTEMBER 2026
+                    </div>
+
                     <h3>
-                        Menulis di Era Digital
+                        Teknologi dan Literasi
                     </h3>
 
                     <p>
-                        Menulis sebagai cara berbagi
-                        gagasan di era digital.
+                        Bagaimana teknologi dapat membantu
+                        membangun budaya literasi mahasiswa.
                     </p>
 
-                    <button onclick="openWork('artikel')">
-                        Baca Karya →
-                    </button>
+
+                    <div class="work-footer">
+
+                        <div class="author">
+
+                            <div class="author-avatar">
+                                FA
+                            </div>
+
+                            <span>
+                                F. Aksara
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            class="read-button"
+                            onclick="openWork('artikel')"
+                        >
+                            Baca →
+                        </button>
+
+                    </div>
 
                 </div>
 
@@ -295,129 +559,330 @@
     </section>
 
 
-    <!-- KARYA -->
+    <!-- =========================================
+         CATEGORY
+    ========================================= -->
 
-    <section id="karya" class="page-section">
+    <section class="content-section category-section">
 
-        <div class="page-title">
+        <div class="section-heading">
 
-            <span>EKSPRESI</span>
+            <div>
 
-            <h2>Karya & Tulisan</h2>
+                <span class="eyebrow">
+                    JELAJAHI
+                </span>
 
-            <p>
-                Jelajahi berbagai karya dari
-                mahasiswa dan komunitas Ruang Aksara.
-            </p>
+                <h2>
+                    Temukan Ruangmu
+                </h2>
+
+            </div>
 
         </div>
 
 
         <div class="category-grid">
 
-            <div
-                class="category-card"
-                onclick="filterWorks('Puisi')"
+
+            <a
+                href="#karya"
+                class="category-card category-poetry"
+                onclick="filterWorks('puisi')"
             >
 
-                <div class="category-icon">
-                    ✍️
-                </div>
-
-                <h3>Puisi</h3>
-
-                <p>
-                    Kata-kata yang mengungkapkan
-                    rasa dan pemikiran.
-                </p>
-
-                <span>
-                    Lihat Puisi →
+                <span class="category-number">
+                    01
                 </span>
 
-            </div>
+                <div class="category-symbol">
+                    “
+                </div>
+
+                <h3>
+                    Puisi
+                </h3>
+
+                <p>
+                    Ungkapkan rasa melalui
+                    rangkaian kata.
+                </p>
+
+                <span class="category-arrow">
+                    →
+                </span>
+
+            </a>
 
 
-            <div
-                class="category-card"
-                onclick="filterWorks('Cerita')"
+            <a
+                href="#karya"
+                class="category-card category-story"
+                onclick="filterWorks('cerita')"
             >
 
-                <div class="category-icon">
-                    📖
-                </div>
-
-                <h3>Cerita</h3>
-
-                <p>
-                    Kisah dan pengalaman dalam
-                    berbagai sudut pandang.
-                </p>
-
-                <span>
-                    Lihat Cerita →
+                <span class="category-number">
+                    02
                 </span>
 
-            </div>
+                <div class="category-symbol">
+                    ◇
+                </div>
+
+                <h3>
+                    Cerita
+                </h3>
+
+                <p>
+                    Bagikan kisah dan pengalaman
+                    yang bermakna.
+                </p>
+
+                <span class="category-arrow">
+                    →
+                </span>
+
+            </a>
 
 
-            <div
-                class="category-card"
-                onclick="filterWorks('Artikel')"
+            <a
+                href="#karya"
+                class="category-card category-article"
+                onclick="filterWorks('artikel')"
             >
 
-                <div class="category-icon">
-                    📝
+                <span class="category-number">
+                    03
+                </span>
+
+                <div class="category-symbol">
+                    ¶
                 </div>
 
-                <h3>Artikel</h3>
+                <h3>
+                    Artikel
+                </h3>
 
                 <p>
-                    Gagasan mengenai pendidikan,
-                    teknologi dan kehidupan.
+                    Sampaikan ide, wawasan,
+                    dan pengetahuan.
                 </p>
 
-                <span>
-                    Lihat Artikel →
+                <span class="category-arrow">
+                    →
                 </span>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         GALERI
+    ========================================= -->
+
+    <section class="content-section" id="galeri">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="eyebrow">
+                    MOMEN
+                </span>
+
+                <h2>
+                    Galeri Ruang Aksara
+                </h2>
+
+                <p>
+                    Beberapa momen dari kegiatan literasi
+                    dan kreativitas mahasiswa.
+                </p>
 
             </div>
 
         </div>
 
 
-        <div class="all-works">
+        <div class="gallery-grid">
 
-            <div class="section-heading">
-
-                <div>
-                    <span>KOLEKSI</span>
-                    <h2>Semua Karya</h2>
-                </div>
-
+            <div class="gallery-item gallery-large">
+                <img
+                    src="images/hero.jpg"
+                    alt="Kegiatan Ruang Aksara"
+                >
             </div>
 
+            <div class="gallery-item">
+                <img
+                    src="images/puisi.jpg"
+                    alt="Puisi"
+                >
+            </div>
 
-            <div class="work-grid">
+            <div class="gallery-item">
+                <img
+                    src="images/cerita.jpg"
+                    alt="Cerita"
+                >
+            </div>
 
-                <article class="work-card searchable" data-category="Puisi">
+            <div class="gallery-item">
+                <img
+                    src="images/artikel.jpg"
+                    alt="Artikel"
+                >
+            </div>
 
-                    <img src="images/puisi.jpg">
+        </div>
 
-                    <div class="work-content">
+    </section>
 
-                        <span class="category">
-                            PUISI
-                        </span>
 
-                        <h3>
-                            Langkah di Balik Aksara
-                        </h3>
+    <!-- =========================================
+         TENTANG
+    ========================================= -->
 
-                        <p>
-                            Setiap kata menyimpan cerita.
-                        </p>
+    <section class="about-section" id="tentang">
 
-                        <button
-```
+        <div class="about-label">
+            TENTANG RUANG AKSARA
+        </div>
 
+        <div class="about-content">
+
+            <h2>
+                Satu ruang untuk<br>
+                <em>setiap cerita.</em>
+            </h2>
+
+            <p>
+                Ruang Aksara merupakan wadah digital yang
+                dirancang untuk mendukung budaya literasi
+                mahasiswa STT Cipasung.
+            </p>
+
+            <p>
+                Di sini mahasiswa dapat membaca karya,
+                menulis, berbagi ide, serta memberikan
+                apresiasi kepada karya mahasiswa lainnya.
+            </p>
+
+            <a href="kirim-karya.html" class="primary-button">
+                Mulai Menulis
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         KONTAK
+    ========================================= -->
+
+    <section class="contact-section" id="kontak">
+
+        <div>
+
+            <span class="eyebrow">
+                HUBUNGI KAMI
+            </span>
+
+            <h2>
+                Punya pertanyaan?
+            </h2>
+
+            <p>
+                Kami terbuka untuk saran, masukan,
+                dan kolaborasi seputar literasi mahasiswa.
+            </p>
+
+        </div>
+
+
+        <div class="contact-links">
+
+            <a href="mailto:ruangaksara@sttcipasung.ac.id">
+                <span>✉</span>
+                ruangaksara@sttcipasung.ac.id
+            </a>
+
+            <span>
+                <span>⌖</span>
+                STT Cipasung, Tasikmalaya
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="footer">
+
+        <div>
+
+            <strong>
+                Ruang Aksara
+            </strong>
+
+            <span>
+                Portal Literasi STT Cipasung
+            </span>
+
+        </div>
+
+        <p>
+            © 2026 Ruang Aksara. Dibuat untuk
+            kreativitas mahasiswa.
+        </p>
+
+    </footer>
+
+</main>
+
+
+<!-- =========================================
+     MODAL DETAIL KARYA
+========================================= -->
+
+<div class="modal" id="workModal">
+
+    <div class="modal-content">
+
+        <button
+            class="modal-close"
+            onclick="closeWork()"
+        >
+            ×
+        </button>
+
+        <span class="eyebrow">
+            RUANG AKSARA
+        </span>
+
+        <h2 id="modalTitle">
+            Judul Karya
+        </h2>
+
+        <div id="modalContent">
+            Isi karya akan muncul di sini.
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
