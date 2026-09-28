@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profil - Ruang Aksara</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                RA
+            </div>
+
+            <div>
+                <h2>Ruang Aksara</h2>
+                <span>STT Cipasung</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <a href="index.html">
+                🏠
+                <span>Dashboard</span>
+            </a>
+
+            <a href="index.html#karya">
+                📚
+                <span>Karya</span>
+            </a>
+
+            <a href="kirim-karya.html">
+                ✍️
+                <span>Kirim Karya</span>
+            </a>
+
+            <a href="favorit.html">
+                ❤️
+                <span>Favorit</span>
+            </a>
+
+            <a href="notifikasi.html">
+                🔔
+                <span>Notifikasi</span>
+            </a>
+
+            <a href="profil.html" class="active">
+                👤
+                <span>Profil</span>
+            </a>
+
+            <a href="index.html#kontak">
+                📩
+                <span>Kontak</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button id="darkModeBtn">
+                🌙
+                <span>Mode Gelap</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="mobile-menu" id="mobileMenu">
+                ☰
+            </div>
+
+            <div class="topbar-title">
+
+                <span>Ruang Aksara</span>
+
+                <small>
+                    Portal Literasi STT Cipasung
+                </small>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    class="notification-btn"
+                    onclick="window.location.href='notifikasi.html'"
+                >
+                    🔔
+
+                    <span class="notification-badge">
+                        3
+                    </span>
+                </button>
+
+
+                <div
+                    class="profile-mini"
+                    onclick="window.location.href='profil.html'"
+                >
+
+                    <div class="profile-avatar">
+                        MA
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Mahasiswa
+                        </strong>
+
+                        <small>
+                            Informatika
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PROFILE SECTION -->
+        <section class="page-section">
+
+            <div class="page-title">
+
+                <div>
+
+                    <span class="section-label">
+                        AKUN SAYA
+                    </span>
+
+                    <h1>
+                        Profil Saya 👤
+                    </h1>
+
+                    <p>
+                        Kelola informasi profil dan lihat aktivitas
+                        kamu di Ruang Aksara.
+                    </p>
+
+                </div>
+
+                <a
+                    href="index.html"
+                    class="back-home"
+                >
+                    ← Kembali
+                </a>
+
+            </div>
+
+
+            <!-- PROFILE HEADER -->
+            <div class="profile-header-card">
+
+                <div class="profile-big-avatar">
+                    MA
+                </div>
+
+
+                <div class="profile-main-info">
+
+                    <h2>
+                        Mahasiswa
+                    </h2>
+
+                    <p>
+                        Mahasiswa Informatika
+                    </p>
+
+                    <span>
+                        🎓 STT Cipasung Tasikmalaya
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="btn-primary"
+                    onclick="editProfile()"
+                >
+                    ✏️ Edit Profil
+                </button>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+            <div class="profile-stat-grid">
+
+                <div class="profile-stat-card">
+
+                    <div class="stat-icon">
+                        📚
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            5
+                        </strong>
+
+                        <span>
+                            Total Karya
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-stat-card">
+
+                    <div class="stat-icon">
+                        📜
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            2
+                        </strong>
+
+                        <span>
+                            Puisi
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-stat-card">
+
+                    <div class="stat-icon">
+                        📖
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            2
+                        </strong>
+
+                        <span>
+                            Cerita
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-stat-card">
+
+                    <div class="stat-icon">
+                        ❤️
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            8
+                        </strong>
+
+                        <span>
+                            Favorit
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFILE CONTENT -->
+            <div class="profile-content-grid">
+
+
+                <!-- INFORMATION -->
+                <div class="profile-card">
+
+                    <div class="profile-card-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                INFORMASI
+                            </span>
+
+                            <h2>
+                                Informasi Profil
+                            </h2>
+
+                        </div>
+
+                        <span class="profile-card-icon">
+                            👤
+                        </span>
+
+                    </div>
+
+
+                    <div class="profile-information">
+
+                        <div class="information-item">
+
+                            <span>
+                                Nama Lengkap
+                            </span>
+
+                            <strong>
+                                Mahasiswa
+                            </strong>
+
+                        </div>
+
+
+                        <div class="information-item">
+
+                            <span>
+                                NIM
+                            </span>
+
+                            <strong>
+                                ........................
+                            </strong>
+
+                        </div>
+
+
+                        <div class="information-item">
+
+                            <span>
+                                Program Studi
+                            </span>
+
+                            <strong>
+                                Informatika
+                            </strong>
+
+                        </div>
+
+
+                        <div class="information-item">
+
+                            <span>
+                                Perguruan Tinggi
+                            </span>
+
+                            <strong>
+                                STT Cipasung
+                            </strong>
+
+                        </div>
+
+
+                        <div class="information-item">
+
+                            <span>
+                                Email
+                            </span>
+
+                            <strong>
+                                mahasiswa@sttcipasung.ac.id
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIVITY -->
+                <div class="profile-card">
+
+                    <div class="profile-card-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                AKTIVITAS
+                            </span>
+
+                            <h2>
+                                Aktivitas Terbaru
+                            </h2>
+
+                        </div>
+
+                        <span class="profile-card-icon">
+                            ⚡
+                        </span>
+
+                    </div>
+
+
+                    <div class="activity-list">
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                ✍️
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Mengirim karya
+                                </strong>
+
+                                <p>
+                                    "Senja di Kampus"
+                                </p>
+
+                                <small>
+                                    2 hari yang lalu
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                ❤️
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Menyukai karya
+                                </strong>
+
+                                <p>
+                                    "Perjalanan Pulang"
+                                </p>
+
+                                <small>
+                                    3 hari yang lalu
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                📖
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Membaca karya
+                                </strong>
+
+                                <p>
+                                    "Catatan Seorang Mahasiswa"
+                                </p>
+
+                                <small>
+                                    5 hari yang lalu
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MY WORKS -->
+            <div class="profile-card my-works-card">
+
+                <div class="profile-card-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            KARYA SAYA
+                        </span>
+
+                        <h2>
+                            Karya yang Saya Buat
+                        </h2>
+
+                    </div>
+
+                    <a
+                        href="kirim-karya.html"
+                        class="btn-primary"
+                    >
+                        + Buat Karya
+                    </a>
+
+                </div>
+
+
+                <div class="my-works-grid">
+
+
+                    <div class="my-work-item">
+
+                        <div class="work-type">
+                            📜 Puisi
+                        </div>
+
+                        <h3>
+                            Senja di Kampus
+                        </h3>
+
+                        <p>
+                            Sebuah puisi tentang kehidupan
+                            mahasiswa dan perjalanan mengejar mimpi.
+                        </p>
+
+                        <div class="work-meta">
+
+                            <span>
+                                👁️ 32
+                            </span>
+
+                            <span>
+                                ❤️ 12
+                            </span>
+
+                            <span>
+                                ✓ Terbit
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="my-work-item">
+
+                        <div class="work-type">
+                            📖 Cerita
+                        </div>
+
+                        <h3>
+                            Perjalanan Pulang
+                        </h3>
+
+                        <p>
+                            Cerita pendek mengenai perjalanan,
+                            keluarga, dan arti sebuah rumah.
+                        </p>
+
+                        <div class="work-meta">
+
+                            <span>
+                                👁️ 48
+                            </span>
+
+                            <span>
+                                ❤️ 18
+                            </span>
+
+                            <span>
+                                ✓ Terbit
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="my-work-item">
+
+                        <div class="work-type">
+                            📝 Artikel
+                        </div>
+
+                        <h3>
+                            Teknologi dan Literasi
+                        </h3>
+
+                        <p>
+                            Peran teknologi dalam meningkatkan
+                            budaya membaca mahasiswa.
+                        </p>
+
+                        <div class="work-meta">
+
+                            <span>
+                                👁️ 25
+                            </span>
+
+                            <span>
+                                ❤️ 7
+                            </span>
+
+                            <span>
+                                ⏳ Review
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="footer">
+
+            <p>
+                © 2026 Ruang Aksara — STT Cipasung
+            </p>
+
+            <p>
+                Wadah kreativitas dan literasi mahasiswa
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- EDIT PROFILE MODAL -->
+    <div
+        class="modal"
+        id="editProfileModal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                onclick="closeEditProfile()"
+            >
+                ×
+            </button>
+
+            <h2>
+                ✏️ Edit Profil
+            </h2>
+
+            <p>
+                Fitur edit profil akan kita hubungkan
+                dengan database pada tahap berikutnya.
+            </p>
+
+            <button
+                class="btn-primary"
+                onclick="closeEditProfile()"
+            >
+                Mengerti
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+
+    <script>
+
+        function editProfile() {
+
+            document
+                .getElementById("editProfileModal")
+                .classList.add("show");
+
+        }
+
+
+        function closeEditProfile() {
+
+            document
+                .getElementById("editProfileModal")
+                .classList.remove("show");
+
+        }
+
+    </script>
+
+</body>
+</html>
