@@ -1,80 +1,251 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background: #f5f1e8;
-    color: #2d2d2d;
+    font-family: Arial, sans-serif;
+    background: #f7f3eb;
+    color: #2f2925;
+    line-height: 1.6;
 }
 
+/* NAVBAR */
 header {
-    background: #3b2f2f;
+    background: #352923;
     color: white;
-    padding: 20px 8%;
+    padding: 18px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-header h1 {
+.logo {
     font-size: 24px;
+    font-weight: bold;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 25px;
 }
 
-main {
-    text-align: center;
+nav a:hover {
+    color: #d9b38c;
 }
 
-section {
-    padding: 80px 20px;
-}
 
-#beranda {
-    min-height: 500px;
+/* HERO */
+.hero {
+    min-height: 75vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+
+    background:
+        linear-gradient(
+            rgba(53, 41, 35, 0.75),
+            rgba(53, 41, 35, 0.75)
+        ),
+        url("https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
+    color: white;
 }
 
-#beranda h2 {
-    font-size: 48px;
+.hero-content {
+    max-width: 750px;
+}
+
+.subtitle {
+    font-size: 14px;
+    letter-spacing: 3px;
     margin-bottom: 15px;
 }
 
-#beranda p {
-    font-size: 18px;
-    margin-bottom: 25px;
+.hero h1 {
+    font-size: 64px;
+    margin-bottom: 15px;
 }
 
-button {
-    background: #6b4636;
+.description {
+    font-size: 19px;
+    margin-bottom: 30px;
+}
+
+
+/* BUTTON */
+.button {
+    display: inline-block;
+    background: #a87545;
     color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    cursor: pointer;
+    padding: 13px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-button:hover {
-    background: #4d3025;
+.button:hover {
+    transform: translateY(-3px);
+    background: #8f633d;
 }
 
-#tentang {
+
+/* SECTION */
+section {
+    padding: 80px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title p {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #a87545;
+    font-weight: bold;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    margin-top: 8px;
+}
+
+
+/* ABOUT */
+.about {
     background: white;
+    text-align: center;
 }
 
-#tentang p {
-    max-width: 700px;
-    margin: 15px auto;
-    line-height: 1.7;
+.about-text {
+    max-width: 750px;
+    margin: auto;
+    font-size: 17px;
+}
+
+
+/* KARYA */
+.karya {
+    background: #f7f3eb;
+}
+
+.cards {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 35px 30px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: #2f2925;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 20px;
+}
+
+.card a {
+    color: #a87545;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+/* CONTACT */
+.contact {
+    background: #e9dfd2;
+    text-align: center;
+}
+
+.contact > p {
+    max-width: 600px;
+    margin: 0 auto 25px;
+}
+
+
+/* FOOTER */
+footer {
+    background: #352923;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+footer h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+
+/* RESPONSIVE HP */
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+    }
 }
