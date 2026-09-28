@@ -3,61 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puisi | Ruang Aksara</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Ruang Aksara STTCipasung</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f1e8;
+            color: #2d2d2d;
+        }
+
+        header {
+            background: #3b2f2f;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #8b5e3c;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .about {
+            background: white;
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        .about h2 {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #3b2f2f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">Ruang Aksara</div>
+    <header>
+        <div class="logo">Ruang Aksara</div>
 
-    <nav>
-        <a href="index.html">Beranda</a>
-        <a href="index.html#tentang">Tentang</a>
-        <a href="index.html#karya">Karya</a>
-        <a href="index.html#kontak">Kontak</a>
-    </nav>
-</header>
+        <nav>
+            <a href="#">Beranda</a>
+            <a href="#tentang">Tentang</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+    </header>
 
-<section class="content-page">
+    <section class="hero">
+        <div>
+            <h1>Ruang Aksara</h1>
 
-    <div class="section-title">
-        <p>RUANG PUISI</p>
-        <h1>Kumpulan Puisi</h1>
-        <span>Menemukan makna melalui kata.</span>
-    </div>
+            <p>
+                Where words find meaning and stories find their place.
+            </p>
 
-    <article class="reading-card">
-
-        <h2>Di Antara Aksara</h2>
-
-        <p class="author">
-            Ruang Aksara · 2026
-        </p>
-
-        <div class="poem">
-            Di antara aksara yang belum selesai,<br>
-            ada langkah yang masih mencari arah.<br>
-            Kata-kata tumbuh perlahan,<br>
-            menjadi jejak dari perjalanan.<br><br>
-
-            Tak semua cerita harus bersuara,<br>
-            sebagian cukup tinggal di antara halaman.<br>
-            Sebab terkadang,<br>
-            satu kata mampu menyimpan<br>
-            seribu perasaan.
+            <a href="#tentang" class="button">
+                Jelajahi
+            </a>
         </div>
+    </section>
 
-    </article>
+    <section class="about" id="tentang">
+        <h2>Tentang Ruang Aksara</h2>
 
-</section>
+        <p>
+            Ruang Aksara STTCipasung merupakan ruang untuk
+            berbagi kata, cerita, informasi, dan karya.
+        </p>
+    </section>
 
-<footer>
-    <h3>Ruang Aksara</h3>
-    <p>STTCipasung · Ruang Literasi dan Kreativitas</p>
-    <p>© 2026 Ruang Aksara STTCipasung</p>
-</footer>
+    <footer id="kontak">
+        <p>© 2026 Ruang Aksara STTCipasung</p>
+    </footer>
 
 </body>
 </html>
