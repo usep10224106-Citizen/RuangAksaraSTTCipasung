@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Profil — Ruang Aksara</title>
+    <title>Kirim Karya — Ruang Aksara</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -17,10 +16,611 @@
         rel="stylesheet"
     >
 
+    <style>
+
+        /* =========================================
+           KIRIM KARYA - PAGE
+        ========================================= */
+
+        .submit-page {
+            padding: 45px 42px 80px;
+        }
+
+        /* HERO */
+
+        .submit-hero {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .submit-hero-text {
+            background: #e9dfd0;
+            border-radius: 20px;
+            padding: 42px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-hero-text::after {
+            content: "RA";
+            position: absolute;
+            right: 25px;
+            bottom: -55px;
+            font-family: "Playfair Display", serif;
+            font-size: 170px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.28);
+        }
+
+        .eyebrow {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #9a6e50;
+        }
+
+        .submit-hero h1 {
+            position: relative;
+            z-index: 2;
+            font-family: "Playfair Display", serif;
+            font-size: 48px;
+            line-height: 1.08;
+            color: #203b33;
+            margin: 10px 0 15px;
+        }
+
+        .submit-hero h1 em {
+            color: #a16e4e;
+            font-style: normal;
+        }
+
+        .submit-hero p {
+            position: relative;
+            z-index: 2;
+            max-width: 580px;
+            color: #6f7772;
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .submit-hero-side {
+            background: #18352e;
+            color: white;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .submit-hero-side .big-number {
+            font-family: "Playfair Display", serif;
+            font-size: 52px;
+            color: #e8d7bd;
+        }
+
+        .submit-hero-side h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+            margin-top: 10px;
+        }
+
+        .submit-hero-side p {
+            font-size: 10px;
+            line-height: 1.7;
+            color: #b9c8c2;
+            margin-top: 8px;
+        }
+
+        .submit-steps {
+            display: flex;
+            gap: 7px;
+            margin-top: 25px;
+        }
+
+        .submit-step {
+            width: 9px;
+            height: 4px;
+            border-radius: 5px;
+            background: #50675f;
+        }
+
+        .submit-step.active {
+            width: 28px;
+            background: #e8d7bd;
+        }
+
+
+        /* MAIN LAYOUT */
+
+        .submit-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.55fr) minmax(250px, 0.65fr);
+            gap: 25px;
+            align-items: start;
+        }
+
+
+        /* FORM CARD */
+
+        .submit-form-card {
+            background: white;
+            border: 1px solid #e8e2d9;
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        .form-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 22px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee9e1;
+        }
+
+        .form-heading h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            color: #203b33;
+            margin-top: 5px;
+        }
+
+        .form-step {
+            font-size: 9px;
+            letter-spacing: 1px;
+            color: #9a8c7a;
+        }
+
+
+        /* FORM GROUP */
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            color: #42544d;
+            margin-bottom: 8px;
+        }
+
+        .required {
+            color: #a16e4e;
+        }
+
+        .form-group input[type="text"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ded9d0;
+            background: #fbfaf7;
+            border-radius: 9px;
+            padding: 13px 14px;
+            outline: none;
+            font-family: "DM Sans", sans-serif;
+            font-size: 11px;
+            color: #33433d;
+            transition: 0.2s;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #a88969;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(168,137,105,0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            line-height: 1.7;
+        }
+
+        .large-textarea {
+            min-height: 260px;
+        }
+
+        .field-help {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6px;
+            font-size: 8px;
+            color: #9a9d99;
+        }
+
+
+        /* TWO COLUMN FORM */
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+
+        /* UPLOAD */
+
+        .upload-box {
+            position: relative;
+            min-height: 165px;
+            border: 1.5px dashed #cfc7bb;
+            border-radius: 12px;
+            background: #fbfaf7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            transition: 0.2s;
+        }
+
+        .upload-box:hover {
+            border-color: #a88969;
+            background: #f8f4ee;
+        }
+
+        .upload-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: #e8dfd3;
+            color: #806b53;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 9px;
+        }
+
+        .upload-box strong {
+            font-size: 11px;
+            color: #45554f;
+        }
+
+        .upload-box small {
+            font-size: 9px;
+            color: #9a9d99;
+            margin-top: 4px;
+        }
+
+        .upload-box input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .preview-image {
+            display: none;
+            width: 100%;
+            height: 165px;
+            object-fit: cover;
+        }
+
+
+        /* CHECKBOX */
+
+        .agreement {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 15px;
+            background: #f7f3ed;
+            border-radius: 10px;
+            margin-top: 8px;
+        }
+
+        .agreement input {
+            margin-top: 2px;
+            accent-color: #18352e;
+        }
+
+        .agreement label {
+            margin: 0;
+            font-size: 9px;
+            line-height: 1.6;
+            color: #69746f;
+            font-weight: 400;
+        }
+
+
+        /* BUTTON */
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding-top: 10px;
+        }
+
+        .action-left {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-button {
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            padding: 11px 16px;
+            font-family: "DM Sans", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .action-button:hover {
+            transform: translateY(-1px);
+        }
+
+        .reset-button {
+            background: #f1eee8;
+            color: #68716d;
+        }
+
+        .submit-button {
+            background: #18352e;
+            color: white;
+        }
+
+        .submit-button:hover {
+            background: #24483f;
+        }
+
+
+        /* SIDE INFORMATION */
+
+        .submit-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .info-card {
+            background: white;
+            border: 1px solid #e8e2d9;
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .info-card.highlight {
+            background: #18352e;
+            color: white;
+            border: none;
+        }
+
+        .info-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+            color: #30443d;
+            margin-top: 10px;
+        }
+
+        .info-card.highlight h3 {
+            color: white;
+        }
+
+        .info-card p {
+            font-size: 9px;
+            color: #777f7b;
+            line-height: 1.8;
+            margin-top: 8px;
+        }
+
+        .info-card.highlight p {
+            color: #b9c8c2;
+        }
+
+        .info-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 9px;
+            background: #e9dfd0;
+            color: #8f684b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .info-card.highlight .info-icon {
+            background: #e8d7bd;
+            color: #18352e;
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+        }
+
+        .tips-list li {
+            display: flex;
+            gap: 9px;
+            padding: 9px 0;
+            border-bottom: 1px solid #eee9e1;
+            font-size: 9px;
+            line-height: 1.6;
+            color: #68736e;
+        }
+
+        .tips-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tip-number {
+            color: #a16e4e;
+            font-weight: 700;
+        }
+
+
+        /* SUCCESS MESSAGE */
+
+        .success-message {
+            display: none;
+            background: #e3efe9;
+            border: 1px solid #bfd8cb;
+            color: #315a4d;
+            border-radius: 10px;
+            padding: 14px;
+            font-size: 10px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+
+        /* FOOTER */
+
+        .submit-footer {
+            margin-top: 30px;
+            padding: 20px 0 0;
+        }
+
+
+        /* DARK MODE */
+
+        body.dark-mode .submit-hero-text {
+            background: #263d35;
+        }
+
+        body.dark-mode .submit-hero h1 {
+            color: #edf2ef;
+        }
+
+        body.dark-mode .submit-hero p {
+            color: #b9c5c0;
+        }
+
+        body.dark-mode .submit-form-card,
+        body.dark-mode .info-card {
+            background: #192823;
+            border-color: #294039;
+        }
+
+        body.dark-mode .form-heading {
+            border-color: #294039;
+        }
+
+        body.dark-mode .form-heading h2,
+        body.dark-mode .info-card h3 {
+            color: #edf2ef;
+        }
+
+        body.dark-mode .form-group label {
+            color: #c1ccc7;
+        }
+
+        body.dark-mode .form-group input[type="text"],
+        body.dark-mode .form-group select,
+        body.dark-mode .form-group textarea,
+        body.dark-mode .upload-box {
+            background: #13201c;
+            border-color: #334a42;
+            color: #e7ece9;
+        }
+
+        body.dark-mode .agreement {
+            background: #21332d;
+        }
+
+        body.dark-mode .agreement label {
+            color: #b5c1bc;
+        }
+
+        body.dark-mode .tips-list li {
+            border-color: #294039;
+            color: #b5c1bc;
+        }
+
+        body.dark-mode .reset-button {
+            background: #263a33;
+            color: #c1cbc7;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 950px) {
+
+            .submit-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .submit-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .submit-info {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .submit-page {
+                padding: 30px 20px 60px;
+            }
+
+            .submit-hero-text {
+                padding: 30px;
+            }
+
+            .submit-hero h1 {
+                font-size: 38px;
+            }
+
+            .submit-form-card {
+                padding: 21px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .submit-info {
+                grid-template-columns: 1fr;
+            }
+
+            .form-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .action-left {
+                width: 100%;
+            }
+
+            .action-left .action-button,
+            .submit-button {
+                flex: 1;
+            }
+
+        }
+
+    </style>
 </head>
+
 
 <body>
 
+<!-- =========================================
+     SIDEBAR
+========================================= -->
 
 <aside class="sidebar">
 
@@ -55,7 +655,7 @@
             <span>Karya</span>
         </a>
 
-        <a href="kirim-karya.html" class="menu-item">
+        <a href="kirim-karya.html" class="menu-item active">
             <span class="menu-icon">✎</span>
             <span>Kirim Karya</span>
         </a>
@@ -81,7 +681,7 @@
 
     <nav class="sidebar-menu">
 
-        <a href="profil.html" class="menu-item active">
+        <a href="profil.html" class="menu-item">
             <span class="menu-icon">◯</span>
             <span>Profil</span>
         </a>
@@ -116,8 +716,15 @@
 </aside>
 
 
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
 <main class="main-content">
 
+
+    <!-- TOPBAR -->
 
     <header class="topbar">
 
@@ -127,10 +734,10 @@
 
         <div class="topbar-page">
 
-            <span>Profil Saya</span>
+            <span>Kirim Karya</span>
 
             <small>
-                Kelola informasi akun dan karya
+                Bagikan tulisanmu kepada komunitas
             </small>
 
         </div>
@@ -180,289 +787,693 @@
     </header>
 
 
-    <section class="profile-page">
+
+    <!-- =========================================
+         CONTENT
+    ========================================= -->
+
+    <section class="submit-page">
 
 
-        <div class="profile-cover">
+        <!-- HERO -->
 
-            <div class="profile-cover-pattern"></div>
+        <div class="submit-hero">
 
-            <div class="profile-avatar-large">
-                MA
+            <div class="submit-hero-text">
+
+                <span class="eyebrow">
+                    RUANG KREATIVITAS
+                </span>
+
+                <h1>
+                    Bagikan karyamu
+                    <br>
+                    <em>kepada dunia.</em>
+                </h1>
+
+                <p>
+                    Punya puisi, cerita, opini, atau artikel?
+                    Tuangkan ide dan pengalamanmu melalui
+                    Ruang Aksara STT Cipasung.
+                </p>
+
             </div>
 
-        </div>
 
-
-        <div class="profile-main">
-
-
-            <div class="profile-heading">
+            <div class="submit-hero-side">
 
                 <div>
 
-                    <h1>
-                        Mahasiswa Informatika
-                    </h1>
+                    <span class="big-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Jenis karya
+                    </h3>
 
                     <p>
-                        Mahasiswa · STT Cipasung
+                        Puisi, cerita, dan artikel
+                        dapat dibagikan melalui
+                        Ruang Aksara.
                     </p>
 
                 </div>
 
 
-                <button class="edit-profile-button">
-                    ✎ Edit Profil
-                </button>
+                <div class="submit-steps">
 
-            </div>
-
-
-            <div class="profile-grid">
-
-
-                <div class="profile-card">
-
-                    <div class="profile-card-heading">
-
-                        <h2>
-                            Tentang Saya
-                        </h2>
-
-                    </div>
-
-
-                    <div class="profile-info">
-
-                        <div class="profile-info-row">
-
-                            <span>
-                                Nama
-                            </span>
-
-                            <strong>
-                                Mahasiswa Informatika
-                            </strong>
-
-                        </div>
-
-
-                        <div class="profile-info-row">
-
-                            <span>
-                                Program Studi
-                            </span>
-
-                            <strong>
-                                Informatika
-                            </strong>
-
-                        </div>
-
-
-                        <div class="profile-info-row">
-
-                            <span>
-                                Institusi
-                            </span>
-
-                            <strong>
-                                STT Cipasung
-                            </strong>
-
-                        </div>
-
-
-                        <div class="profile-info-row">
-
-                            <span>
-                                Email
-                            </span>
-
-                            <strong>
-                                mahasiswa@sttcipasung.ac.id
-                            </strong>
-
-                        </div>
-
-                    </div>
+                    <span class="submit-step active"></span>
+                    <span class="submit-step"></span>
+                    <span class="submit-step"></span>
 
                 </div>
 
-
-                <div class="profile-card">
-
-                    <div class="profile-card-heading">
-
-                        <h2>
-                            Aktivitas Saya
-                        </h2>
-
-                    </div>
-
-
-                    <div class="profile-stat-grid">
-
-                        <div>
-
-                            <strong>
-                                5
-                            </strong>
-
-                            <span>
-                                Karya
-                            </span>
-
-                        </div>
-
-
-                        <div>
-
-                            <strong>
-                                12
-                            </strong>
-
-                            <span>
-                                Favorit
-                            </span>
-
-                        </div>
-
-
-                        <div>
-
-                            <strong>
-                                8
-                            </strong>
-
-                            <span>
-                                Apresiasi
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
             </div>
 
+        </div>
 
-            <div class="profile-card my-work-card">
 
-                <div class="profile-card-heading">
+
+        <!-- LAYOUT -->
+
+        <div class="submit-layout">
+
+
+            <!-- FORM -->
+
+            <div class="submit-form-card">
+
+                <div class="form-heading">
 
                     <div>
 
                         <span class="eyebrow">
-                            PUBLIKASI
+                            FORM PUBLIKASI
                         </span>
 
                         <h2>
-                            Karya Saya
+                            Tulis Karyamu
                         </h2>
 
                     </div>
 
-
-                    <a
-                        href="kirim-karya.html"
-                        class="small-action"
-                    >
-                        + Tambah Karya
-                    </a>
+                    <span class="form-step">
+                        01 / 03
+                    </span>
 
                 </div>
 
 
-                <div class="my-work-list">
+                <!-- SUCCESS -->
 
-
-                    <div class="my-work-item">
-
-                        <div class="my-work-icon">
-                            “
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Senja di Kampus
-                            </strong>
-
-                            <span>
-                                Puisi · Dipublikasikan
-                            </span>
-
-                        </div>
-
-                        <span class="work-status">
-                            Aktif
-                        </span>
-
-                    </div>
-
-
-                    <div class="my-work-item">
-
-                        <div class="my-work-icon">
-                            ◇
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Perjalanan Pulang
-                            </strong>
-
-                            <span>
-                                Cerita · Dipublikasikan
-                            </span>
-
-                        </div>
-
-                        <span class="work-status">
-                            Aktif
-                        </span>
-
-                    </div>
-
-
+                <div
+                    class="success-message"
+                    id="successMessage"
+                >
+                    <strong>✓ Karya berhasil dikirim!</strong>
+                    <br>
+                    Terima kasih sudah berkontribusi
+                    di Ruang Aksara.
                 </div>
+
+
+                <form id="submitForm">
+
+
+                    <!-- JUDUL + KATEGORI -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>
+                                Judul Karya
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="judulKarya"
+                                placeholder="Contoh: Senja di Kampus"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Kategori
+                                <span class="required">*</span>
+                            </label>
+
+                            <select
+                                id="kategoriKarya"
+                                required
+                            >
+
+                                <option value="">
+                                    Pilih kategori
+                                </option>
+
+                                <option value="Puisi">
+                                    Puisi
+                                </option>
+
+                                <option value="Cerita">
+                                    Cerita
+                                </option>
+
+                                <option value="Artikel">
+                                    Artikel
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DESKRIPSI -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Deskripsi Singkat
+                            <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            id="deskripsiKarya"
+                            rows="3"
+                            maxlength="250"
+                            placeholder="Ceritakan sedikit tentang karya ini..."
+                            required
+                        ></textarea>
+
+                        <div class="field-help">
+
+                            <span>
+                                Maksimal 250 karakter
+                            </span>
+
+                            <span id="deskripsiCount">
+                                0 / 250
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ISI KARYA -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Isi Karya
+                            <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            id="isiKarya"
+                            class="large-textarea"
+                            placeholder="Mulai tuliskan karyamu di sini..."
+                            required
+                        ></textarea>
+
+                        <div class="field-help">
+
+                            <span>
+                                Pastikan karya merupakan tulisanmu sendiri.
+                            </span>
+
+                            <span id="isiCount">
+                                0 karakter
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- COVER -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Cover Karya
+                        </label>
+
+                        <div class="upload-box">
+
+                            <img
+                                id="previewImage"
+                                class="preview-image"
+                                alt="Preview cover"
+                            >
+
+                            <div id="uploadContent">
+
+                                <span class="upload-icon">
+                                    ↑
+                                </span>
+
+                                <strong>
+                                    Klik untuk upload gambar
+                                </strong>
+
+                                <small>
+                                    PNG, JPG atau JPEG · Maks. 5 MB
+                                </small>
+
+                            </div>
+
+                            <input
+                                type="file"
+                                id="coverKarya"
+                                accept="image/png,image/jpeg"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- STATUS -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Status Publikasi
+                        </label>
+
+                        <select id="statusKarya">
+
+                            <option value="Publik">
+                                Publik — dapat dibaca semua pengguna
+                            </option>
+
+                            <option value="Draft">
+                                Draft — simpan untuk nanti
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- AGREEMENT -->
+
+                    <div class="agreement">
+
+                        <input
+                            type="checkbox"
+                            id="agreement"
+                            required
+                        >
+
+                        <label for="agreement">
+                            Saya menyatakan bahwa karya ini merupakan
+                            hasil tulisan saya sendiri dan tidak
+                            melanggar hak cipta pihak lain.
+                        </label>
+
+                    </div>
+
+
+
+                    <!-- BUTTON -->
+
+                    <div class="form-actions">
+
+                        <div class="action-left">
+
+                            <button
+                                type="button"
+                                class="action-button reset-button"
+                                id="resetButton"
+                            >
+                                Reset
+                            </button>
+
+                            <a
+                                href="index.html"
+                                class="action-button reset-button"
+                                style="text-decoration:none;"
+                            >
+                                Batal
+                            </a>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="action-button submit-button"
+                        >
+                            Kirim Karya →
+                        </button>
+
+                    </div>
+
+
+                </form>
 
             </div>
 
 
+
+            <!-- INFORMATION -->
+
+            <aside class="submit-info">
+
+
+                <div class="info-card highlight">
+
+                    <div class="info-icon">
+                        ✦
+                    </div>
+
+                    <h3>
+                        Sebelum mengirim
+                    </h3>
+
+                    <p>
+                        Pastikan tulisanmu sudah diperiksa
+                        dan informasi yang dimasukkan sudah
+                        sesuai.
+                    </p>
+
+                </div>
+
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        ✓
+                    </div>
+
+                    <h3>
+                        Tips menulis
+                    </h3>
+
+                    <ul class="tips-list">
+
+                        <li>
+                            <span class="tip-number">
+                                01
+                            </span>
+                            Gunakan judul yang menarik.
+                        </li>
+
+                        <li>
+                            <span class="tip-number">
+                                02
+                            </span>
+                            Buat tulisan mudah dipahami.
+                        </li>
+
+                        <li>
+                            <span class="tip-number">
+                                03
+                            </span>
+                            Periksa kembali tulisan sebelum dikirim.
+                        </li>
+
+                        <li>
+                            <span class="tip-number">
+                                04
+                            </span>
+                            Pastikan karya adalah tulisan sendiri.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        ?
+                    </div>
+
+                    <h3>
+                        Apa yang bisa dikirim?
+                    </h3>
+
+                    <p>
+                        Kamu dapat mengirim puisi, cerita pendek,
+                        artikel, opini, atau tulisan kreatif lainnya
+                        yang sesuai dengan tema literasi.
+                    </p>
+
+                </div>
+
+            </aside>
+
+
         </div>
+
+
+        <div class="submit-footer">
+
+            <div class="footer">
+
+                <div>
+
+                    <strong>
+                        Ruang Aksara
+                    </strong>
+
+                    <span>
+                        Portal Literasi STT Cipasung
+                    </span>
+
+                </div>
+
+                <p>
+                    © 2026 Ruang Aksara
+                </p>
+
+            </div>
+
+        </div>
+
 
     </section>
 
-
-    <footer class="footer">
-
-        <div>
-
-            <strong>
-                Ruang Aksara
-            </strong>
-
-            <span>
-                Portal Literasi STT Cipasung
-            </span>
-
-        </div>
-
-        <p>
-            © 2026 Ruang Aksara
-        </p>
-
-    </footer>
-
-
 </main>
 
+
+
+<!-- =========================================
+     JAVASCRIPT KHUSUS HALAMAN
+========================================= -->
+
+<script>
+
+    /* =====================================
+       HITUNG DESKRIPSI
+    ===================================== */
+
+    const deskripsi =
+        document.getElementById("deskripsiKarya");
+
+    const deskripsiCount =
+        document.getElementById("deskripsiCount");
+
+
+    deskripsi.addEventListener("input", function () {
+
+        deskripsiCount.textContent =
+            this.value.length + " / 250";
+
+    });
+
+
+
+    /* =====================================
+       HITUNG ISI KARYA
+    ===================================== */
+
+    const isiKarya =
+        document.getElementById("isiKarya");
+
+    const isiCount =
+        document.getElementById("isiCount");
+
+
+    isiKarya.addEventListener("input", function () {
+
+        isiCount.textContent =
+            this.value.length + " karakter";
+
+    });
+
+
+
+    /* =====================================
+       PREVIEW COVER
+    ===================================== */
+
+    const coverKarya =
+        document.getElementById("coverKarya");
+
+    const previewImage =
+        document.getElementById("previewImage");
+
+    const uploadContent =
+        document.getElementById("uploadContent");
+
+
+    coverKarya.addEventListener("change", function () {
+
+        const file = this.files[0];
+
+        if (!file) {
+            return;
+        }
+
+
+        if (file.size > 5 * 1024 * 1024) {
+
+            alert(
+                "Ukuran gambar terlalu besar. Maksimal 5 MB."
+            );
+
+            this.value = "";
+
+            return;
+
+        }
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload = function (event) {
+
+            previewImage.src =
+                event.target.result;
+
+            previewImage.style.display =
+                "block";
+
+            uploadContent.style.display =
+                "none";
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    });
+
+
+
+    /* =====================================
+       RESET FORM
+    ===================================== */
+
+    const resetButton =
+        document.getElementById("resetButton");
+
+    const submitForm =
+        document.getElementById("submitForm");
+
+
+    resetButton.addEventListener("click", function () {
+
+        submitForm.reset();
+
+        previewImage.src = "";
+
+        previewImage.style.display =
+            "none";
+
+        uploadContent.style.display =
+            "flex";
+
+        deskripsiCount.textContent =
+            "0 / 250";
+
+        isiCount.textContent =
+            "0 karakter";
+
+    });
+
+
+
+    /* =====================================
+       SUBMIT FORM
+    ===================================== */
+
+    const successMessage =
+        document.getElementById("successMessage");
+
+
+    submitForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+
+        if (!submitForm.checkValidity()) {
+
+            submitForm.reportValidity();
+
+            return;
+
+        }
+
+
+        successMessage.classList.add("show");
+
+
+        successMessage.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+
+        setTimeout(function () {
+
+            submitForm.reset();
+
+            previewImage.src = "";
+
+            previewImage.style.display =
+                "none";
+
+            uploadContent.style.display =
+                "flex";
+
+            deskripsiCount.textContent =
+                "0 / 250";
+
+            isiCount.textContent =
+                "0 karakter";
+
+        }, 1200);
+
+    });
+
+</script>
+
+
+<!-- SCRIPT GLOBAL -->
 
 <script src="script.js"></script>
 
