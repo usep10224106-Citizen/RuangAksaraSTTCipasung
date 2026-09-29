@@ -1,4 +1,3 @@
-```javascript
 // ==============================
 // MENU MOBILE
 // ==============================
@@ -6,9 +5,13 @@
 const mobileMenu = document.getElementById("mobileMenu");
 const sidebar = document.querySelector(".sidebar");
 
-mobileMenu.addEventListener("click", () => {
-    sidebar.classList.toggle("show");
-});
+if (mobileMenu && sidebar) {
+
+    mobileMenu.addEventListener("click", () => {
+        sidebar.classList.toggle("show");
+    });
+
+}
 
 
 // ==============================
@@ -17,17 +20,25 @@ mobileMenu.addEventListener("click", () => {
 
 const darkModeBtn = document.getElementById("darkModeBtn");
 
-darkModeBtn.addEventListener("click", () => {
+if (darkModeBtn) {
 
-    document.body.classList.toggle("dark");
+    darkModeBtn.addEventListener("click", () => {
 
-    if (document.body.classList.contains("dark")) {
-        darkModeBtn.innerHTML = "☀️ Mode Terang";
-    } else {
-        darkModeBtn.innerHTML = "🌙 Mode Gelap";
-    }
+        document.body.classList.toggle("dark");
 
-});
+        if (document.body.classList.contains("dark")) {
+
+            darkModeBtn.innerHTML = "☀️ Mode Terang";
+
+        } else {
+
+            darkModeBtn.innerHTML = "🌙 Mode Gelap";
+
+        }
+
+    });
+
+}
 
 
 // ==============================
@@ -73,39 +84,56 @@ function openWork(type) {
 
     const work = works[type];
 
-    document.getElementById("modalCategory").textContent =
-        work.category;
+    const modalCategory = document.getElementById("modalCategory");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalText = document.getElementById("modalText");
+    const workModal = document.getElementById("workModal");
 
-    document.getElementById("modalTitle").textContent =
-        work.title;
+    if (!workModal) return;
 
-    document.getElementById("modalText").textContent =
-        work.text;
+    if (modalCategory) {
+        modalCategory.textContent = work.category;
+    }
 
-    document.getElementById("workModal")
-        .classList.add("show");
+    if (modalTitle) {
+        modalTitle.textContent = work.title;
+    }
+
+    if (modalText) {
+        modalText.textContent = work.text;
+    }
+
+    workModal.classList.add("show");
 
 }
 
 
 function closeWork() {
 
-    document.getElementById("workModal")
-        .classList.remove("show");
+    const workModal = document.getElementById("workModal");
+
+    if (workModal) {
+        workModal.classList.remove("show");
+    }
 
 }
 
 
 // Klik area luar modal
 
-document.getElementById("workModal")
-    .addEventListener("click", function(event) {
+const workModal = document.getElementById("workModal");
+
+if (workModal) {
+
+    workModal.addEventListener("click", function(event) {
 
         if (event.target === this) {
             closeWork();
         }
 
     });
+
+}
 
 
 // ==============================
@@ -131,10 +159,15 @@ function filterWorks(category) {
 
     });
 
-    document.getElementById("karya")
-        .scrollIntoView({
+    const karyaSection = document.getElementById("karya");
+
+    if (karyaSection) {
+
+        karyaSection.scrollIntoView({
             behavior: "smooth"
         });
+
+    }
 
 }
 
@@ -146,32 +179,36 @@ function filterWorks(category) {
 const searchInput =
     document.getElementById("searchInput");
 
-searchInput.addEventListener("input", function() {
+if (searchInput) {
 
-    const keyword =
-        this.value.toLowerCase();
+    searchInput.addEventListener("input", function() {
 
-    const cards =
-        document.querySelectorAll(".searchable");
+        const keyword =
+            this.value.toLowerCase();
 
-    cards.forEach(card => {
+        const cards =
+            document.querySelectorAll(".searchable");
 
-        const text =
-            card.innerText.toLowerCase();
+        cards.forEach(card => {
 
-        if (text.includes(keyword)) {
+            const text =
+                card.innerText.toLowerCase();
 
-            card.style.display = "block";
+            if (text.includes(keyword)) {
 
-        } else {
+                card.style.display = "block";
 
-            card.style.display = "none";
+            } else {
 
-        }
+                card.style.display = "none";
+
+            }
+
+        });
 
     });
 
-});
+}
 
 
 // ==============================
@@ -192,15 +229,18 @@ menuItems.forEach(item => {
         this.classList.add("active");
 
         // Tutup sidebar di HP
-        sidebar.classList.remove("show");
+        if (sidebar) {
+            sidebar.classList.remove("show");
+        }
 
     });
 
 });
-```
-// =========================================
+
+
+// ==============================
 // FAVORITE BUTTON
-// =========================================
+// ==============================
 
 function toggleFavorite(button) {
 
