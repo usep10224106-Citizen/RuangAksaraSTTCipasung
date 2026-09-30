@@ -19,25 +19,33 @@
         href="style.css"
     >
 
+
     <style>
 
         /* =====================================
-           GLOBAL
+           GENERAL
         ===================================== */
 
         * {
             box-sizing: border-box;
         }
 
+
         body {
             margin: 0;
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-            background: #f5f7f6;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f6f8f7;
             color: #222;
-            transition: 0.3s;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        button {
+            font-family: inherit;
         }
 
 
@@ -46,136 +54,115 @@
         ===================================== */
 
         .sidebar {
+
             position: fixed;
+
             left: 0;
             top: 0;
 
             width: 250px;
             height: 100vh;
 
-            background: white;
+            background: #ffffff;
 
-            border-right:
-                1px solid #e5e5e5;
-
-            padding: 25px 15px;
+            border-right: 1px solid #e8ece9;
 
             z-index: 1000;
 
-            display: flex;
-            flex-direction: column;
+            overflow-y: auto;
+
         }
 
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .sidebar-logo {
 
-            padding: 0 10px 30px;
+            padding: 28px 24px;
+
+            border-bottom: 1px solid #eee;
+
         }
 
 
-        .logo-icon {
-            width: 45px;
-            height: 45px;
+        .sidebar-logo h2 {
 
-            background: #1f6b4d;
-            color: white;
+            margin: 0;
 
-            border-radius: 13px;
+            color: #198754;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 22px;
 
-            font-size: 23px;
         }
 
 
-        .logo strong {
+        .sidebar-logo span {
+
             display: block;
-            font-size: 16px;
-        }
 
+            margin-top: 5px;
 
-        .logo small {
-            color: #888;
             font-size: 12px;
+
+            color: #888;
+
         }
 
 
-        /* =====================================
-           MENU
-        ===================================== */
+        .sidebar-menu {
 
-        .menu {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+            padding: 18px 12px;
+
         }
 
 
         .menu-item {
+
             display: flex;
+
             align-items: center;
-            gap: 13px;
+
+            gap: 12px;
 
             padding: 13px 15px;
 
-            border-radius: 12px;
+            margin-bottom: 5px;
 
-            text-decoration: none;
+            border-radius: 12px;
 
             color: #555;
 
+            font-size: 14px;
+
             transition: 0.2s;
+
         }
 
 
         .menu-item:hover {
-            background: #eef7f2;
-            color: #1f6b4d;
+
+            background: #eef8f2;
+
+            color: #198754;
+
         }
 
 
         .menu-item.active {
-            background: #e3f1eb;
-            color: #1f6b4d;
-            font-weight: bold;
+
+            background: #198754;
+
+            color: white;
+
         }
 
 
         .menu-icon {
+
             width: 25px;
+
             text-align: center;
-            font-size: 18px;
-        }
 
+            font-size: 17px;
 
-        /* =====================================
-           SIDEBAR BOTTOM
-        ===================================== */
-
-        .sidebar-bottom {
-            margin-top: auto;
-        }
-
-
-        #darkModeBtn {
-            width: 100%;
-
-            padding: 12px;
-
-            border: none;
-
-            border-radius: 12px;
-
-            background: #f1f1f1;
-
-            cursor: pointer;
-
-            font-size: 14px;
         }
 
 
@@ -184,8 +171,11 @@
         ===================================== */
 
         .main-content {
+
             margin-left: 250px;
+
             min-height: 100vh;
+
         }
 
 
@@ -194,77 +184,115 @@
         ===================================== */
 
         .topbar {
-            height: 75px;
+
+            height: 70px;
 
             background: white;
 
-            border-bottom:
-                1px solid #e5e5e5;
+            border-bottom: 1px solid #eee;
 
             display: flex;
+
             align-items: center;
+
+            justify-content: space-between;
 
             padding: 0 30px;
 
             position: sticky;
+
             top: 0;
 
-            z-index: 900;
+            z-index: 500;
+
         }
 
 
         .topbar-title {
+
+            font-weight: 700;
+
             font-size: 18px;
-            font-weight: bold;
+
         }
 
 
-        .topbar-profile {
-            margin-left: auto;
+        .topbar-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
         }
 
 
-        .avatar-small {
-            width: 42px;
-            height: 42px;
+        .dark-mode-button {
+
+            width: 40px;
+
+            height: 40px;
+
+            border: none;
 
             border-radius: 50%;
 
-            background: #1f6b4d;
+            background: #f1f3f5;
 
-            color: white;
+            cursor: pointer;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 17px;
 
-            font-weight: bold;
         }
 
 
-        .mobile-menu {
+        .profile-mini {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #555;
+
+            font-size: 14px;
+
+        }
+
+
+        .profile-mini-avatar {
+
+            width: 35px;
+
+            height: 35px;
+
+            border-radius: 50%;
+
+            background: #dff2e7;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+        .mobile-menu-button {
+
             display: none;
 
             border: none;
 
-            background: transparent;
+            background: none;
 
-            font-size: 24px;
-
-            margin-right: 15px;
+            font-size: 23px;
 
             cursor: pointer;
-        }
 
-
-        /* =====================================
-           DASHBOARD
-        ===================================== */
-
-        .dashboard {
-            padding: 30px;
-            max-width: 1250px;
-            margin: auto;
         }
 
 
@@ -273,188 +301,158 @@
         ===================================== */
 
         .hero {
-            background:
-                linear-gradient(
-                    135deg,
-                    #123c2c,
-                    #267454
-                );
 
-            color: white;
+            margin: 30px;
+
+            padding: 45px;
 
             border-radius: 25px;
 
-            padding: 40px;
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f5132,
+                    #198754
+                );
 
             position: relative;
 
             overflow: hidden;
 
-            margin-bottom: 25px;
         }
 
 
         .hero::after {
-            content: "✒";
+
+            content: "✎";
 
             position: absolute;
 
-            right: 45px;
-            bottom: -30px;
+            right: 40px;
 
-            font-size: 150px;
+            top: 0;
+
+            font-size: 180px;
 
             opacity: 0.08;
+
         }
 
 
         .hero h1 {
-            margin: 0 0 10px;
 
-            font-size: 34px;
+            margin: 0 0 12px;
+
+            font-size: 36px;
+
+            max-width: 650px;
+
         }
 
 
         .hero p {
+
             max-width: 650px;
 
             line-height: 1.7;
 
+            margin: 0;
+
             opacity: 0.9;
+
         }
 
 
         .hero-button {
+
             display: inline-block;
 
-            margin-top: 15px;
+            margin-top: 25px;
 
             background: white;
 
-            color: #1f6b4d;
+            color: #198754;
 
             padding: 12px 20px;
 
-            border-radius: 12px;
+            border-radius: 11px;
 
-            text-decoration: none;
+            font-weight: 700;
 
-            font-weight: bold;
         }
 
 
         /* =====================================
-           STATISTICS
+           CONTENT
         ===================================== */
 
-        .stats {
+        .page-content {
+
+            padding: 0 30px 40px;
+
+        }
+
+
+        /* =====================================
+           STATS
+        ===================================== */
+
+        .stats-grid {
+
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(4, 1fr);
 
             gap: 18px;
 
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+
         }
 
 
         .stat-card {
-            background: white;
 
-            border-radius: 18px;
+            background: white;
 
             padding: 22px;
 
+            border-radius: 18px;
+
             box-shadow:
-                0 5px 20px
-                rgba(0,0,0,0.05);
+                0 5px 20px rgba(0,0,0,0.04);
 
-            display: flex;
-
-            align-items: center;
-
-            gap: 15px;
         }
 
 
         .stat-icon {
-            width: 50px;
-            height: 50px;
 
-            border-radius: 14px;
+            font-size: 25px;
 
-            background: #e5f3ec;
+            margin-bottom: 10px;
 
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            font-size: 22px;
         }
 
 
-        .stat-card h3 {
-            margin: 0;
+        .stat-number {
 
-            font-size: 24px;
+            font-size: 25px;
+
+            font-weight: 700;
+
         }
 
 
-        .stat-card p {
-            margin: 4px 0 0;
+        .stat-label {
 
             color: #888;
 
             font-size: 13px;
-        }
 
+            margin-top: 4px;
 
-        /* =====================================
-           SEARCH
-        ===================================== */
-
-        .search-section {
-            margin-bottom: 30px;
-        }
-
-
-        .search-box {
-            background: white;
-
-            border-radius: 18px;
-
-            padding: 8px 15px;
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-            border:
-                1px solid #e5e5e5;
-        }
-
-
-        .search-box span {
-            font-size: 20px;
-        }
-
-
-        #searchInput {
-            width: 100%;
-
-            border: none;
-
-            outline: none;
-
-            font-size: 15px;
-
-            padding: 12px 5px;
-
-            background: transparent;
         }
 
 
@@ -463,217 +461,358 @@
         ===================================== */
 
         .section-header {
+
             display: flex;
 
             justify-content: space-between;
 
             align-items: center;
 
-            margin-bottom: 18px;
+            gap: 15px;
+
+            margin-bottom: 20px;
+
         }
 
 
         .section-header h2 {
+
             margin: 0;
+
+            font-size: 25px;
+
         }
 
 
-        .section-header a {
-            color: #1f6b4d;
+        .section-header p {
 
-            text-decoration: none;
+            margin: 5px 0 0;
 
-            font-size: 14px;
+            color: #888;
 
-            font-weight: bold;
+            font-size: 13px;
+
         }
 
 
         /* =====================================
-           WORKS GRID
+           SEARCH
+        ===================================== */
+
+        .search-area {
+
+            display: flex;
+
+            gap: 10px;
+
+            margin-bottom: 20px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .search-box {
+
+            flex: 1;
+
+            min-width: 250px;
+
+            position: relative;
+
+        }
+
+
+        .search-box input {
+
+            width: 100%;
+
+            padding: 13px 16px 13px 43px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 12px;
+
+            outline: none;
+
+            font-size: 14px;
+
+        }
+
+
+        .search-box span {
+
+            position: absolute;
+
+            left: 15px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+        }
+
+
+        /* =====================================
+           FILTER
+        ===================================== */
+
+        .filter-buttons {
+
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .filter-btn {
+
+            border: none;
+
+            background: #eef1ef;
+
+            padding: 10px 15px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            color: #555;
+
+        }
+
+
+        .filter-btn.active {
+
+            background: #198754;
+
+            color: white;
+
+        }
+
+
+        /* =====================================
+           WORK GRID
         ===================================== */
 
         .works-grid {
+
             display: grid;
 
             grid-template-columns:
                 repeat(3, 1fr);
 
-            gap: 20px;
+            gap: 22px;
+
         }
 
 
         .work-card {
+
             background: white;
 
             border-radius: 20px;
 
             overflow: hidden;
 
-            border:
-                1px solid #e8e8e8;
-
             box-shadow:
-                0 5px 20px
-                rgba(0,0,0,0.05);
+                0 6px 25px rgba(0,0,0,0.05);
 
             transition: 0.25s;
 
-            position: relative;
         }
 
 
         .work-card:hover {
+
             transform: translateY(-5px);
 
             box-shadow:
-                0 12px 30px
-                rgba(0,0,0,0.10);
+                0 12px 30px rgba(0,0,0,0.09);
+
+        }
+
+
+        .work-image-wrapper {
+
+            height: 190px;
+
+            position: relative;
+
+            background: #e9ecef;
+
         }
 
 
         .work-image {
-            height: 180px;
 
-            overflow: hidden;
-        }
-
-
-        .work-image img {
             width: 100%;
+
             height: 100%;
 
             object-fit: cover;
 
-            display: block;
-        }
-
-
-        .work-content {
-            padding: 20px;
         }
 
 
         .work-category {
-            display: inline-block;
 
-            background: #e4f3ec;
+            position: absolute;
 
-            color: #1f6b4d;
+            left: 14px;
 
-            padding: 5px 9px;
+            top: 14px;
 
-            border-radius: 7px;
+            background: white;
 
-            font-size: 10px;
+            color: #198754;
 
-            font-weight: bold;
+            padding: 6px 10px;
 
-            margin-bottom: 10px;
+            border-radius: 8px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+        }
+
+
+        .work-content {
+
+            padding: 20px;
+
+        }
+
+
+        .work-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .work-status {
+
+            font-size: 11px;
+
+            color: #198754;
+
+            font-weight: 600;
+
+        }
+
+
+        .favorite-button {
+
+            width: 35px;
+
+            height: 35px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #f8eeee;
+
+            color: #dc3545;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+
+        .favorite-button:hover {
+
+            transform: scale(1.08);
+
+        }
+
+
+        .favorite-button.active {
+
+            background: #ffe0e0;
+
         }
 
 
         .work-content h3 {
+
             margin: 0 0 8px;
 
-            font-size: 18px;
+            font-size: 19px;
+
         }
 
 
         .work-content p {
-            margin: 0;
+
+            margin: 0 0 18px;
 
             color: #777;
 
             font-size: 14px;
 
             line-height: 1.6;
+
         }
 
 
-        .work-footer {
-            display: flex;
+        .read-work-button {
 
-            align-items: center;
-
-            justify-content: space-between;
-
-            margin-top: 18px;
-        }
-
-
-        .read-button {
             border: none;
 
-            background: #1f6b4d;
+            background: #198754;
 
             color: white;
 
-            padding: 9px 14px;
+            padding: 10px 15px;
 
-            border-radius: 9px;
-
-            cursor: pointer;
-        }
-
-
-        .favorite-button {
-            width: 38px;
-            height: 38px;
-
-            border-radius: 50%;
-
-            border: 1px solid #ddd;
-
-            background: white;
+            border-radius: 10px;
 
             cursor: pointer;
 
-            font-size: 19px;
-        }
-
-
-        .favorite-button.active {
-            color: #d84d68;
-
-            background: #fff0f3;
-
-            border-color: #ffd0d9;
         }
 
 
         /* =====================================
-           NO RESULT
+           EMPTY SEARCH
         ===================================== */
 
-        #noSearchResult {
-            display: none;
+        .search-empty {
 
-            grid-column:
-                1 / -1;
+            display: none;
 
             text-align: center;
 
-            padding: 60px 20px;
-        }
+            padding: 50px 20px;
 
+            background: white;
 
-        #noSearchResult .search-icon {
-            font-size: 55px;
+            border-radius: 18px;
 
-            margin-bottom: 10px;
-        }
-
-
-        #noSearchResult h3 {
-            margin: 0 0 8px;
-        }
-
-
-        #noSearchResult p {
             color: #777;
 
-            margin: 0;
+        }
+
+
+        .search-empty.show {
+
+            display: block;
+
         }
 
 
@@ -681,8 +820,9 @@
            ABOUT
         ===================================== */
 
-        .info-section {
-            margin-top: 45px;
+        .about-section {
+
+            margin-top: 55px;
 
             background: white;
 
@@ -690,17 +830,22 @@
 
             padding: 30px;
 
-            line-height: 1.7;
         }
 
 
-        .info-section h2 {
+        .about-section h2 {
+
             margin-top: 0;
+
         }
 
 
-        .info-section p {
-            color: #666;
+        .about-section p {
+
+            color: #777;
+
+            line-height: 1.8;
+
         }
 
 
@@ -709,22 +854,56 @@
         ===================================== */
 
         .contact-section {
-            margin-top: 20px;
 
-            background: #1f6b4d;
+            margin-top: 25px;
 
-            color: white;
+            background: white;
 
             border-radius: 20px;
 
             padding: 30px;
 
-            margin-bottom: 30px;
         }
 
 
-        .contact-section p {
-            opacity: 0.9;
+        .contact-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .contact-item {
+
+            background: #f7f9f8;
+
+            padding: 18px;
+
+            border-radius: 13px;
+
+        }
+
+
+        .contact-item strong {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .contact-item span {
+
+            color: #777;
+
+            font-size: 14px;
+
         }
 
 
@@ -732,7 +911,10 @@
            MODAL
         ===================================== */
 
-        .work-modal {
+        .modal {
+
+            display: none;
+
             position: fixed;
 
             inset: 0;
@@ -740,7 +922,7 @@
             background:
                 rgba(0,0,0,0.55);
 
-            display: none;
+            z-index: 2000;
 
             align-items: center;
 
@@ -748,21 +930,27 @@
 
             padding: 20px;
 
-            z-index: 3000;
         }
 
 
-        .work-modal.show {
+        .modal.show {
+
             display: flex;
+
         }
 
 
-        .modal-content {
-            background: white;
+        .modal-box {
 
             width: 100%;
 
-            max-width: 600px;
+            max-width: 700px;
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            background: white;
 
             border-radius: 22px;
 
@@ -770,52 +958,105 @@
 
             position: relative;
 
-            max-height: 80vh;
-
-            overflow-y: auto;
         }
 
 
         .modal-close {
+
             position: absolute;
 
             right: 18px;
-            top: 15px;
+
+            top: 18px;
+
+            width: 35px;
+
+            height: 35px;
 
             border: none;
 
-            background: #f2f2f2;
-
-            width: 35px;
-            height: 35px;
-
             border-radius: 50%;
+
+            background: #f1f3f5;
 
             cursor: pointer;
 
             font-size: 18px;
+
         }
 
 
         .modal-category {
-            color: #1f6b4d;
+
+            display: inline-block;
+
+            background: #e8f5ee;
+
+            color: #198754;
+
+            padding: 7px 11px;
+
+            border-radius: 8px;
 
             font-size: 12px;
 
-            font-weight: bold;
+            font-weight: 700;
+
+            margin-bottom: 12px;
+
         }
 
 
-        .modal-content h2 {
-            margin:
-                8px 0 15px;
+        .modal-box h2 {
+
+            margin: 0 0 10px;
+
         }
 
 
-        .modal-content p {
-            line-height: 1.8;
+        .modal-author {
 
-            color: #666;
+            color: #888;
+
+            font-size: 13px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .modal-image {
+
+            width: 100%;
+
+            max-height: 300px;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            margin-bottom: 20px;
+
+            display: none;
+
+        }
+
+
+        .modal-image.show {
+
+            display: block;
+
+        }
+
+
+        .modal-content {
+
+            line-height: 1.9;
+
+            color: #555;
+
+            white-space: pre-line;
+
         }
 
 
@@ -824,67 +1065,127 @@
         ===================================== */
 
         body.dark {
-            background: #121614;
+
+            background: #111827;
+
             color: white;
+
         }
 
 
         body.dark .sidebar,
+
         body.dark .topbar,
+
         body.dark .stat-card,
-        body.dark .search-box,
+
         body.dark .work-card,
-        body.dark .info-section,
-        body.dark .modal-content {
-            background: #1c211f;
 
-            border-color: #303633;
+        body.dark .about-section,
+
+        body.dark .contact-section,
+
+        body.dark .search-empty,
+
+        body.dark .modal-box {
+
+            background: #1f2937;
+
+            color: white;
+
         }
 
 
-        body.dark .menu-item {
-            color: #bbb;
-        }
+        body.dark .sidebar {
 
+            border-color: #374151;
 
-        body.dark .menu-item:hover,
-        body.dark .menu-item.active {
-            background: #263a31;
-            color: #7fd2aa;
         }
 
 
         body.dark .topbar {
-            border-color: #303633;
+
+            border-color: #374151;
+
         }
 
 
-        body.dark .search-box,
-        body.dark #searchInput {
+        body.dark .menu-item {
+
+            color: #ddd;
+
+        }
+
+
+        body.dark .menu-item:hover {
+
+            background: #263a30;
+
+            color: #8ee0b0;
+
+        }
+
+
+        body.dark .search-box input {
+
+            background: #111827;
+
             color: white;
+
+            border-color: #374151;
+
+        }
+
+
+        body.dark .search-box input::placeholder {
+
+            color: #9ca3af;
+
+        }
+
+
+        body.dark .filter-btn {
+
+            background: #374151;
+
+            color: #ddd;
+
+        }
+
+
+        body.dark .filter-btn.active {
+
+            background: #198754;
+
+            color: white;
+
         }
 
 
         body.dark .work-content p,
-        body.dark .stat-card p,
-        body.dark .info-section p,
-        body.dark .modal-content p {
-            color: #aaa;
+
+        body.dark .about-section p,
+
+        body.dark .contact-item span,
+
+        body.dark .modal-content {
+
+            color: #bbb;
+
         }
 
 
-        body.dark .favorite-button {
-            background: #252a28;
+        body.dark .contact-item {
 
-            border-color: #444;
+            background: #111827;
 
-            color: white;
         }
 
 
-        body.dark #darkModeBtn {
-            background: #292e2c;
-            color: white;
+        body.dark .dark-mode-button {
+
+            background: #374151;
+
         }
 
 
@@ -892,73 +1193,127 @@
            RESPONSIVE
         ===================================== */
 
-        @media (max-width: 1000px) {
+        @media (max-width: 1100px) {
 
             .works-grid {
+
                 grid-template-columns:
                     repeat(2, 1fr);
+
+            }
+
+
+            .stats-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
             }
 
         }
 
 
-        @media (max-width: 768px) {
+        @media (max-width: 800px) {
 
             .sidebar {
-                transform:
-                    translateX(-100%);
 
-                transition: 0.3s;
+                transform: translateX(-100%);
+
+                transition: 0.25s;
+
             }
 
 
-            .sidebar.show {
-                transform:
-                    translateX(0);
+            .sidebar.open {
+
+                transform: translateX(0);
+
             }
 
 
             .main-content {
+
                 margin-left: 0;
+
             }
 
 
-            .mobile-menu {
+            .mobile-menu-button {
+
                 display: block;
+
             }
 
 
             .topbar {
-                padding: 0 20px;
-            }
 
+                padding: 0 18px;
 
-            .dashboard {
-                padding: 20px;
             }
 
 
             .hero {
-                padding: 28px;
+
+                margin: 20px;
+
+                padding: 30px;
+
             }
 
 
-            .hero h1 {
-                font-size: 27px;
-            }
+            .page-content {
 
+                padding: 0 20px 30px;
 
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-
-            .works-grid {
-                grid-template-columns: 1fr;
             }
 
         }
 
+
+        @media (max-width: 600px) {
+
+            .works-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .stats-grid {
+
+                grid-template-columns: 1fr 1fr;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 28px;
+
+            }
+
+
+            .contact-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .topbar-title {
+
+                font-size: 15px;
+
+            }
+
+
+            .profile-mini span {
+
+                display: none;
+
+            }
+
+        }
 
     </style>
 
@@ -968,251 +1323,247 @@
 <body>
 
 
-<!-- =====================================
-     SIDEBAR
-===================================== -->
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
 
-<aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
 
 
-    <div class="logo">
+        <div class="sidebar-logo">
 
-        <div class="logo-icon">
-            ✒
-        </div>
-
-        <div>
-
-            <strong>
+            <h2>
                 Ruang Aksara
-            </strong>
+            </h2>
 
-            <small>
+            <span>
                 STT Cipasung
-            </small>
-
-        </div>
-
-    </div>
-
-
-    <nav class="menu">
-
-
-        <a
-            href="index.html"
-            class="menu-item active"
-        >
-
-            <span class="menu-icon">
-                🏠
             </span>
-
-            <span>
-                Beranda
-            </span>
-
-        </a>
-
-
-        <a
-            href="#karya"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                📚
-            </span>
-
-            <span>
-                Karya
-            </span>
-
-        </a>
-
-
-        <a
-            href="kirim-karya.html"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                ✎
-            </span>
-
-            <span>
-                Kirim Karya
-            </span>
-
-        </a>
-
-
-        <a
-            href="favorit.html"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                ♡
-            </span>
-
-            <span>
-                Favorit
-            </span>
-
-        </a>
-
-
-        <a
-            href="notifikasi.html"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                🔔
-            </span>
-
-            <span>
-                Notifikasi
-            </span>
-
-        </a>
-
-
-        <a
-            href="profil.html"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                👤
-            </span>
-
-            <span>
-                Profil
-            </span>
-
-        </a>
-
-
-        <a
-            href="#tentang"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                ℹ
-            </span>
-
-            <span>
-                Tentang
-            </span>
-
-        </a>
-
-
-        <a
-            href="#kontak"
-            class="menu-item"
-        >
-
-            <span class="menu-icon">
-                ✉
-            </span>
-
-            <span>
-                Kontak
-            </span>
-
-        </a>
-
-
-    </nav>
-
-
-    <div class="sidebar-bottom">
-
-        <button id="darkModeBtn">
-
-            🌙 Mode Gelap
-
-        </button>
-
-    </div>
-
-
-</aside>
-
-
-
-<!-- =====================================
-     MAIN CONTENT
-===================================== -->
-
-<main class="main-content">
-
-
-    <!-- TOPBAR -->
-
-    <header class="topbar">
-
-
-        <button
-            id="mobileMenu"
-            class="mobile-menu"
-        >
-
-            ☰
-
-        </button>
-
-
-        <div class="topbar-title">
-
-            Ruang Aksara
 
         </div>
 
 
-        <div class="topbar-profile">
-
-            <div class="avatar-small">
-
-                M
-
-            </div>
-
-        </div>
+        <nav class="sidebar-menu">
 
 
-    </header>
+            <a
+                href="index.html"
+                class="menu-item active"
+            >
 
+                <span class="menu-icon">
+                    🏠
+                </span>
+
+                <span>
+                    Beranda
+                </span>
+
+            </a>
+
+
+            <a
+                href="#karya"
+                class="menu-item"
+            >
+
+                <span class="menu-icon">
+                    📚
+                </span>
+
+                <span>
+                    Karya
+                </span>
+
+            </a>
+
+
+            <a
+                href="kirim-karya.html"
+                class="menu-item"
+            >
+
+                <span class="menu-icon">
+                    ✎
+                </span>
+
+                <span>
+                    Kirim Karya
+                </span>
+
+            </a>
+
+
+            <a
+                href="favorit.html"
+                class="menu-item"
+            >
+
+                <span class="menu-icon">
+                    ♥
+                </span>
+
+                <span>
+                    Favorit
+                </span>
+
+            </a>
+
+
+            <a
+                href="notifikasi.html"
+                class="menu-item"
+            >
+
+                <span class="menu-icon">
+                    🔔
+                </span>
+
+                <span>
+                    Notifikasi
+                </span>
+
+            </a>
+
+
+            <a
+                href="profil.html"
+                class="menu-item"
+            >
+
+                <span class="menu-icon">
+                    👤
+                </span>
+
+                <span>
+                    Profil
+                </span>
+
+            </a>
+
+
+            <a
+                href="#tentang"
+                class="menu-item"
+            >
+
+                <span class="menu-icon">
+                    ℹ
+                </span>
+
+                <span>
+                    Tentang
+                </span>
+
+            </a>
+
+
+            <a
+                href="#kontak"
+                class="menu-item"
+            >
+
+                <span class="menu-icon">
+                    ✉
+                </span>
+
+                <span>
+                    Kontak
+                </span>
+
+            </a>
+
+
+        </nav>
+
+    </aside>
 
 
     <!-- =====================================
-         DASHBOARD
-    ===================================== -->
+         MAIN
+    ====================================== -->
 
-    <section class="dashboard">
+    <main class="main-content">
 
 
-        <!-- HERO -->
+        <!-- TOPBAR -->
 
-        <div class="hero">
+        <header class="topbar">
+
+
+            <button
+                class="mobile-menu-button"
+                id="mobileMenuButton"
+            >
+
+                ☰
+
+            </button>
+
+
+            <div class="topbar-title">
+
+                Beranda
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+
+                <button
+                    class="dark-mode-button"
+                    id="darkModeButton"
+                    title="Mode gelap"
+                >
+
+                    🌙
+
+                </button>
+
+
+                <a
+                    href="profil.html"
+                    class="profile-mini"
+                >
+
+                    <div class="profile-mini-avatar">
+
+                        👤
+
+                    </div>
+
+                    <span>
+                        Profil
+                    </span>
+
+                </a>
+
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================
+             HERO
+        ====================================== -->
+
+        <section class="hero">
 
 
             <h1>
                 Selamat Datang di
-                Ruang Aksara ✨
+                Ruang Aksara
             </h1>
 
 
             <p>
 
-                Tempat bagi mahasiswa STT Cipasung
-                untuk membaca, menulis, berbagi
-                ide, dan mengekspresikan kreativitas
-                melalui karya.
+                Wadah kreativitas mahasiswa STT Cipasung
+                untuk membaca, menulis, berbagi ide,
+                dan mengapresiasi karya sastra serta
+                karya kreatif lainnya.
 
             </p>
 
@@ -1222,752 +1573,1054 @@
                 class="hero-button"
             >
 
-                ✎ Kirim Karya
+                ✎ Mulai Berkarya
 
             </a>
 
 
-        </div>
+        </section>
 
 
+        <!-- =====================================
+             CONTENT
+        ====================================== -->
 
-        <!-- =================================
-             STATISTICS
-        ================================= -->
-
-        <div class="stats">
+        <div class="page-content">
 
 
-            <div class="stat-card">
+            <!-- STATS -->
 
-                <div class="stat-icon">
-                    📚
-                </div>
+            <section class="stats-grid">
 
-                <div>
 
-                    <h3>
-                        24
-                    </h3>
+                <div class="stat-card">
 
-                    <p>
+                    <div class="stat-icon">
+                        📚
+                    </div>
+
+                    <div
+                        class="stat-number"
+                        id="totalWorks"
+                    >
+                        3
+                    </div>
+
+                    <div class="stat-label">
                         Total Karya
-                    </p>
+                    </div>
 
                 </div>
 
-            </div>
 
+                <div class="stat-card">
 
-            <div class="stat-card">
+                    <div class="stat-icon">
+                        ✎
+                    </div>
 
-                <div class="stat-icon">
-                    👥
-                </div>
+                    <div
+                        class="stat-number"
+                        id="totalPoetry"
+                    >
+                        1
+                    </div>
 
-                <div>
-
-                    <h3>
-                        48
-                    </h3>
-
-                    <p>
-                        Penulis
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-icon">
-                    ❤️
-                </div>
-
-                <div>
-
-                    <h3>
-                        156
-                    </h3>
-
-                    <p>
-                        Apresiasi
-                    </p>
+                    <div class="stat-label">
+                        Puisi
+                    </div>
 
                 </div>
 
-            </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📖
+                    </div>
+
+                    <div
+                        class="stat-number"
+                        id="totalStories"
+                    >
+                        1
+                    </div>
+
+                    <div class="stat-label">
+                        Cerita
+                    </div>
+
+                </div>
 
 
-        </div>
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📝
+                    </div>
+
+                    <div
+                        class="stat-number"
+                        id="totalArticles"
+                    >
+                        1
+                    </div>
+
+                    <div class="stat-label">
+                        Artikel
+                    </div>
+
+                </div>
 
 
-
-        <!-- =================================
-             SEARCH
-        ================================= -->
-
-        <div class="search-section">
+            </section>
 
 
-            <div class="search-box">
+            <!-- =================================
+                 KARYA
+            ================================== -->
+
+            <section id="karya">
 
 
-                <span>
-                    🔎
-                </span>
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Karya Terbaru
+                        </h2>
+
+                        <p>
+                            Jelajahi karya dari mahasiswa
+                            dan komunitas Ruang Aksara.
+                        </p>
+
+                    </div>
+
+                </div>
 
 
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="Cari karya, judul, kategori..."
-                    autocomplete="off"
-                >
+                <!-- SEARCH -->
+
+                <div class="search-area">
 
 
-            </div>
+                    <div class="search-box">
 
+                        <span>
+                            🔎
+                        </span>
 
-        </div>
-
-
-
-        <!-- =================================
-             KARYA
-        ================================= -->
-
-        <section id="karya">
-
-
-            <div class="section-header">
-
-
-                <h2>
-                    Karya Terbaru
-                </h2>
-
-
-                <a href="#karya">
-                    Lihat semua →
-                </a>
-
-
-            </div>
-
-
-
-            <div class="works-grid">
-
-
-                <!-- =========================
-                     PUISI
-                ========================= -->
-
-                <article
-                    class="work-card searchable"
-                    data-category="puisi"
-                >
-
-
-                    <div class="work-image">
-
-                        <img
-                            src="images/puisi.jpg"
-                            alt="Puisi"
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Cari judul atau deskripsi karya..."
                         >
 
                     </div>
 
 
-                    <div class="work-content">
+                    <div class="filter-buttons">
 
 
-                        <span class="work-category">
-                            PUISI
-                        </span>
+                        <button
+                            class="filter-btn active"
+                            data-filter="all"
+                        >
+                            Semua
+                        </button>
 
 
-                        <h3>
-                            Langkah di Balik Aksara
-                        </h3>
+                        <button
+                            class="filter-btn"
+                            data-filter="puisi"
+                        >
+                            Puisi
+                        </button>
 
 
-                        <p>
-
-                            Setiap kata menyimpan cerita,
-                            setiap baris menyimpan perjalanan.
-                            Dari aksara kita belajar memahami
-                            dunia dan diri sendiri.
-
-                        </p>
+                        <button
+                            class="filter-btn"
+                            data-filter="cerita"
+                        >
+                            Cerita
+                        </button>
 
 
-                        <div class="work-footer">
-
-
-                            <button
-                                class="read-button"
-                                onclick="openWork('puisi')"
-                            >
-
-                                Baca
-
-                            </button>
-
-
-                            <button
-                                class="favorite-button"
-                                onclick="toggleFavorite(this)"
-                                title="Tambah ke favorit"
-                            >
-
-                                ♡
-
-                            </button>
-
-
-                        </div>
+                        <button
+                            class="filter-btn"
+                            data-filter="artikel"
+                        >
+                            Artikel
+                        </button>
 
 
                     </div>
 
-
-                </article>
-
+                </div>
 
 
-                <!-- =========================
-                     CERITA
-                ========================= -->
+                <!-- WORKS -->
 
-                <article
-                    class="work-card searchable"
-                    data-category="cerita"
+                <div
+                    class="works-grid"
+                    id="worksGrid"
                 >
 
 
-                    <div class="work-image">
+                    <!-- =========================
+                         SAMPLE PUISI
+                    ========================== -->
 
-                        <img
-                            src="images/cerita.jpg"
-                            alt="Cerita"
-                        >
-
-                    </div>
-
-
-                    <div class="work-content">
+                    <article
+                        class="work-card"
+                        data-category="puisi"
+                    >
 
 
-                        <span class="work-category">
-                            CERITA
-                        </span>
+                        <div class="work-image-wrapper">
+
+                            <img
+                                src="images/puisi.jpg"
+                                alt="Puisi"
+                                class="work-image"
+                                onerror="this.src='images/hero.jpg'"
+                            >
 
 
-                        <h3>
-                            Awal Sebuah Perjalanan
-                        </h3>
+                            <span class="work-category">
+                                PUISI
+                            </span>
+
+                        </div>
 
 
-                        <p>
-
-                            Setiap perjalanan dimulai
-                            dari sebuah langkah. Begitu
-                            pula sebuah cerita, bermula
-                            dari keberanian menulis.
-
-                        </p>
+                        <div class="work-content">
 
 
-                        <div class="work-footer">
+                            <div class="work-top">
+
+                                <span class="work-status">
+                                    ✦ Pilihan
+                                </span>
+
+
+                                <button
+                                    class="favorite-button"
+                                    onclick="toggleFavorite(this)"
+                                    title="Tambah ke favorit"
+                                >
+                                    ♡
+                                </button>
+
+                            </div>
+
+
+                            <h3>
+                                Langit yang Pulang
+                            </h3>
+
+
+                            <p>
+                                Tentang langit, rindu,
+                                dan perjalanan pulang
+                                yang tidak selalu sederhana.
+                            </p>
 
 
                             <button
-                                class="read-button"
-                                onclick="openWork('cerita')"
+                                class="read-work-button"
+                                onclick="openSampleWork(
+                                    'Langit yang Pulang',
+                                    'Puisi',
+                                    'Tentang langit, rindu, dan perjalanan pulang yang tidak selalu sederhana.',
+                                    'Langit perlahan berubah warna.\\n\\nAku menunggu sebuah kepulangan yang mungkin tidak pernah benar-benar selesai.'
+                                )"
                             >
-
-                                Baca
-
-                            </button>
-
-
-                            <button
-                                class="favorite-button"
-                                onclick="toggleFavorite(this)"
-                                title="Tambah ke favorit"
-                            >
-
-                                ♡
-
+                                Baca Karya →
                             </button>
 
 
                         </div>
 
-
-                    </div>
-
-
-                </article>
+                    </article>
 
 
+                    <!-- =========================
+                         SAMPLE CERITA
+                    ========================== -->
 
-                <!-- =========================
-                     ARTIKEL
-                ========================= -->
+                    <article
+                        class="work-card"
+                        data-category="cerita"
+                    >
 
-                <article
-                    class="work-card searchable"
-                    data-category="artikel"
+
+                        <div class="work-image-wrapper">
+
+                            <img
+                                src="images/cerita.jpg"
+                                alt="Cerita"
+                                class="work-image"
+                                onerror="this.src='images/hero.jpg'"
+                            >
+
+
+                            <span class="work-category">
+                                CERITA
+                            </span>
+
+                        </div>
+
+
+                        <div class="work-content">
+
+
+                            <div class="work-top">
+
+                                <span class="work-status">
+                                    ✦ Terbaru
+                                </span>
+
+
+                                <button
+                                    class="favorite-button"
+                                    onclick="toggleFavorite(this)"
+                                    title="Tambah ke favorit"
+                                >
+                                    ♡
+                                </button>
+
+                            </div>
+
+
+                            <h3>
+                                Langkah Pertama
+                            </h3>
+
+
+                            <p>
+                                Sebuah cerita tentang keberanian
+                                memulai sesuatu yang baru
+                                di lingkungan kampus.
+                            </p>
+
+
+                            <button
+                                class="read-work-button"
+                                onclick="openSampleWork(
+                                    'Langkah Pertama',
+                                    'Cerita',
+                                    'Sebuah cerita tentang keberanian memulai sesuatu yang baru di lingkungan kampus.',
+                                    'Hari pertama selalu terasa berbeda.\\n\\nIa berdiri di depan gedung kampus dan menarik napas panjang. Hari itu menjadi awal dari banyak hal yang belum ia ketahui.'
+                                )"
+                            >
+                                Baca Karya →
+                            </button>
+
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =========================
+                         SAMPLE ARTIKEL
+                    ========================== -->
+
+                    <article
+                        class="work-card"
+                        data-category="artikel"
+                    >
+
+
+                        <div class="work-image-wrapper">
+
+                            <img
+                                src="images/artikel.jpg"
+                                alt="Artikel"
+                                class="work-image"
+                                onerror="this.src='images/hero.jpg'"
+                            >
+
+
+                            <span class="work-category">
+                                ARTIKEL
+                            </span>
+
+                        </div>
+
+
+                        <div class="work-content">
+
+
+                            <div class="work-top">
+
+                                <span class="work-status">
+                                    ✦ Informatif
+                                </span>
+
+
+                                <button
+                                    class="favorite-button"
+                                    onclick="toggleFavorite(this)"
+                                    title="Tambah ke favorit"
+                                >
+                                    ♡
+                                </button>
+
+                            </div>
+
+
+                            <h3>
+                                Teknologi dan Literasi
+                            </h3>
+
+
+                            <p>
+                                Bagaimana teknologi dapat
+                                membantu mahasiswa membangun
+                                kebiasaan membaca dan menulis.
+                            </p>
+
+
+                            <button
+                                class="read-work-button"
+                                onclick="openSampleWork(
+                                    'Teknologi dan Literasi',
+                                    'Artikel',
+                                    'Bagaimana teknologi dapat membantu mahasiswa membangun kebiasaan membaca dan menulis.',
+                                    'Teknologi tidak hanya digunakan untuk hiburan.\\n\\nDengan pemanfaatan yang tepat, teknologi dapat menjadi ruang baru untuk belajar, membaca, menulis, dan berbagi pengetahuan.'
+                                )"
+                            >
+                                Baca Karya →
+                            </button>
+
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+
+                <!-- EMPTY SEARCH -->
+
+                <div
+                    class="search-empty"
+                    id="searchEmpty"
                 >
 
-
-                    <div class="work-image">
-
-                        <img
-                            src="images/artikel.jpg"
-                            alt="Artikel"
-                        >
-
-                    </div>
-
-
-                    <div class="work-content">
-
-
-                        <span class="work-category">
-                            ARTIKEL
-                        </span>
-
-
-                        <h3>
-                            Menulis di Era Digital
-                        </h3>
-
-
-                        <p>
-
-                            Di tengah perkembangan teknologi,
-                            menulis tetap menjadi salah satu
-                            cara menyampaikan gagasan dan
-                            pengetahuan.
-
-                        </p>
-
-
-                        <div class="work-footer">
-
-
-                            <button
-                                class="read-button"
-                                onclick="openWork('artikel')"
-                            >
-
-                                Baca
-
-                            </button>
-
-
-                            <button
-                                class="favorite-button"
-                                onclick="toggleFavorite(this)"
-                                title="Tambah ke favorit"
-                            >
-
-                                ♡
-
-                            </button>
-
-
-                        </div>
-
-
-                    </div>
-
-
-                </article>
-
-
-
-                <!-- =========================
-                     NO RESULT
-                ========================= -->
-
-                <div id="noSearchResult">
-
-
-                    <div class="search-icon">
+                    <div style="font-size:45px;">
                         🔎
                     </div>
-
 
                     <h3>
                         Karya tidak ditemukan
                     </h3>
 
-
                     <p>
-
                         Coba gunakan kata kunci
-                        atau judul yang berbeda.
-
+                        atau kategori lain.
                     </p>
-
 
                 </div>
 
 
+            </section>
+
+
+            <!-- =================================
+                 TENTANG
+            ================================== -->
+
+            <section
+                class="about-section"
+                id="tentang"
+            >
+
+                <h2>
+                    Tentang Ruang Aksara
+                </h2>
+
+
+                <p>
+
+                    Ruang Aksara STT Cipasung merupakan
+                    platform digital yang dirancang sebagai
+                    ruang bagi mahasiswa untuk menuangkan
+                    ide, kreativitas, pengalaman, dan
+                    pengetahuan melalui karya tulisan.
+
+                </p>
+
+
+                <p>
+
+                    Platform ini menyediakan tempat untuk
+                    membaca, menulis, mengirim karya,
+                    menyimpan karya favorit, serta
+                    membangun apresiasi terhadap budaya
+                    literasi di lingkungan kampus.
+
+                </p>
+
+            </section>
+
+
+            <!-- =================================
+                 KONTAK
+            ================================== -->
+
+            <section
+                class="contact-section"
+                id="kontak"
+            >
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Kontak
+                        </h2>
+
+                        <p>
+                            Hubungi pengelola Ruang Aksara.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+
+                    <div class="contact-item">
+
+                        <strong>
+                            🏫 Kampus
+                        </strong>
+
+                        <span>
+                            STT Cipasung Tasikmalaya
+                        </span>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <strong>
+                            ✉ Email
+                        </strong>
+
+                        <span>
+                            ruangaksara@sttcipasung.ac.id
+                        </span>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <strong>
+                            📱 Media Sosial
+                        </strong>
+
+                        <span>
+                            @ruangaksara.sttcipasung
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================
+         MODAL BACA KARYA
+    ====================================== -->
+
+    <div
+        class="modal"
+        id="workModal"
+    >
+
+
+        <div class="modal-box">
+
+
+            <button
+                class="modal-close"
+                id="modalClose"
+            >
+                ×
+            </button>
+
+
+            <span
+                class="modal-category"
+                id="modalCategory"
+            >
+                PUISI
+            </span>
+
+
+            <h2 id="modalTitle">
+                Judul Karya
+            </h2>
+
+
+            <div
+                class="modal-author"
+                id="modalAuthor"
+            >
+                Oleh: Penulis
             </div>
 
 
-        </section>
+            <img
+                id="modalImage"
+                class="modal-image"
+                src=""
+                alt=""
+            >
 
 
-
-        <!-- =================================
-             TENTANG
-        ================================= -->
-
-        <section
-            id="tentang"
-            class="info-section"
-        >
+            <p
+                id="modalDescription"
+                style="
+                    color:#888;
+                    line-height:1.6;
+                "
+            ></p>
 
 
-            <h2>
-                Tentang Ruang Aksara
-            </h2>
+            <div
+                class="modal-content"
+                id="modalContent"
+            ></div>
 
 
-            <p>
-
-                Ruang Aksara merupakan ruang digital
-                bagi mahasiswa STT Cipasung untuk
-                membaca, menulis, berbagi karya,
-                dan mengembangkan kreativitas.
-
-            </p>
-
-
-            <p>
-
-                Melalui platform ini, mahasiswa dapat
-                membagikan puisi, cerita, artikel,
-                maupun berbagai bentuk karya tulis
-                lainnya.
-
-            </p>
-
-
-        </section>
-
-
-
-        <!-- =================================
-             KONTAK
-        ================================= -->
-
-        <section
-            id="kontak"
-            class="contact-section"
-        >
-
-
-            <h2>
-                Hubungi Kami ✉
-            </h2>
-
-
-            <p>
-
-                Punya pertanyaan, masukan,
-                atau ingin berkolaborasi?
-
-            </p>
-
-
-            <p>
-
-                Silakan hubungi pengelola
-                Ruang Aksara STT Cipasung.
-
-            </p>
-
-
-        </section>
-
-
-    </section>
-
-
-</main>
-
-
-
-<!-- =====================================
-     MODAL DETAIL KARYA
-===================================== -->
-
-<div
-    class="work-modal"
-    id="workModal"
->
-
-
-    <div class="modal-content">
-
-
-        <button
-            class="modal-close"
-            onclick="closeWork()"
-        >
-
-            ×
-
-        </button>
-
-
-        <span
-            class="modal-category"
-            id="modalCategory"
-        >
-
-        </span>
-
-
-        <h2
-            id="modalTitle"
-        >
-
-        </h2>
-
-
-        <p
-            id="modalText"
-        >
-
-        </p>
-
+        </div>
 
     </div>
 
 
-</div>
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script src="script.js"></script>
 
 
-
-<!-- =====================================
-     JAVASCRIPT
-===================================== -->
-
-<script>
+    <script>
 
 
-    /* =================================
-       MOBILE MENU
-    ================================= */
+        /* =====================================
+           STORAGE
+        ===================================== */
 
-    const mobileMenu =
-        document.getElementById(
-            "mobileMenu"
-        );
-
-    const sidebar =
-        document.querySelector(
-            ".sidebar"
-        );
+        const WORK_STORAGE_KEY =
+            "ruangAksaraWorks";
 
 
-    if (
-        mobileMenu &&
-        sidebar
-    ) {
+        const FAVORITE_STORAGE_KEY =
+            "ruangAksaraFavorites";
 
-        mobileMenu.addEventListener(
-            "click",
-            function () {
 
-                sidebar.classList.toggle(
+        /* =====================================
+           GET WORKS
+        ===================================== */
+
+        function getSubmittedWorks() {
+
+            try {
+
+                return JSON.parse(
+                    localStorage.getItem(
+                        WORK_STORAGE_KEY
+                    )
+                ) || [];
+
+            } catch (error) {
+
+                return [];
+
+            }
+
+        }
+
+
+        /* =====================================
+           GET FAVORITES
+        ===================================== */
+
+        function getFavorites() {
+
+            try {
+
+                return JSON.parse(
+                    localStorage.getItem(
+                        FAVORITE_STORAGE_KEY
+                    )
+                ) || [];
+
+            } catch (error) {
+
+                return [];
+
+            }
+
+        }
+
+
+        /* =====================================
+           SAVE FAVORITES
+        ===================================== */
+
+        function saveFavorites(favorites) {
+
+            localStorage.setItem(
+                FAVORITE_STORAGE_KEY,
+                JSON.stringify(favorites)
+            );
+
+        }
+
+
+        /* =====================================
+           ESCAPE HTML
+        ===================================== */
+
+        function escapeHTML(value) {
+
+            return String(
+                value || ""
+            ).replace(
+                /[&<>"']/g,
+                function(char) {
+
+                    const map = {
+
+                        "&": "&amp;",
+                        "<": "&lt;",
+                        ">": "&gt;",
+                        '"': "&quot;",
+                        "'": "&#039;"
+
+                    };
+
+                    return map[char];
+
+                }
+            );
+
+        }
+
+
+        /* =====================================
+           RENDER SUBMITTED WORKS
+        ===================================== */
+
+        function renderSubmittedWorks() {
+
+            const grid =
+                document.getElementById(
+                    "worksGrid"
+                );
+
+            if (!grid) return;
+
+
+            const submittedWorks =
+                getSubmittedWorks();
+
+
+            submittedWorks.forEach(
+                function(work) {
+
+
+                    /*
+                     * Cegah duplikat.
+                     */
+
+                    if (
+                        grid.querySelector(
+                            '[data-submitted-id="' +
+                            work.id +
+                            '"]'
+                        )
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    const card =
+                        document.createElement(
+                            "article"
+                        );
+
+
+                    card.className =
+                        "work-card";
+
+
+                    card.dataset.category =
+                        String(
+                            work.category || ""
+                        ).toLowerCase();
+
+
+                    card.dataset.submittedId =
+                        work.id;
+
+
+                    const image =
+                        work.image ||
+                        "images/hero.jpg";
+
+
+                    card.innerHTML = `
+
+                        <div
+                            class="work-image-wrapper"
+                        >
+
+                            <img
+                                src="${escapeHTML(image)}"
+                                alt="${escapeHTML(work.title)}"
+                                class="work-image"
+                                onerror="this.src='images/hero.jpg'"
+                            >
+
+                            <span
+                                class="work-category"
+                            >
+                                ${escapeHTML(
+                                    work.category
+                                )}
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="work-content"
+                        >
+
+                            <div
+                                class="work-top"
+                            >
+
+                                <span
+                                    class="work-status"
+                                >
+                                    🕐 Menunggu Review
+                                </span>
+
+
+                                <button
+                                    class="favorite-button"
+                                    onclick="toggleFavorite(this)"
+                                    title="Tambah ke favorit"
+                                >
+                                    ♡
+                                </button>
+
+                            </div>
+
+
+                            <h3>
+                                ${escapeHTML(
+                                    work.title
+                                )}
+                            </h3>
+
+
+                            <p>
+                                ${escapeHTML(
+                                    work.description
+                                )}
+                            </p>
+
+
+                            <button
+                                class="read-work-button"
+                                onclick="openSubmittedWork('${escapeHTML(work.id)}')"
+                            >
+                                Baca Karya →
+                            </button>
+
+                        </div>
+
+                    `;
+
+
+                    /*
+                     * Karya baru masuk
+                     * ke bagian paling atas.
+                     */
+
+                    grid.prepend(card);
+
+                }
+            );
+
+        }
+
+
+        /* =====================================
+           OPEN SAMPLE WORK
+        ===================================== */
+
+        function openSampleWork(
+            title,
+            category,
+            description,
+            content
+        ) {
+
+            openModal(
+                title,
+                category,
+                description,
+                content,
+                "",
+                "Penulis Ruang Aksara"
+            );
+
+        }
+
+
+        /* =====================================
+           OPEN SUBMITTED WORK
+        ===================================== */
+
+        function openSubmittedWork(id) {
+
+            const works =
+                getSubmittedWorks();
+
+
+            const work =
+                works.find(
+                    function(item) {
+
+                        return item.id === id;
+
+                    }
+                );
+
+
+            if (!work) return;
+
+
+            openModal(
+
+                work.title,
+
+                work.category,
+
+                work.description,
+
+                work.content,
+
+                work.image,
+
+                work.author || "Mahasiswa STT Cipasung"
+
+            );
+
+        }
+
+
+        /* =====================================
+           OPEN MODAL
+        ===================================== */
+
+        function openModal(
+            title,
+            category,
+            description,
+            content,
+            image,
+            author
+        ) {
+
+
+            const modal =
+                document.getElementById(
+                    "workModal"
+                );
+
+
+            document.getElementById(
+                "modalTitle"
+            ).textContent =
+                title;
+
+
+            document.getElementById(
+                "modalCategory"
+            ).textContent =
+                category;
+
+
+            document.getElementById(
+                "modalDescription"
+            ).textContent =
+                description;
+
+
+            document.getElementById(
+                "modalContent"
+            ).textContent =
+                content;
+
+
+            document.getElementById(
+                "modalAuthor"
+            ).textContent =
+                "Oleh: " + author;
+
+
+            const modalImage =
+                document.getElementById(
+                    "modalImage"
+                );
+
+
+            if (image) {
+
+                modalImage.src =
+                    image;
+
+                modalImage.classList.add(
+                    "show"
+                );
+
+            } else {
+
+                modalImage.classList.remove(
                     "show"
                 );
 
             }
-        );
 
-    }
-
-
-
-    /* =================================
-       DARK MODE
-    ================================= */
-
-    const darkModeBtn =
-        document.getElementById(
-            "darkModeBtn"
-        );
-
-
-    if (darkModeBtn) {
-
-        darkModeBtn.addEventListener(
-            "click",
-            function () {
-
-                document.body.classList.toggle(
-                    "dark"
-                );
-
-
-                if (
-                    document.body.classList.contains(
-                        "dark"
-                    )
-                ) {
-
-                    darkModeBtn.innerHTML =
-                        "☀️ Mode Terang";
-
-                } else {
-
-                    darkModeBtn.innerHTML =
-                        "🌙 Mode Gelap";
-
-                }
-
-            }
-        );
-
-    }
-
-
-
-    /* =================================
-       DATA KARYA
-    ================================= */
-
-    const works = {
-
-        puisi: {
-
-            category: "PUISI",
-
-            title:
-                "Langkah di Balik Aksara",
-
-            text:
-                "Setiap kata menyimpan cerita, " +
-                "setiap baris menyimpan perjalanan. " +
-                "Dari aksara kita belajar memahami " +
-                "dunia dan diri sendiri."
-
-        },
-
-
-        cerita: {
-
-            category: "CERITA",
-
-            title:
-                "Awal Sebuah Perjalanan",
-
-            text:
-                "Setiap perjalanan dimulai dari " +
-                "sebuah langkah. Begitu pula sebuah " +
-                "cerita, bermula dari keberanian " +
-                "untuk menuliskan kata pertama."
-
-        },
-
-
-        artikel: {
-
-            category: "ARTIKEL",
-
-            title:
-                "Menulis di Era Digital",
-
-            text:
-                "Di tengah perkembangan teknologi, " +
-                "menulis tetap menjadi salah satu " +
-                "cara untuk menyampaikan gagasan " +
-                "dan pengetahuan."
-
-        }
-
-    };
-
-
-
-    /* =================================
-       OPEN WORK
-    ================================= */
-
-    function openWork(type) {
-
-
-        const work =
-            works[type];
-
-
-        if (!work) {
-            return;
-        }
-
-
-        const modal =
-            document.getElementById(
-                "workModal"
-            );
-
-
-        const category =
-            document.getElementById(
-                "modalCategory"
-            );
-
-
-        const title =
-            document.getElementById(
-                "modalTitle"
-            );
-
-
-        const text =
-            document.getElementById(
-                "modalText"
-            );
-
-
-        if (category) {
-
-            category.textContent =
-                work.category;
-
-        }
-
-
-        if (title) {
-
-            title.textContent =
-                work.title;
-
-        }
-
-
-        if (text) {
-
-            text.textContent =
-                work.text;
-
-        }
-
-
-        if (modal) {
 
             modal.classList.add(
                 "show"
@@ -1975,244 +2628,582 @@
 
         }
 
-    }
+
+        /* =====================================
+           CLOSE MODAL
+        ===================================== */
+
+        function closeModal() {
+
+            document
+                .getElementById("workModal")
+                .classList.remove("show");
+
+        }
 
 
-
-    /* =================================
-       CLOSE WORK
-    ================================= */
-
-    function closeWork() {
-
-
-        const modal =
-            document.getElementById(
-                "workModal"
+        document
+            .getElementById("modalClose")
+            .addEventListener(
+                "click",
+                closeModal
             );
 
 
-        if (modal) {
+        document
+            .getElementById("workModal")
+            .addEventListener(
+                "click",
+                function(event) {
 
-            modal.classList.remove(
-                "show"
+                    if (
+                        event.target === this
+                    ) {
+
+                        closeModal();
+
+                    }
+
+                }
+            );
+
+
+        /* =====================================
+           FAVORITE
+        ===================================== */
+
+        function toggleFavorite(button) {
+
+            if (!button) return;
+
+
+            const card =
+                button.closest(
+                    ".work-card"
+                );
+
+
+            if (!card) return;
+
+
+            const titleElement =
+                card.querySelector("h3");
+
+
+            const categoryElement =
+                card.querySelector(
+                    ".work-category"
+                );
+
+
+            const descriptionElement =
+                card.querySelector("p");
+
+
+            const imageElement =
+                card.querySelector("img");
+
+
+            if (!titleElement) return;
+
+
+            const title =
+                titleElement
+                    .innerText
+                    .trim();
+
+
+            const category =
+                categoryElement
+                    ? categoryElement.innerText.trim()
+                    : "KARYA";
+
+
+            const description =
+                descriptionElement
+                    ? descriptionElement.innerText.trim()
+                    : "";
+
+
+            const image =
+                imageElement
+                    ? imageElement.getAttribute("src")
+                    : "";
+
+
+            let favorites =
+                getFavorites();
+
+
+            const existingIndex =
+                favorites.findIndex(
+                    function(item) {
+
+                        return item.title === title;
+
+                    }
+                );
+
+
+            if (existingIndex !== -1) {
+
+
+                favorites.splice(
+                    existingIndex,
+                    1
+                );
+
+
+                button.innerHTML = "♡";
+
+                button.classList.remove(
+                    "active"
+                );
+
+
+                button.title =
+                    "Tambah ke favorit";
+
+
+            } else {
+
+
+                favorites.push({
+
+                    title:
+                        title,
+
+                    category:
+                        category,
+
+                    description:
+                        description,
+
+                    image:
+                        image
+
+                });
+
+
+                button.innerHTML = "♥";
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                button.title =
+                    "Hapus dari favorit";
+
+            }
+
+
+            saveFavorites(
+                favorites
             );
 
         }
 
-    }
+
+        /* =====================================
+           RESTORE FAVORITES
+        ===================================== */
+
+        function restoreFavoriteButtons() {
+
+            const favorites =
+                getFavorites();
 
 
-
-    /* =================================
-       CLOSE MODAL CLICK OUTSIDE
-    ================================= */
-
-    const workModal =
-        document.getElementById(
-            "workModal"
-        );
+            document
+                .querySelectorAll(
+                    ".work-card"
+                )
+                .forEach(
+                    function(card) {
 
 
-    if (workModal) {
-
-        workModal.addEventListener(
-            "click",
-            function (event) {
-
-                if (
-                    event.target ===
-                    workModal
-                ) {
-
-                    closeWork();
-
-                }
-
-            }
-        );
-
-    }
+                        const titleElement =
+                            card.querySelector(
+                                "h3"
+                            );
 
 
-
-    /* =================================
-       SEARCH
-    ================================= */
-
-    const searchInput =
-        document.getElementById(
-            "searchInput"
-        );
-
-
-    if (searchInput) {
-
-        searchInput.addEventListener(
-            "input",
-            function () {
-
-
-                const keyword =
-                    this.value
-                        .trim()
-                        .toLowerCase();
-
-
-                const cards =
-                    document.querySelectorAll(
-                        ".searchable"
-                    );
-
-
-                const noResult =
-                    document.getElementById(
-                        "noSearchResult"
-                    );
-
-
-                let found = 0;
-
-
-                cards.forEach(
-                    function (card) {
-
-
-                        const text =
-                            card.innerText
-                                .toLowerCase();
+                        const button =
+                            card.querySelector(
+                                ".favorite-button"
+                            );
 
 
                         if (
-                            text.includes(
-                                keyword
-                            )
+                            !titleElement ||
+                            !button
                         ) {
 
-                            card.style.display =
-                                "";
+                            return;
 
-                            found++;
+                        }
 
-                        } else {
 
-                            card.style.display =
-                                "none";
+                        const title =
+                            titleElement
+                                .innerText
+                                .trim();
+
+
+                        const exists =
+                            favorites.some(
+                                function(item) {
+
+                                    return item.title === title;
+
+                                }
+                            );
+
+
+                        if (exists) {
+
+                            button.innerHTML =
+                                "♥";
+
+                            button.classList.add(
+                                "active"
+                            );
+
+                            button.title =
+                                "Hapus dari favorit";
 
                         }
 
                     }
                 );
 
+        }
 
-                if (noResult) {
+
+        /* =====================================
+           SEARCH
+        ===================================== */
+
+        const searchInput =
+            document.getElementById(
+                "searchInput"
+            );
+
+
+        const searchEmpty =
+            document.getElementById(
+                "searchEmpty"
+            );
+
+
+        let currentFilter = "all";
+
+
+        function filterWorks() {
+
+            const keyword =
+                searchInput.value
+                    .toLowerCase()
+                    .trim();
+
+
+            const cards =
+                document.querySelectorAll(
+                    "#worksGrid .work-card"
+                );
+
+
+            let visibleCount = 0;
+
+
+            cards.forEach(
+                function(card) {
+
+
+                    const title =
+                        card.querySelector("h3")
+                            ?.innerText
+                            .toLowerCase() || "";
+
+
+                    const description =
+                        card.querySelector("p")
+                            ?.innerText
+                            .toLowerCase() || "";
+
+
+                    const category =
+                        (
+                            card.dataset.category ||
+                            ""
+                        ).toLowerCase();
+
+
+                    const matchSearch =
+                        title.includes(keyword) ||
+                        description.includes(keyword);
+
+
+                    const matchCategory =
+                        currentFilter === "all" ||
+                        category === currentFilter;
+
 
                     if (
-                        keyword !== "" &&
-                        found === 0
+                        matchSearch &&
+                        matchCategory
                     ) {
 
-                        noResult.style.display =
-                            "block";
+                        card.style.display =
+                            "";
+
+                        visibleCount++;
 
                     } else {
 
-                        noResult.style.display =
+                        card.style.display =
                             "none";
 
                     }
 
                 }
+            );
+
+
+            if (visibleCount === 0) {
+
+                searchEmpty.classList.add(
+                    "show"
+                );
+
+            } else {
+
+                searchEmpty.classList.remove(
+                    "show"
+                );
 
             }
-        );
-
-    }
-
-
-
-    /* =================================
-       FAVORITE
-    ================================= */
-
-    function toggleFavorite(button) {
-
-
-        if (!button) {
-            return;
-        }
-
-
-        button.classList.toggle(
-            "active"
-        );
-
-
-        if (
-            button.classList.contains(
-                "active"
-            )
-        ) {
-
-            button.innerHTML =
-                "♥";
-
-            button.title =
-                "Hapus dari favorit";
-
-        } else {
-
-            button.innerHTML =
-                "♡";
-
-            button.title =
-                "Tambah ke favorit";
 
         }
 
-    }
 
-
-
-    /* =================================
-       SIDEBAR ACTIVE
-    ================================= */
-
-    const menuItems =
-        document.querySelectorAll(
-            ".menu-item"
+        searchInput.addEventListener(
+            "input",
+            filterWorks
         );
 
 
-    menuItems.forEach(
-        function (item) {
+        /* =====================================
+           FILTER BUTTON
+        ===================================== */
 
-            item.addEventListener(
-                "click",
-                function () {
+        document
+            .querySelectorAll(".filter-btn")
+            .forEach(
+                function(button) {
 
 
-                    menuItems.forEach(
-                        function (menu) {
+                    button.addEventListener(
+                        "click",
+                        function() {
 
-                            menu.classList.remove(
+
+                            document
+                                .querySelectorAll(
+                                    ".filter-btn"
+                                )
+                                .forEach(
+                                    function(btn) {
+
+                                        btn.classList.remove(
+                                            "active"
+                                        );
+
+                                    }
+                                );
+
+
+                            this.classList.add(
                                 "active"
                             );
+
+
+                            currentFilter =
+                                this.dataset.filter;
+
+
+                            filterWorks();
 
                         }
                     );
 
+                }
+            );
 
-                    this.classList.add(
-                        "active"
+
+        /* =====================================
+           UPDATE STATS
+        ===================================== */
+
+        function updateStats() {
+
+            const submittedWorks =
+                getSubmittedWorks();
+
+
+            const sampleCount = 3;
+
+
+            const total =
+                sampleCount +
+                submittedWorks.length;
+
+
+            const poetry =
+                1 +
+                submittedWorks.filter(
+                    function(work) {
+
+                        return String(
+                            work.category
+                        ).toLowerCase() === "puisi";
+
+                    }
+                ).length;
+
+
+            const stories =
+                1 +
+                submittedWorks.filter(
+                    function(work) {
+
+                        return String(
+                            work.category
+                        ).toLowerCase() === "cerita";
+
+                    }
+                ).length;
+
+
+            const articles =
+                1 +
+                submittedWorks.filter(
+                    function(work) {
+
+                        return String(
+                            work.category
+                        ).toLowerCase() === "artikel";
+
+                    }
+                ).length;
+
+
+            document.getElementById(
+                "totalWorks"
+            ).textContent =
+                total;
+
+
+            document.getElementById(
+                "totalPoetry"
+            ).textContent =
+                poetry;
+
+
+            document.getElementById(
+                "totalStories"
+            ).textContent =
+                stories;
+
+
+            document.getElementById(
+                "totalArticles"
+            ).textContent =
+                articles;
+
+        }
+
+
+        /* =====================================
+           MOBILE SIDEBAR
+        ===================================== */
+
+        const mobileMenuButton =
+            document.getElementById(
+                "mobileMenuButton"
+            );
+
+
+        const sidebar =
+            document.getElementById(
+                "sidebar"
+            );
+
+
+        if (
+            mobileMenuButton &&
+            sidebar
+        ) {
+
+            mobileMenuButton.addEventListener(
+                "click",
+                function() {
+
+                    sidebar.classList.toggle(
+                        "open"
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =====================================
+           DARK MODE
+        ===================================== */
+
+        const darkModeButton =
+            document.getElementById(
+                "darkModeButton"
+            );
+
+
+        if (darkModeButton) {
+
+            darkModeButton.addEventListener(
+                "click",
+                function() {
+
+                    document.body.classList.toggle(
+                        "dark"
                     );
 
 
-                    if (sidebar) {
+                    if (
+                        document.body.classList.contains(
+                            "dark"
+                        )
+                    ) {
 
-                        sidebar.classList.remove(
-                            "show"
+                        localStorage.setItem(
+                            "ruangAksaraDarkMode",
+                            "true"
                         );
+
+                        this.innerHTML =
+                            "☀️";
+
+                    } else {
+
+                        localStorage.setItem(
+                            "ruangAksaraDarkMode",
+                            "false"
+                        );
+
+                        this.innerHTML =
+                            "🌙";
 
                     }
 
@@ -2220,10 +3211,53 @@
             );
 
         }
-    );
 
 
-</script>
+        /* =====================================
+           LOAD DARK MODE
+        ===================================== */
+
+        if (
+            localStorage.getItem(
+                "ruangAksaraDarkMode"
+            ) === "true"
+        ) {
+
+            document.body.classList.add(
+                "dark"
+            );
+
+
+            if (darkModeButton) {
+
+                darkModeButton.innerHTML =
+                    "☀️";
+
+            }
+
+        }
+
+
+        /* =====================================
+           INITIALIZE
+        ===================================== */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                renderSubmittedWorks();
+
+                updateStats();
+
+                restoreFavoriteButtons();
+
+                filterWorks();
+
+            }
+        );
+
+    </script>
 
 
 </body>
