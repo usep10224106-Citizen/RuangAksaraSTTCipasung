@@ -236,24 +236,117 @@ menuItems.forEach(item => {
     });
 
 });
+// ==============================
+// FAVORITE SYSTEM
+// ==============================
+
+function getFavorites() {
+    return JSON.parse(
+        localStorage.getItem("ruangAksaraFavorites")
+    ) || [];
+}
 
 
-// ==============================
-// FAVORITE BUTTON
-// ==============================
+function saveFavorites(favorites) {
+    localStorage.setItem(
+        "ruangAksaraFavorites",
+        JSON.stringify(favorites)
+    );
+}
+
 
 function toggleFavorite(button) {
 
-    button.classList.toggle("active");
+    if (!button) return;
 
-    if (button.classList.contains("active")) {
+    const card =
+        button.closest(".work-card");
 
-        button.innerHTML = "♥";
+    if (!card) return;
 
-    } else {
+    const titleElement =
+        card.querySelector("h3");
+
+    const categoryElement =
+        card.querySelector(".work-category");
+
+    if (!titleElement) return;
+
+    const title =
+        titleElement.innerText.trim();
+
+    const category =
+        categoryElement
+            ? categoryElement.innerText.trim()
+            : "KARYA";
+
+    let favorites =
+        getFavorites();
+
+    const existingIndex =
+        favorites.findIndex(
+            item => item.title === title
+        );
+
+
+    // =========================
+    // HAPUS FAVORIT
+    // =========================
+
+    if (existingIndex !== -1) {
+
+        favorites.splice(
+            existingIndex,
+            1
+        );
 
         button.innerHTML = "♡";
 
+        button.classList.remove(
+            "active"
+        );
+
+        button.title =
+            "Tambah ke favorit";
+
+
     }
 
+    // =========================
+    // TAMBAH FAVORIT
+    // =========================
+
+    else {
+
+        favorites.push({
+
+            title: title,
+
+            category: category,
+
+            description:
+                card.querySelector("p")
+                    ?.innerText || "",
+
+            image:
+                card.querySelector("img")
+                    ?.getAttribute("src") || ""
+
+        });
+
+        button.innerHTML = "♥";
+
+        button.classList.add(
+            "active"
+        );
+
+        button.title =
+            "Hapus dari favorit";
+
+    }
+
+
+    saveFavorites(favorites);
+
 }
+
