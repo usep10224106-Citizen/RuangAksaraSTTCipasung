@@ -1,1709 +1,1163 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Kirim Karya - Ruang Aksara STT Cipasung</title>
 
     <link rel="stylesheet" href="style.css">
 
-
     <style>
-
-        /* =====================================
-           KIRIM KARYA PAGE
-        ===================================== */
-
-        .submit-page {
-            padding: 30px;
-            max-width: 1100px;
-            margin: auto;
+        * {
+            box-sizing: border-box;
         }
 
-
-        /* HERO */
-
-        .submit-hero {
-            background: linear-gradient(
-                135deg,
-                #0f5132,
-                #198754
-            );
-
-            border-radius: 24px;
-
-            padding: 35px;
-
-            color: white;
-
-            margin-bottom: 28px;
-
-            position: relative;
-
-            overflow: hidden;
-        }
-
-
-        .submit-hero::after {
-
-            content: "✎";
-
-            position: absolute;
-
-            right: 40px;
-
-            top: 5px;
-
-            font-size: 150px;
-
-            opacity: 0.08;
-
-        }
-
-
-        .submit-hero h1 {
-
-            margin: 0 0 10px;
-
-            font-size: 32px;
-
-        }
-
-
-        .submit-hero p {
-
+        body {
             margin: 0;
-
-            opacity: 0.9;
-
-            max-width: 650px;
-
-            line-height: 1.6;
-
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            transition: 0.3s;
         }
 
+        body.dark {
+            background: #111827;
+            color: #f3f4f6;
+        }
 
-        /* FORM CARD */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-        .submit-card {
+        /* =========================
+           SIDEBAR
+        ========================= */
 
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 250px;
+            height: 100vh;
+            background: #ffffff;
+            border-right: 1px solid #e5e7eb;
+            padding: 20px 15px;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        body.dark .sidebar {
+            background: #1f2937;
+            border-color: #374151;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            transition: 0.25s;
+            color: #444;
+        }
+
+        body.dark .menu-item {
+            color: #ddd;
+        }
+
+        .menu-item:hover,
+        .menu-item.active {
+            background: #e9eefc;
+            color: #3157d5;
+        }
+
+        body.dark .menu-item:hover,
+        body.dark .menu-item.active {
+            background: #374151;
+            color: #93c5fd;
+        }
+
+        .menu-icon {
+            width: 25px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+            margin-left: 250px;
+            min-height: 100vh;
+        }
+
+        .topbar {
+            height: 70px;
             background: white;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+        }
 
-            border-radius: 22px;
+        body.dark .topbar {
+            background: #1f2937;
+            border-color: #374151;
+        }
 
+        .topbar-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .topbar-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .topbar-btn {
+            border: none;
+            background: #f1f5f9;
+            padding: 10px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        body.dark .topbar-btn {
+            background: #374151;
+            color: white;
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content {
+            padding: 35px;
+            max-width: 1100px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #3157d5, #7c3aed);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            margin: 0 0 10px;
+            font-size: 32px;
+        }
+
+        .hero p {
+            margin: 0;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-card {
+            background: white;
             padding: 30px;
-
-            box-shadow:
-                0 8px 30px rgba(0,0,0,0.06);
-
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
         }
 
-
-        .form-section {
-
-            margin-bottom: 28px;
-
+        body.dark .form-card {
+            background: #1f2937;
         }
-
-
-        .form-section-title {
-
-            font-size: 19px;
-
-            font-weight: 700;
-
-            margin-bottom: 18px;
-
-            color: #198754;
-
-        }
-
-
-        .form-grid {
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 20px;
-
-        }
-
 
         .form-group {
-
-            margin-bottom: 20px;
-
+            margin-bottom: 22px;
         }
-
-
-        .form-group.full {
-
-            grid-column: 1 / -1;
-
-        }
-
 
         .form-group label {
-
             display: block;
-
-            font-weight: 600;
-
+            font-weight: bold;
             margin-bottom: 8px;
-
         }
 
-
-        .required {
-
-            color: #dc3545;
-
-        }
-
-
-        .form-control {
-
-            width: 100%;
-
-            box-sizing: border-box;
-
-            border: 1px solid #ddd;
-
-            border-radius: 12px;
-
-            padding: 13px 15px;
-
-            font-family: inherit;
-
-            font-size: 14px;
-
-            outline: none;
-
-            transition: 0.2s;
-
-            background: white;
-
-        }
-
-
-        .form-control:focus {
-
-            border-color: #198754;
-
-            box-shadow:
-                0 0 0 3px rgba(25,135,84,0.10);
-
-        }
-
-
-        textarea.form-control {
-
-            min-height: 150px;
-
-            resize: vertical;
-
-            line-height: 1.6;
-
-        }
-
-
-        .description-textarea {
-
-            min-height: 100px !important;
-
-        }
-
-
-        .character-count {
-
-            text-align: right;
-
-            font-size: 12px;
-
-            color: #888;
-
-            margin-top: 5px;
-
-        }
-
-
-        /* SELECT */
-
-        select.form-control {
-
-            cursor: pointer;
-
-        }
-
-
-        /* UPLOAD */
-
-        .upload-box {
-
-            border: 2px dashed #cfd8d3;
-
-            border-radius: 16px;
-
-            padding: 25px;
-
-            text-align: center;
-
-            cursor: pointer;
-
-            transition: 0.2s;
-
-        }
-
-
-        .upload-box:hover {
-
-            border-color: #198754;
-
-            background: #f8fffb;
-
-        }
-
-
-        .upload-icon {
-
-            font-size: 40px;
-
-            margin-bottom: 10px;
-
-        }
-
-
-        .upload-box strong {
-
+        .form-group small {
             display: block;
-
-            margin-bottom: 5px;
-
+            margin-top: 6px;
+            color: #777;
         }
 
-
-        .upload-box span {
-
-            color: #888;
-
-            font-size: 13px;
-
-        }
-
-
-        #coverInput {
-
-            display: none;
-
-        }
-
-
-        /* IMAGE PREVIEW */
-
-        .image-preview {
-
-            display: none;
-
-            margin-top: 15px;
-
-            position: relative;
-
-        }
-
-
-        .image-preview.show {
-
-            display: block;
-
-        }
-
-
-        .image-preview img {
-
+        input,
+        select,
+        textarea {
             width: 100%;
-
-            max-height: 300px;
-
-            object-fit: cover;
-
-            border-radius: 15px;
-
-        }
-
-
-        .remove-image {
-
-            position: absolute;
-
-            top: 10px;
-
-            right: 10px;
-
-            width: 35px;
-
-            height: 35px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background: #dc3545;
-
-            color: white;
-
-            cursor: pointer;
-
-            font-size: 16px;
-
-        }
-
-
-        /* STATUS */
-
-        .status-info {
-
-            background: #fff8e1;
-
-            border-left: 4px solid #ffc107;
-
-            padding: 15px;
-
+            border: 1px solid #d1d5db;
             border-radius: 10px;
-
-            color: #665000;
-
-            font-size: 14px;
-
-            line-height: 1.6;
-
+            padding: 13px 15px;
+            font-size: 15px;
+            outline: none;
+            background: white;
+            color: #222;
+            transition: 0.2s;
         }
 
-
-        /* AGREEMENT */
-
-        .agreement {
-
-            display: flex;
-
-            align-items: flex-start;
-
-            gap: 10px;
-
-            font-size: 14px;
-
-            line-height: 1.5;
-
-            margin-top: 20px;
-
+        textarea {
+            resize: vertical;
+            min-height: 160px;
         }
 
-
-        .agreement input {
-
-            margin-top: 4px;
-
-            accent-color: #198754;
-
+        body.dark input,
+        body.dark select,
+        body.dark textarea {
+            background: #111827;
+            border-color: #4b5563;
+            color: white;
         }
 
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #3157d5;
+            box-shadow: 0 0 0 3px rgba(49,87,213,0.12);
+        }
 
-        /* BUTTON */
+        .char-count {
+            text-align: right;
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .preview {
+            display: none;
+            margin-top: 15px;
+        }
+
+        .preview img {
+            width: 220px;
+            max-width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
 
         .form-actions {
-
             display: flex;
-
-            justify-content: flex-end;
-
             gap: 12px;
-
-            margin-top: 25px;
-
-            padding-top: 25px;
-
-            border-top: 1px solid #eee;
-
+            margin-top: 30px;
         }
-
 
         .btn {
-
             border: none;
-
-            border-radius: 11px;
-
-            padding: 12px 20px;
-
+            padding: 13px 20px;
+            border-radius: 10px;
             cursor: pointer;
-
-            font-weight: 600;
-
-            transition: 0.2s;
-
+            font-weight: bold;
+            font-size: 14px;
         }
-
-
-        .btn:hover {
-
-            transform: translateY(-2px);
-
-        }
-
-
-        .btn-secondary {
-
-            background: #f1f3f5;
-
-            color: #555;
-
-        }
-
 
         .btn-primary {
-
-            background: #198754;
-
+            background: #3157d5;
             color: white;
-
         }
 
-
-        /* SUCCESS */
-
-        .success-message {
-
-            display: none;
-
-            background: #d1e7dd;
-
-            color: #0f5132;
-
-            border: 1px solid #badbcc;
-
-            border-radius: 15px;
-
-            padding: 18px;
-
-            margin-bottom: 25px;
-
-            line-height: 1.6;
-
+        .btn-primary:hover {
+            background: #2444b5;
         }
 
-
-        .success-message.show {
-
-            display: block;
-
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #333;
         }
-
-
-        .success-message strong {
-
-            display: block;
-
-            margin-bottom: 5px;
-
-        }
-
-
-        /* ERROR */
-
-        .error-message {
-
-            display: none;
-
-            background: #f8d7da;
-
-            color: #842029;
-
-            border: 1px solid #f5c2c7;
-
-            border-radius: 12px;
-
-            padding: 14px;
-
-            margin-bottom: 20px;
-
-        }
-
-
-        .error-message.show {
-
-            display: block;
-
-        }
-
-
-        /* DARK MODE */
-
-        body.dark .submit-card {
-
-            background: #1f2937;
-
-            color: white;
-
-        }
-
-
-        body.dark .form-control {
-
-            background: #111827;
-
-            color: white;
-
-            border-color: #374151;
-
-        }
-
-
-        body.dark .form-control::placeholder {
-
-            color: #9ca3af;
-
-        }
-
-
-        body.dark .upload-box {
-
-            border-color: #4b5563;
-
-        }
-
-
-        body.dark .upload-box:hover {
-
-            background: #17251d;
-
-        }
-
-
-        body.dark .form-actions {
-
-            border-color: #374151;
-
-        }
-
 
         body.dark .btn-secondary {
-
             background: #374151;
-
             color: white;
-
         }
 
+        /* =========================
+           SUCCESS
+        ========================= */
 
-        /* RESPONSIVE */
+        .success-box {
+            display: none;
+            background: #dcfce7;
+            border: 1px solid #86efac;
+            color: #166534;
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
 
-        @media (max-width: 750px) {
+        .success-box.show {
+            display: block;
+        }
 
-            .submit-page {
+        body.dark .success-box {
+            background: #14532d;
+            border-color: #166534;
+            color: #bbf7d0;
+        }
 
+        /* =========================
+           MOBILE
+        ========================= */
+
+        .mobile-menu {
+            display: none;
+            border: none;
+            background: #3157d5;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 800px) {
+
+            .sidebar {
+                transform: translateX(-100%);
+                transition: 0.3s;
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            .main {
+                margin-left: 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .content {
                 padding: 20px;
-
             }
 
-
-            .submit-hero {
-
-                padding: 25px;
-
+            .topbar {
+                padding: 0 15px;
             }
 
-
-            .submit-hero h1 {
-
-                font-size: 26px;
-
+            .hero h1 {
+                font-size: 25px;
             }
 
-
-            .form-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .form-group.full {
-
-                grid-column: auto;
-
-            }
-
-
-            .submit-card {
-
+            .form-card {
                 padding: 20px;
-
             }
-
 
             .form-actions {
-
                 flex-direction: column;
-
             }
-
 
             .btn {
-
                 width: 100%;
-
             }
-
         }
-
     </style>
-
 </head>
-
 
 <body>
 
+<!-- =========================
+     SIDEBAR
+========================= -->
 
-    <!-- =====================================
-         SIDEBAR
-    ====================================== -->
+<aside class="sidebar" id="sidebar">
 
-    <aside class="sidebar">
+    <div class="logo">
+        Ruang Aksara
+    </div>
+
+    <div class="logo-subtitle">
+        RUANG LITERASI STTCIPASUNG
+    </div>
+
+    <nav class="menu">
+
+        <a href="index.html" class="menu-item">
+            <span class="menu-icon">🏠</span>
+            <span>Beranda</span>
+        </a>
+
+        <a href="index.html#karya" class="menu-item">
+            <span class="menu-icon">📚</span>
+            <span>Karya</span>
+        </a>
+
+        <a href="kirim-karya.html" class="menu-item active">
+            <span class="menu-icon">✎</span>
+            <span>Kirim Karya</span>
+        </a>
+
+        <a href="favorit.html" class="menu-item">
+            <span class="menu-icon">♡</span>
+            <span>Favorit</span>
+        </a>
+
+        <a href="notifikasi.html" class="menu-item">
+            <span class="menu-icon">🔔</span>
+            <span>Notifikasi</span>
+        </a>
+
+        <a href="profil.html" class="menu-item">
+            <span class="menu-icon">👤</span>
+            <span>Profil</span>
+        </a>
+
+        <a href="index.html#tentang" class="menu-item">
+            <span class="menu-icon">ℹ</span>
+            <span>Tentang</span>
+        </a>
+
+        <a href="index.html#kontak" class="menu-item">
+            <span class="menu-icon">✉</span>
+            <span>Kontak</span>
+        </a>
+
+    </nav>
+
+</aside>
 
 
-        <div class="sidebar-logo">
+<!-- =========================
+     MAIN
+========================= -->
 
-            <h2>Ruang Aksara</h2>
+<main class="main">
 
-            <span>STT Cipasung</span>
+    <header class="topbar">
+
+        <button class="mobile-menu" id="mobileMenu">
+            ☰
+        </button>
+
+        <div class="topbar-title">
+            Kirim Karya
+        </div>
+
+        <div class="topbar-actions">
+
+            <button class="topbar-btn" id="darkModeBtn">
+                🌙
+            </button>
+
+            <a href="profil.html" class="topbar-btn">
+                👤
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <section class="content">
+
+        <!-- HERO -->
+
+        <div class="hero">
+
+            <h1>
+                ✨ Bagikan Karyamu
+            </h1>
+
+            <p>
+                Tuangkan ide, cerita, dan kreativitasmu
+                melalui Ruang Aksara STT Cipasung.
+            </p>
 
         </div>
 
 
-        <nav class="sidebar-menu">
+        <!-- SUCCESS -->
 
+        <div class="success-box" id="successBox">
 
-            <a
-                href="index.html"
-                class="menu-item"
-            >
+            <strong>✅ Karya berhasil dikirim!</strong>
 
-                <span class="menu-icon">🏠</span>
+            <br>
 
-                <span>Beranda</span>
+            Karya kamu telah disimpan dan sedang
+            menunggu proses review.
 
-            </a>
+        </div>
 
 
-            <a
-                href="index.html#karya"
-                class="menu-item"
-            >
+        <!-- FORM -->
 
-                <span class="menu-icon">📚</span>
+        <div class="form-card">
 
-                <span>Karya</span>
+            <form id="workForm">
 
-            </a>
+                <!-- JUDUL -->
 
+                <div class="form-group">
 
-            <a
-                href="kirim-karya.html"
-                class="menu-item active"
-            >
+                    <label for="title">
+                        Judul Karya *
+                    </label>
 
-                <span class="menu-icon">✎</span>
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="Contoh: Langkah di Balik Aksara"
+                        maxlength="100"
+                        required
+                    >
 
-                <span>Kirim Karya</span>
-
-            </a>
-
-
-            <a
-                href="favorit.html"
-                class="menu-item"
-            >
-
-                <span class="menu-icon">♥</span>
-
-                <span>Favorit</span>
-
-            </a>
-
-
-            <a
-                href="notifikasi.html"
-                class="menu-item"
-            >
-
-                <span class="menu-icon">🔔</span>
-
-                <span>Notifikasi</span>
-
-            </a>
-
-
-            <a
-                href="profil.html"
-                class="menu-item"
-            >
-
-                <span class="menu-icon">👤</span>
-
-                <span>Profil</span>
-
-            </a>
-
-
-            <a
-                href="index.html#tentang"
-                class="menu-item"
-            >
-
-                <span class="menu-icon">ℹ</span>
-
-                <span>Tentang</span>
-
-            </a>
-
-
-            <a
-                href="index.html#kontak"
-                class="menu-item"
-            >
-
-                <span class="menu-icon">✉</span>
-
-                <span>Kontak</span>
-
-            </a>
-
-
-        </nav>
-
-    </aside>
-
-
-    <!-- =====================================
-         MAIN CONTENT
-    ====================================== -->
-
-    <main class="main-content">
-
-
-        <!-- TOPBAR -->
-
-        <header class="topbar">
-
-
-            <button
-                class="mobile-menu-button"
-                id="mobileMenuButton"
-            >
-
-                ☰
-
-            </button>
-
-
-            <div class="topbar-title">
-
-                Kirim Karya
-
-            </div>
-
-
-            <div class="topbar-actions">
-
-
-                <button
-                    class="dark-mode-button"
-                    id="darkModeButton"
-                    title="Mode gelap"
-                >
-
-                    🌙
-
-                </button>
-
-
-                <a
-                    href="profil.html"
-                    class="profile-mini"
-                >
-
-                    <div class="profile-mini-avatar">
-
-                        👤
-
+                    <div class="char-count">
+                        <span id="titleCount">0</span>/100
                     </div>
 
-                    <span>Profil</span>
+                </div>
 
-                </a>
 
+                <!-- KATEGORI -->
 
-            </div>
+                <div class="form-group">
 
-        </header>
+                    <label for="category">
+                        Kategori *
+                    </label>
 
+                    <select id="category" required>
 
-        <!-- =====================================
-             PAGE
-        ====================================== -->
+                        <option value="">
+                            -- Pilih Kategori --
+                        </option>
 
-        <section class="submit-page">
+                        <option value="Puisi">
+                            Puisi
+                        </option>
 
+                        <option value="Cerita">
+                            Cerita
+                        </option>
 
-            <!-- HERO -->
+                        <option value="Artikel">
+                            Artikel
+                        </option>
 
-            <div class="submit-hero">
+                    </select>
 
-                <h1>✎ Bagikan Karyamu</h1>
+                </div>
 
-                <p>
 
-                    Ruang Aksara adalah tempat untuk berbagi
-                    puisi, cerita, artikel, dan berbagai karya
-                    kreatif mahasiswa STT Cipasung.
+                <!-- DESKRIPSI -->
 
-                </p>
+                <div class="form-group">
 
-            </div>
+                    <label for="description">
+                        Deskripsi Singkat *
+                    </label>
 
+                    <textarea
+                        id="description"
+                        maxlength="300"
+                        placeholder="Tuliskan gambaran singkat tentang karya kamu..."
+                        required
+                    ></textarea>
 
-            <!-- SUCCESS MESSAGE -->
-
-            <div
-                class="success-message"
-                id="successMessage"
-            >
-
-                <strong>
-                    ✓ Karya berhasil dikirim!
-                </strong>
-
-                Karyamu sudah tersimpan dan memiliki status
-                <b>Menunggu Review</b>.
-
-            </div>
-
-
-            <!-- ERROR MESSAGE -->
-
-            <div
-                class="error-message"
-                id="errorMessage"
-            >
-
-                Silakan lengkapi semua bagian yang wajib diisi.
-
-            </div>
-
-
-            <!-- FORM -->
-
-            <div class="submit-card">
-
-
-                <form id="submitWorkForm">
-
-
-                    <!-- INFORMASI KARYA -->
-
-                    <div class="form-section">
-
-                        <div class="form-section-title">
-
-                            📖 Informasi Karya
-
-                        </div>
-
-
-                        <div class="form-grid">
-
-
-                            <!-- JUDUL -->
-
-                            <div class="form-group full">
-
-                                <label for="title">
-
-                                    Judul Karya
-                                    <span class="required">*</span>
-
-                                </label>
-
-
-                                <input
-                                    type="text"
-                                    id="title"
-                                    class="form-control"
-                                    placeholder="Contoh: Senja di Kampus"
-                                    maxlength="100"
-                                    required
-                                >
-
-
-                                <div
-                                    class="character-count"
-                                    id="titleCount"
-                                >
-                                    0 / 100
-                                </div>
-
-                            </div>
-
-
-                            <!-- KATEGORI -->
-
-                            <div class="form-group">
-
-                                <label for="category">
-
-                                    Kategori
-                                    <span class="required">*</span>
-
-                                </label>
-
-
-                                <select
-                                    id="category"
-                                    class="form-control"
-                                    required
-                                >
-
-                                    <option value="">
-                                        Pilih kategori
-                                    </option>
-
-                                    <option value="Puisi">
-                                        Puisi
-                                    </option>
-
-                                    <option value="Cerita">
-                                        Cerita
-                                    </option>
-
-                                    <option value="Artikel">
-                                        Artikel
-                                    </option>
-
-                                </select>
-
-                            </div>
-
-
-                            <!-- STATUS -->
-
-                            <div class="form-group">
-
-                                <label>
-
-                                    Status Publikasi
-
-                                </label>
-
-
-                                <div class="status-info">
-
-                                    🕐 Setelah dikirim,
-                                    karya akan masuk ke tahap
-                                    <strong>Menunggu Review</strong>.
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- DESKRIPSI -->
-
-                            <div class="form-group full">
-
-                                <label for="description">
-
-                                    Deskripsi Singkat
-                                    <span class="required">*</span>
-
-                                </label>
-
-
-                                <textarea
-                                    id="description"
-                                    class="form-control description-textarea"
-                                    placeholder="Ceritakan secara singkat tentang karya kamu..."
-                                    maxlength="300"
-                                    required
-                                ></textarea>
-
-
-                                <div
-                                    class="character-count"
-                                    id="descriptionCount"
-                                >
-                                    0 / 300
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
+                    <div class="char-count">
+                        <span id="descriptionCount">0</span>/300
                     </div>
 
-
-                    <!-- ISI KARYA -->
-
-                    <div class="form-section">
-
-                        <div class="form-section-title">
-
-                            ✍️ Isi Karya
-
-                        </div>
+                </div>
 
 
-                        <div class="form-group">
+                <!-- ISI -->
 
-                            <label for="content">
+                <div class="form-group">
 
-                                Isi Karya
-                                <span class="required">*</span>
+                    <label for="content">
+                        Isi Karya *
+                    </label>
 
-                            </label>
+                    <textarea
+                        id="content"
+                        placeholder="Tuliskan karya kamu di sini..."
+                        required
+                    ></textarea>
+
+                    <small>
+                        Pastikan karya yang dikirim merupakan karya
+                        yang kamu miliki atau memiliki izin untuk dipublikasikan.
+                    </small>
+
+                </div>
 
 
-                            <textarea
-                                id="content"
-                                class="form-control"
-                                placeholder="Tuliskan karya kamu di sini..."
-                                required
-                            ></textarea>
+                <!-- GAMBAR -->
 
+                <div class="form-group">
 
-                            <div
-                                class="character-count"
-                                id="contentCount"
-                            >
-                                0 karakter
-                            </div>
+                    <label for="image">
+                        Cover / Gambar Karya
+                    </label>
 
-                        </div>
+                    <input
+                        type="file"
+                        id="image"
+                        accept="image/*"
+                    >
 
+                    <small>
+                        Format JPG, JPEG, PNG atau WEBP.
+                        Maksimal 5 MB.
+                    </small>
+
+                    <div class="preview" id="preview">
+                        <img id="previewImage" src="" alt="Preview">
                     </div>
 
-
-                    <!-- COVER -->
-
-                    <div class="form-section">
-
-                        <div class="form-section-title">
-
-                            🖼️ Cover Karya
-
-                        </div>
+                </div>
 
 
-                        <label
-                            for="coverInput"
-                            class="upload-box"
-                        >
+                <!-- STATUS -->
 
-                            <div class="upload-icon">
-                                🖼️
-                            </div>
+                <div class="form-group">
 
-                            <strong>
-                                Pilih gambar cover
-                            </strong>
+                    <label for="status">
+                        Status Publikasi
+                    </label>
 
-                            <span>
-                                JPG, JPEG atau PNG — maksimal 5 MB
-                            </span>
+                    <select id="status">
 
-                        </label>
+                        <option value="Menunggu Review">
+                            Menunggu Review
+                        </option>
 
+                    </select>
+
+                </div>
+
+
+                <!-- PERSETUJUAN -->
+
+                <div class="form-group">
+
+                    <label>
 
                         <input
-                            type="file"
-                            id="coverInput"
-                            accept="image/jpeg,image/png,image/jpg"
+                            type="checkbox"
+                            id="agreement"
+                            required
+                            style="width:auto; margin-right:8px;"
                         >
 
+                        Saya memastikan bahwa karya ini
+                        merupakan karya yang boleh saya kirimkan.
 
-                        <div
-                            class="image-preview"
-                            id="imagePreview"
-                        >
+                    </label>
 
-                            <img
-                                id="previewImage"
-                                src=""
-                                alt="Preview cover"
-                            >
+                </div>
 
 
-                            <button
-                                type="button"
-                                class="remove-image"
-                                id="removeImage"
-                                title="Hapus gambar"
-                            >
+                <!-- BUTTON -->
 
-                                ×
+                <div class="form-actions">
 
-                            </button>
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        🚀 Kirim Karya
+                    </button>
 
-                        </div>
+                    <button
+                        type="reset"
+                        class="btn btn-secondary"
+                        id="resetBtn"
+                    >
+                        ↺ Reset
+                    </button>
 
-                    </div>
+                </div>
 
+            </form>
 
-                    <!-- AGREEMENT -->
+        </div>
 
-                    <div class="form-section">
+    </section>
 
-                        <label class="agreement">
-
-                            <input
-                                type="checkbox"
-                                id="agreement"
-                                required
-                            >
-
-
-                            <span>
-
-                                Saya menyatakan bahwa karya ini
-                                merupakan karya saya sendiri dan
-                                tidak melanggar hak cipta pihak lain.
-
-                            </span>
-
-                        </label>
-
-                    </div>
+</main>
 
 
-                    <!-- BUTTON -->
+<script>
 
-                    <div class="form-actions">
+    /* ========================================
+       STORAGE KARYA
+    ======================================== */
 
-
-                        <button
-                            type="reset"
-                            class="btn btn-secondary"
-                            id="resetButton"
-                        >
-
-                            Reset
-
-                        </button>
+    const WORK_STORAGE_KEY = "ruangAksaraWorks";
+    const NOTIFICATION_STORAGE_KEY = "ruangAksaraNotifications";
 
 
-                        <button
-                            type="submit"
-                            class="btn btn-primary"
-                        >
+    function getWorks() {
 
-                            ✈ Kirim Karya
+        try {
 
-                        </button>
+            return JSON.parse(
+                localStorage.getItem(WORK_STORAGE_KEY)
+            ) || [];
 
+        } catch (error) {
 
-                    </div>
+            return [];
 
+        }
 
-                </form>
-
-            </div>
-
-        </section>
-
-    </main>
+    }
 
 
-    <!-- =====================================
-         SCRIPT UTAMA
-    ====================================== -->
+    function saveWorks(works) {
 
-    <script src="script.js"></script>
+        localStorage.setItem(
+            WORK_STORAGE_KEY,
+            JSON.stringify(works)
+        );
 
-
-    <!-- =====================================
-         SCRIPT KIRIM KARYA
-    ====================================== -->
-
-    <script>
+    }
 
 
-        /* =====================================
-           STORAGE KEY
-        ===================================== */
+    /* ========================================
+       STORAGE NOTIFIKASI
+    ======================================== */
 
-        const WORK_STORAGE_KEY =
-            "ruangAksaraWorks";
+    function getNotifications() {
+
+        try {
+
+            return JSON.parse(
+                localStorage.getItem(NOTIFICATION_STORAGE_KEY)
+            ) || [];
+
+        } catch (error) {
+
+            return [];
+
+        }
+
+    }
 
 
-        /* =====================================
-           ELEMENT
-        ===================================== */
+    function saveNotifications(notifications) {
 
-        const form =
-            document.getElementById("submitWorkForm");
+        localStorage.setItem(
+            NOTIFICATION_STORAGE_KEY,
+            JSON.stringify(notifications)
+        );
 
-        const titleInput =
-            document.getElementById("title");
+    }
 
-        const categoryInput =
-            document.getElementById("category");
 
-        const descriptionInput =
-            document.getElementById("description");
+    /* ========================================
+       BUAT NOTIFIKASI
+    ======================================== */
 
-        const contentInput =
-            document.getElementById("content");
+    function createSubmissionNotification(work) {
 
-        const coverInput =
-            document.getElementById("coverInput");
+        const notifications = getNotifications();
+
+        const notification = {
+
+            id: Date.now().toString(),
+
+            type: "success",
+
+            title: "Karya berhasil dikirim",
+
+            message:
+                `Karya "${work.title}" berhasil dikirim dan sedang menunggu review.`,
+
+            date: new Date().toISOString(),
+
+            read: false
+
+        };
+
+        notifications.unshift(notification);
+
+        saveNotifications(notifications);
+
+    }
+
+
+    /* ========================================
+       FORM
+    ======================================== */
+
+    const form = document.getElementById("workForm");
+
+    const titleInput = document.getElementById("title");
+
+    const categoryInput = document.getElementById("category");
+
+    const descriptionInput =
+        document.getElementById("description");
+
+    const contentInput =
+        document.getElementById("content");
+
+    const imageInput =
+        document.getElementById("image");
+
+    const agreementInput =
+        document.getElementById("agreement");
+
+    const successBox =
+        document.getElementById("successBox");
+
+
+    /* ========================================
+       CHARACTER COUNTER
+    ======================================== */
+
+    titleInput.addEventListener("input", function () {
+
+        document.getElementById("titleCount").textContent =
+            this.value.length;
+
+    });
+
+
+    descriptionInput.addEventListener("input", function () {
+
+        document.getElementById("descriptionCount").textContent =
+            this.value.length;
+
+    });
+
+
+    /* ========================================
+       IMAGE PREVIEW
+    ======================================== */
+
+    imageInput.addEventListener("change", function () {
+
+        const file = this.files[0];
+
+        const preview =
+            document.getElementById("preview");
 
         const previewImage =
             document.getElementById("previewImage");
 
-        const imagePreview =
-            document.getElementById("imagePreview");
 
-        const removeImage =
-            document.getElementById("removeImage");
+        if (!file) {
 
-        const successMessage =
-            document.getElementById("successMessage");
+            preview.style.display = "none";
 
-        const errorMessage =
-            document.getElementById("errorMessage");
-
-
-        /* =====================================
-           GET WORKS
-        ===================================== */
-
-        function getWorks() {
-
-            try {
-
-                return JSON.parse(
-                    localStorage.getItem(WORK_STORAGE_KEY)
-                ) || [];
-
-            } catch (error) {
-
-                return [];
-
-            }
+            return;
 
         }
 
 
-        /* =====================================
-           SAVE WORKS
-        ===================================== */
+        /* maksimal 5 MB */
 
-        function saveWorks(works) {
+        if (file.size > 5 * 1024 * 1024) {
 
-            localStorage.setItem(
-                WORK_STORAGE_KEY,
-                JSON.stringify(works)
+            alert(
+                "Ukuran gambar terlalu besar. Maksimal 5 MB."
             );
 
+            imageInput.value = "";
+
+            preview.style.display = "none";
+
+            return;
+
         }
 
 
-        /* =====================================
-           CHARACTER COUNTER
-        ===================================== */
-
-        function updateCounter(
-            input,
-            counter,
-            max
-        ) {
-
-            if (!input || !counter) return;
+        const reader = new FileReader();
 
 
-            input.addEventListener(
-                "input",
-                function() {
+        reader.onload = function (event) {
 
-                    counter.textContent =
-                        this.value.length +
-                        " / " +
-                        max;
+            previewImage.src =
+                event.target.result;
 
-                }
+            preview.style.display = "block";
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    });
+
+
+    /* ========================================
+       SUBMIT
+    ======================================== */
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+
+        const title =
+            titleInput.value.trim();
+
+        const category =
+            categoryInput.value;
+
+        const description =
+            descriptionInput.value.trim();
+
+        const content =
+            contentInput.value.trim();
+
+
+        if (!title ||
+            !category ||
+            !description ||
+            !content ||
+            !agreementInput.checked) {
+
+            alert(
+                "Silakan lengkapi semua data terlebih dahulu."
             );
 
-        }
-
-
-        updateCounter(
-            titleInput,
-            document.getElementById("titleCount"),
-            100
-        );
-
-
-        updateCounter(
-            descriptionInput,
-            document.getElementById("descriptionCount"),
-            300
-        );
-
-
-        if (contentInput) {
-
-            contentInput.addEventListener(
-                "input",
-                function() {
-
-                    document.getElementById(
-                        "contentCount"
-                    ).textContent =
-                        this.value.length +
-                        " karakter";
-
-                }
-            );
+            return;
 
         }
 
 
-        /* =====================================
-           IMAGE UPLOAD
-        ===================================== */
-
-        let coverData = "";
+        const file =
+            imageInput.files[0];
 
 
-        coverInput.addEventListener(
-            "change",
-            function() {
+        /* ====================================
+           SIMPAN GAMBAR
+        ==================================== */
 
-                const file = this.files[0];
+        function saveWork(imageData = "") {
 
-                if (!file) return;
+            const work = {
 
+                id: Date.now().toString(),
 
-                /* CHECK SIZE */
+                title: title,
 
-                if (file.size > 5 * 1024 * 1024) {
+                category: category,
 
-                    alert(
-                        "Ukuran gambar maksimal 5 MB."
-                    );
+                description: description,
 
-                    this.value = "";
+                content: content,
 
-                    return;
+                image: imageData,
 
-                }
+                author: "Pengguna Ruang Aksara",
 
+                status: "Menunggu Review",
 
-                /* CHECK TYPE */
+                createdAt: new Date().toISOString()
 
-                if (
-                    !file.type.includes("jpeg") &&
-                    !file.type.includes("jpg") &&
-                    !file.type.includes("png")
-                ) {
-
-                    alert(
-                        "Format gambar harus JPG, JPEG, atau PNG."
-                    );
-
-                    this.value = "";
-
-                    return;
-
-                }
+            };
 
 
-                const reader =
-                    new FileReader();
+            /* ambil karya lama */
+
+            const works = getWorks();
 
 
-                reader.onload = function(event) {
+            /* masukkan karya baru di paling atas */
 
-                    coverData =
-                        event.target.result;
-
-                    previewImage.src =
-                        coverData;
-
-                    imagePreview.classList.add(
-                        "show"
-                    );
-
-                };
+            works.unshift(work);
 
 
-                reader.readAsDataURL(file);
+            /* simpan */
 
-            }
+            saveWorks(works);
+
+
+            /* buat notifikasi */
+
+            createSubmissionNotification(work);
+
+
+            /* tampilkan sukses */
+
+            successBox.classList.add("show");
+
+
+            /* reset */
+
+            form.reset();
+
+            document.getElementById("titleCount").textContent = "0";
+
+            document.getElementById("descriptionCount").textContent = "0";
+
+            document.getElementById("preview").style.display = "none";
+
+
+            /* scroll ke atas */
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+
+        /* ====================================
+           JIKA ADA GAMBAR
+        ==================================== */
+
+        if (file) {
+
+            const reader = new FileReader();
+
+
+            reader.onload = function (event) {
+
+                saveWork(event.target.result);
+
+            };
+
+
+            reader.readAsDataURL(file);
+
+        }
+
+        /* ====================================
+           JIKA TIDAK ADA GAMBAR
+        ==================================== */
+
+        else {
+
+            saveWork("");
+
+        }
+
+    });
+
+
+    /* ========================================
+       RESET
+    ======================================== */
+
+    document.getElementById("resetBtn")
+        .addEventListener("click", function () {
+
+            document.getElementById("titleCount").textContent = "0";
+
+            document.getElementById("descriptionCount").textContent = "0";
+
+            document.getElementById("preview").style.display = "none";
+
+            successBox.classList.remove("show");
+
+        });
+
+
+    /* ========================================
+       DARK MODE
+    ======================================== */
+
+    const darkModeBtn =
+        document.getElementById("darkModeBtn");
+
+
+    function applyDarkMode() {
+
+        const darkMode =
+            localStorage.getItem(
+                "ruangAksaraDarkMode"
+            ) === "true";
+
+
+        if (darkMode) {
+
+            document.body.classList.add("dark");
+
+            darkModeBtn.textContent = "☀️";
+
+        } else {
+
+            document.body.classList.remove("dark");
+
+            darkModeBtn.textContent = "🌙";
+
+        }
+
+    }
+
+
+    darkModeBtn.addEventListener("click", function () {
+
+        const isDark =
+            document.body.classList.contains("dark");
+
+
+        localStorage.setItem(
+            "ruangAksaraDarkMode",
+            (!isDark).toString()
         );
 
 
-        /* =====================================
-           REMOVE IMAGE
-        ===================================== */
+        applyDarkMode();
 
-        removeImage.addEventListener(
-            "click",
-            function() {
+    });
 
-                coverData = "";
 
-                coverInput.value = "";
+    applyDarkMode();
 
-                previewImage.src = "";
 
-                imagePreview.classList.remove(
-                    "show"
-                );
+    /* ========================================
+       MOBILE MENU
+    ======================================== */
 
-            }
-        );
+    const mobileMenu =
+        document.getElementById("mobileMenu");
 
+    const sidebar =
+        document.getElementById("sidebar");
 
-        /* =====================================
-           FORM SUBMIT
-        ===================================== */
 
-        form.addEventListener(
-            "submit",
-            function(event) {
+    mobileMenu.addEventListener("click", function () {
 
-                event.preventDefault();
+        sidebar.classList.toggle("show");
 
+    });
 
-                /* HIDE MESSAGES */
-
-                successMessage.classList.remove(
-                    "show"
-                );
-
-                errorMessage.classList.remove(
-                    "show"
-                );
-
-
-                /* GET DATA */
-
-                const title =
-                    titleInput.value.trim();
-
-                const category =
-                    categoryInput.value;
-
-                const description =
-                    descriptionInput.value.trim();
-
-                const content =
-                    contentInput.value.trim();
-
-                const agreement =
-                    document.getElementById(
-                        "agreement"
-                    ).checked;
-
-
-                /* VALIDATION */
-
-                if (
-                    !title ||
-                    !category ||
-                    !description ||
-                    !content ||
-                    !agreement
-                ) {
-
-                    errorMessage.classList.add(
-                        "show"
-                    );
-
-                    window.scrollTo({
-                        top: 0,
-                        behavior: "smooth"
-                    });
-
-                    return;
-
-                }
-
-
-                /* GET EXISTING WORKS */
-
-                const works =
-                    getWorks();
-
-
-                /* CREATE WORK */
-
-                const newWork = {
-
-                    id:
-                        Date.now().toString(),
-
-                    title:
-                        title,
-
-                    category:
-                        category,
-
-                    description:
-                        description,
-
-                    content:
-                        content,
-
-                    image:
-                        coverData,
-
-                    author:
-                        "Mahasiswa STT Cipasung",
-
-                    status:
-                        "Menunggu Review",
-
-                    createdAt:
-                        new Date().toISOString()
-
-                };
-
-
-                /* SAVE */
-
-                works.unshift(
-                    newWork
-                );
-
-
-                saveWorks(
-                    works
-                );
-
-
-                /* SUCCESS */
-
-                successMessage.classList.add(
-                    "show"
-                );
-
-
-                /* RESET FORM */
-
-                form.reset();
-
-
-                coverData = "";
-
-                imagePreview.classList.remove(
-                    "show"
-                );
-
-                previewImage.src = "";
-
-
-                /* RESET COUNTER */
-
-                document.getElementById(
-                    "titleCount"
-                ).textContent = "0 / 100";
-
-
-                document.getElementById(
-                    "descriptionCount"
-                ).textContent = "0 / 300";
-
-
-                document.getElementById(
-                    "contentCount"
-                ).textContent = "0 karakter";
-
-
-                /* SCROLL TOP */
-
-                window.scrollTo({
-
-                    top: 0,
-
-                    behavior: "smooth"
-
-                });
-
-
-                console.log(
-                    "Karya berhasil disimpan:",
-                    newWork
-                );
-
-            }
-        );
-
-
-        /* =====================================
-           RESET FORM
-        ===================================== */
-
-        form.addEventListener(
-            "reset",
-            function() {
-
-                setTimeout(
-                    function() {
-
-                        coverData = "";
-
-                        imagePreview.classList.remove(
-                            "show"
-                        );
-
-                        previewImage.src = "";
-
-
-                        document.getElementById(
-                            "titleCount"
-                        ).textContent =
-                            "0 / 100";
-
-
-                        document.getElementById(
-                            "descriptionCount"
-                        ).textContent =
-                            "0 / 300";
-
-
-                        document.getElementById(
-                            "contentCount"
-                        ).textContent =
-                            "0 karakter";
-
-                    },
-                    0
-                );
-
-            }
-        );
-
-    </script>
+</script>
 
 </body>
-
 </html>
