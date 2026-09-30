@@ -4,249 +4,182 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Favorit — Ruang Aksara</title>
+    <title>Favorit - Ruang Aksara STT Cipasung</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
     <style>
+        /* =========================
+           FAVORIT PAGE
+        ========================= */
 
         .favorite-page {
-            padding: 40px 42px 80px;
+            padding: 30px;
         }
 
-        /* HEADER */
-
-        .favorite-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+        .favorite-hero {
+            background: linear-gradient(135deg, #0f5132, #198754);
+            border-radius: 24px;
+            padding: 35px;
+            color: white;
             margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .favorite-header h1 {
-            font-family: "Playfair Display", serif;
-            font-size: 38px;
-            color: #203b33;
-            margin-top: 7px;
+        .favorite-hero::after {
+            content: "♥";
+            position: absolute;
+            right: 40px;
+            top: 10px;
+            font-size: 130px;
+            opacity: 0.08;
         }
 
-        .favorite-header p {
-            font-size: 10px;
-            color: #8a918d;
-            margin-top: 6px;
+        .favorite-hero h1 {
+            margin: 0 0 8px;
+            font-size: 32px;
         }
 
-        .favorite-count {
-            padding: 8px 12px;
-            background: #e9dfd0;
-            color: #806448;
+        .favorite-hero p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .favorite-info {
+            margin-top: 18px;
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 15px;
             border-radius: 20px;
-            font-size: 9px;
-            font-weight: 700;
+            font-size: 14px;
         }
-
 
         /* FILTER */
 
         .favorite-filter {
             display: flex;
-            gap: 7px;
-            margin-bottom: 22px;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
         }
 
         .filter-button {
-            border: 1px solid #e1dbd1;
-            background: white;
-            color: #777f7a;
-            padding: 8px 13px;
+            border: none;
+            background: #f1f3f5;
+            color: #555;
+            padding: 10px 18px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 9px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .filter-button:hover {
+            transform: translateY(-2px);
         }
 
         .filter-button.active {
-            background: #18352e;
+            background: #198754;
             color: white;
-            border-color: #18352e;
         }
-
 
         /* GRID */
 
         .favorite-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            gap: 22px;
         }
-
-
-        /* CARD */
 
         .favorite-card {
             background: white;
-            border: 1px solid #e8e2d9;
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            transition: 0.2s;
-        }
-
-        .favorite-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(40,50,45,0.08);
-        }
-
-
-        /* COVER */
-
-        .favorite-cover {
-            height: 145px;
-            background: #e9dfd0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transition: 0.25s;
             position: relative;
         }
 
-        .favorite-cover.green {
-            background: #dce8e2;
+        .favorite-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
         }
 
-        .favorite-cover.brown {
-            background: #e8d8c6;
+        .favorite-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #e9ecef;
         }
-
-        .cover-symbol {
-            font-family: "Playfair Display", serif;
-            font-size: 58px;
-            color: rgba(24,53,46,0.55);
-        }
-
-        .favorite-heart {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-
-            width: 31px;
-            height: 31px;
-
-            border: none;
-            border-radius: 50%;
-
-            background: rgba(255,255,255,0.9);
-            color: #a16e4e;
-
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-
-        /* CARD CONTENT */
 
         .favorite-content {
             padding: 20px;
         }
 
         .favorite-category {
-            font-size: 8px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            color: #a16e4e;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: bold;
+            color: #198754;
+            background: #e8f5ee;
+            padding: 6px 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
         }
 
-        .favorite-content h2 {
-            font-family: "Playfair Display", serif;
+        .favorite-content h3 {
+            margin: 0 0 8px;
             font-size: 19px;
-            color: #30443d;
-            margin-top: 7px;
         }
 
         .favorite-content p {
-            font-size: 9px;
-            color: #7d8580;
-            line-height: 1.7;
-            margin-top: 8px;
+            color: #777;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 18px;
         }
 
-        .favorite-author {
+        .favorite-actions {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
-            margin-top: 16px;
-            padding-top: 12px;
-            border-top: 1px solid #eee9e1;
         }
-
-        .author-avatar {
-            width: 27px;
-            height: 27px;
-            border-radius: 50%;
-            background: #18352e;
-            color: #e8d7bd;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 7px;
-            font-weight: 700;
-        }
-
-        .author-info {
-            flex: 1;
-        }
-
-        .author-info strong {
-            display: block;
-            font-size: 8px;
-            color: #4a5953;
-        }
-
-        .author-info span {
-            display: block;
-            font-size: 7px;
-            color: #9a9f9c;
-            margin-top: 2px;
-        }
-
-
-        /* READ BUTTON */
 
         .read-button {
-            display: block;
-            margin-top: 15px;
-
-            text-align: center;
-            text-decoration: none;
-
-            padding: 9px;
-
-            border-radius: 7px;
-
-            background: #18352e;
+            border: none;
+            background: #198754;
             color: white;
-
-            font-size: 9px;
-            font-weight: 700;
+            padding: 9px 15px;
+            border-radius: 10px;
+            cursor: pointer;
         }
 
+        .remove-button {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: none;
+            background: #ffe8e8;
+            color: #dc3545;
+            font-size: 19px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .remove-button:hover {
+            transform: scale(1.08);
+        }
 
         /* EMPTY */
 
         .empty-favorite {
             display: none;
             text-align: center;
+            padding: 70px 20px;
             background: white;
-            border: 1px dashed #d8d0c5;
-            border-radius: 16px;
-            padding: 60px 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
         }
 
         .empty-favorite.show {
@@ -254,808 +187,537 @@
         }
 
         .empty-icon {
-            font-size: 35px;
-            color: #b39b80;
+            font-size: 60px;
+            margin-bottom: 15px;
         }
 
         .empty-favorite h2 {
-            font-family: "Playfair Display", serif;
-            color: #33473f;
-            margin-top: 10px;
+            margin-bottom: 8px;
         }
 
         .empty-favorite p {
-            font-size: 9px;
-            color: #929994;
-            margin-top: 6px;
+            color: #777;
+            margin-bottom: 20px;
         }
 
-
-        /* DARK */
-
-        body.dark-mode .favorite-header h1 {
-            color: #edf2ef;
+        .back-button {
+            display: inline-block;
+            text-decoration: none;
+            background: #198754;
+            color: white;
+            padding: 11px 18px;
+            border-radius: 10px;
         }
 
-        body.dark-mode .favorite-filter .filter-button {
-            background: #192823;
-            border-color: #334a42;
-            color: #b8c4bf;
+        /* DARK MODE */
+
+        body.dark .favorite-card,
+        body.dark .empty-favorite {
+            background: #1f2937;
+            color: white;
         }
 
-        body.dark-mode .favorite-filter .filter-button.active {
-            background: #e8d7bd;
-            color: #18352e;
+        body.dark .favorite-content p {
+            color: #bbb;
         }
 
-        body.dark-mode .favorite-card,
-        body.dark-mode .empty-favorite {
-            background: #192823;
-            border-color: #294039;
+        body.dark .filter-button {
+            background: #374151;
+            color: #ddd;
         }
 
-        body.dark-mode .favorite-content h2 {
-            color: #edf2ef;
+        body.dark .filter-button.active {
+            background: #198754;
+            color: white;
         }
-
-        body.dark-mode .favorite-content p,
-        body.dark-mode .favorite-content .author-info span {
-            color: #aebbb5;
-        }
-
-        body.dark-mode .favorite-author {
-            border-color: #294039;
-        }
-
-        body.dark-mode .author-info strong {
-            color: #d4ddd9;
-        }
-
 
         /* RESPONSIVE */
 
-        @media (max-width: 950px) {
-
+        @media (max-width: 1000px) {
             .favorite-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-
         }
 
         @media (max-width: 650px) {
-
             .favorite-page {
-                padding: 30px 20px 60px;
-            }
-
-            .favorite-header {
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .favorite-header h1 {
-                font-size: 32px;
+                padding: 20px;
             }
 
             .favorite-grid {
                 grid-template-columns: 1fr;
             }
 
-            .favorite-filter {
-                overflow-x: auto;
+            .favorite-hero h1 {
+                font-size: 26px;
             }
-
         }
-
     </style>
 </head>
 
-
 <body>
 
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
 
-<!-- SIDEBAR -->
+    <aside class="sidebar">
 
-<aside class="sidebar">
-
-    <div class="brand">
-
-        <div class="brand-logo">
-            RA
+        <div class="sidebar-logo">
+            <h2>Ruang Aksara</h2>
+            <span>STT Cipasung</span>
         </div>
 
-        <div class="brand-text">
+        <nav class="sidebar-menu">
 
-            <strong>
-                Ruang Aksara
-            </strong>
+            <a href="index.html" class="menu-item">
+                <span class="menu-icon">🏠</span>
+                <span>Beranda</span>
+            </a>
 
-            <span>
-                STT Cipasung
-            </span>
+            <a href="index.html#karya" class="menu-item">
+                <span class="menu-icon">📚</span>
+                <span>Karya</span>
+            </a>
 
-        </div>
+            <a href="kirim-karya.html" class="menu-item">
+                <span class="menu-icon">✎</span>
+                <span>Kirim Karya</span>
+            </a>
 
-    </div>
+            <a href="favorit.html" class="menu-item active">
+                <span class="menu-icon">♥</span>
+                <span>Favorit</span>
+            </a>
 
+            <a href="notifikasi.html" class="menu-item">
+                <span class="menu-icon">🔔</span>
+                <span>Notifikasi</span>
+            </a>
 
-    <div class="sidebar-label">
-        MENU UTAMA
-    </div>
+            <a href="profil.html" class="menu-item">
+                <span class="menu-icon">👤</span>
+                <span>Profil</span>
+            </a>
 
+            <a href="index.html#tentang" class="menu-item">
+                <span class="menu-icon">ℹ</span>
+                <span>Tentang</span>
+            </a>
 
-    <nav class="sidebar-menu">
+            <a href="index.html#kontak" class="menu-item">
+                <span class="menu-icon">✉</span>
+                <span>Kontak</span>
+            </a>
 
-        <a href="index.html" class="menu-item">
+        </nav>
 
-            <span class="menu-icon">⌂</span>
+    </aside>
 
-            <span>
-                Beranda
-            </span>
 
-        </a>
+    <!-- =========================
+         MAIN
+    ========================== -->
 
+    <main class="main-content">
 
-        <a href="index.html#karya" class="menu-item">
+        <!-- TOPBAR -->
 
-            <span class="menu-icon">▤</span>
+        <header class="topbar">
 
-            <span>
-                Karya
-            </span>
+            <button class="mobile-menu-button" id="mobileMenuButton">
+                ☰
+            </button>
 
-        </a>
+            <div class="topbar-title">
+                Favorit Saya
+            </div>
 
+            <div class="topbar-actions">
 
-        <a href="kirim-karya.html" class="menu-item">
-
-            <span class="menu-icon">✎</span>
-
-            <span>
-                Kirim Karya
-            </span>
-
-        </a>
-
-
-        <a href="favorit.html" class="menu-item active">
-
-            <span class="menu-icon">♡</span>
-
-            <span>
-                Favorit
-            </span>
-
-        </a>
-
-
-        <a href="notifikasi.html" class="menu-item">
-
-            <span class="menu-icon">◌</span>
-
-            <span>
-                Notifikasi
-            </span>
-
-            <span class="menu-count">
-                3
-            </span>
-
-        </a>
-
-    </nav>
-
-
-    <div class="sidebar-label second-label">
-        LAINNYA
-    </div>
-
-
-    <nav class="sidebar-menu">
-
-        <a href="profil.html" class="menu-item">
-
-            <span class="menu-icon">◯</span>
-
-            <span>
-                Profil
-            </span>
-
-        </a>
-
-
-        <a href="index.html#tentang" class="menu-item">
-
-            <span class="menu-icon">i</span>
-
-            <span>
-                Tentang
-            </span>
-
-        </a>
-
-
-        <a href="index.html#kontak" class="menu-item">
-
-            <span class="menu-icon">✉</span>
-
-            <span>
-                Kontak
-            </span>
-
-        </a>
-
-    </nav>
-
-
-    <div class="sidebar-bottom">
-
-        <button
-            id="darkModeBtn"
-            class="theme-button"
-        >
-
-            <span>☾</span>
-
-            <span>
-                Mode Gelap
-            </span>
-
-        </button>
-
-
-        <div class="sidebar-campus">
-
-            <span>
-                INFORMATIKA
-            </span>
-
-            <strong>
-                STT CIPASUNG
-            </strong>
-
-        </div>
-
-    </div>
-
-</aside>
-
-
-
-<!-- MAIN -->
-
-<main class="main-content">
-
-
-    <!-- TOPBAR -->
-
-    <header class="topbar">
-
-        <button
-            class="mobile-menu"
-            id="mobileMenu"
-        >
-            ☰
-        </button>
-
-
-        <div class="topbar-page">
-
-            <span>
-                Favorit
-            </span>
-
-            <small>
-                Karya yang kamu simpan
-            </small>
-
-        </div>
-
-
-        <div class="topbar-actions">
-
-            <div class="search-box">
-
-                <span>
-                    ⌕
-                </span>
-
-                <input
-                    type="text"
-                    placeholder="Cari karya..."
+                <button
+                    class="dark-mode-button"
+                    id="darkModeButton"
+                    title="Mode gelap"
                 >
+                    🌙
+                </button>
+
+                <a href="profil.html" class="profile-mini">
+                    <div class="profile-mini-avatar">
+                        👤
+                    </div>
+                    <span>Profil</span>
+                </a>
 
             </div>
 
-
-            <a
-                href="notifikasi.html"
-                class="top-icon"
-            >
-                ♡
-            </a>
+        </header>
 
 
-            <a
-                href="profil.html"
-                class="user-mini"
-            >
+        <!-- PAGE -->
 
-                <div class="user-avatar">
-                    MA
-                </div>
+        <section class="favorite-page">
 
-                <div class="user-mini-text">
+            <!-- HERO -->
 
-                    <strong>
-                        Mahasiswa
-                    </strong>
+            <div class="favorite-hero">
 
-                    <span>
-                        Informatika
-                    </span>
-
-                </div>
-
-            </a>
-
-        </div>
-
-    </header>
-
-
-
-    <!-- CONTENT -->
-
-    <section class="favorite-page">
-
-
-        <div class="favorite-header">
-
-            <div>
-
-                <span class="eyebrow">
-                    KOLEKSI PRIBADI
-                </span>
-
-                <h1>
-                    Karya Favorit
-                </h1>
+                <h1>♥ Karya Favorit</h1>
 
                 <p>
-                    Simpan tulisan yang ingin kamu baca kembali.
+                    Kumpulan karya yang kamu simpan untuk dibaca kembali.
                 </p>
 
+                <div class="favorite-info" id="favoriteCount">
+                    0 karya tersimpan
+                </div>
+
             </div>
 
 
-            <span class="favorite-count">
-                3 karya tersimpan
-            </span>
+            <!-- FILTER -->
+
+            <div class="favorite-filter">
+
+                <button
+                    class="filter-button active"
+                    data-filter="all"
+                >
+                    Semua
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="puisi"
+                >
+                    Puisi
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="cerita"
+                >
+                    Cerita
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="artikel"
+                >
+                    Artikel
+                </button>
 
-        </div>
-
-
-
-        <!-- FILTER -->
-
-        <div class="favorite-filter">
-
-            <button
-                class="filter-button active"
-                onclick="filterFavorite('all', this)"
-            >
-                Semua
-            </button>
-
-            <button
-                class="filter-button"
-                onclick="filterFavorite('puisi', this)"
-            >
-                Puisi
-            </button>
-
-            <button
-                class="filter-button"
-                onclick="filterFavorite('cerita', this)"
-            >
-                Cerita
-            </button>
-
-            <button
-                class="filter-button"
-                onclick="filterFavorite('artikel', this)"
-            >
-                Artikel
-            </button>
-
-        </div>
-
-
-
-        <!-- GRID -->
-
-        <div
-            class="favorite-grid"
-            id="favoriteGrid"
-        >
-
-
-            <!-- PUISI -->
-
-            <article
-                class="favorite-card"
-                data-category="puisi"
-            >
-
-                <div class="favorite-cover">
-
-                    <span class="cover-symbol">
-                        “
-                    </span>
-
-                    <button
-                        class="favorite-heart"
-                        onclick="removeFavorite(this)"
-                    >
-                        ♥
-                    </button>
-
-                </div>
-
-
-                <div class="favorite-content">
-
-                    <span class="favorite-category">
-                        PUISI
-                    </span>
-
-                    <h2>
-                        Langkah di Balik Aksara
-                    </h2>
-
-                    <p>
-                        Setiap kata menyimpan cerita,
-                        setiap baris menyimpan perjalanan.
-                    </p>
-
-
-                    <div class="favorite-author">
-
-                        <div class="author-avatar">
-                            RA
-                        </div>
-
-                        <div class="author-info">
-
-                            <strong>
-                                Ruang Aksara
-                            </strong>
-
-                            <span>
-                                12 September 2026
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <a
-                        href="index.html#karya"
-                        class="read-button"
-                    >
-                        Baca Karya →
-                    </a>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- CERITA -->
-
-            <article
-                class="favorite-card"
-                data-category="cerita"
-            >
-
-                <div class="favorite-cover green">
-
-                    <span class="cover-symbol">
-                        ◇
-                    </span>
-
-                    <button
-                        class="favorite-heart"
-                        onclick="removeFavorite(this)"
-                    >
-                        ♥
-                    </button>
-
-                </div>
-
-
-                <div class="favorite-content">
-
-                    <span class="favorite-category">
-                        CERITA
-                    </span>
-
-                    <h2>
-                        Awal Sebuah Perjalanan
-                    </h2>
-
-                    <p>
-                        Setiap perjalanan dimulai dari
-                        sebuah langkah dan keberanian.
-                    </p>
-
-
-                    <div class="favorite-author">
-
-                        <div class="author-avatar">
-                            RA
-                        </div>
-
-                        <div class="author-info">
-
-                            <strong>
-                                Ruang Aksara
-                            </strong>
-
-                            <span>
-                                8 September 2026
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <a
-                        href="index.html#karya"
-                        class="read-button"
-                    >
-                        Baca Karya →
-                    </a>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- ARTIKEL -->
-
-            <article
-                class="favorite-card"
-                data-category="artikel"
-            >
-
-                <div class="favorite-cover brown">
-
-                    <span class="cover-symbol">
-                        ≡
-                    </span>
-
-                    <button
-                        class="favorite-heart"
-                        onclick="removeFavorite(this)"
-                    >
-                        ♥
-                    </button>
-
-                </div>
-
-
-                <div class="favorite-content">
-
-                    <span class="favorite-category">
-                        ARTIKEL
-                    </span>
-
-                    <h2>
-                        Menulis di Era Digital
-                    </h2>
-
-                    <p>
-                        Menulis tetap menjadi cara
-                        untuk menyampaikan gagasan.
-                    </p>
-
-
-                    <div class="favorite-author">
-
-                        <div class="author-avatar">
-                            RA
-                        </div>
-
-                        <div class="author-info">
-
-                            <strong>
-                                Ruang Aksara
-                            </strong>
-
-                            <span>
-                                3 September 2026
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <a
-                        href="index.html#karya"
-                        class="read-button"
-                    >
-                        Baca Karya →
-                    </a>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-
-
-        <!-- EMPTY -->
-
-        <div
-            class="empty-favorite"
-            id="emptyFavorite"
-        >
-
-            <div class="empty-icon">
-                ♡
             </div>
 
-            <h2>
-                Belum ada karya favorit
-            </h2>
 
-            <p>
-                Karya yang kamu simpan akan muncul
-                di halaman ini.
-            </p>
+            <!-- FAVORITE LIST -->
 
-        </div>
+            <div
+                class="favorite-grid"
+                id="favoriteList"
+            ></div>
 
 
-    </section>
+            <!-- EMPTY -->
+
+            <div
+                class="empty-favorite"
+                id="emptyFavorite"
+            >
+
+                <div class="empty-icon">
+                    ♡
+                </div>
+
+                <h2>Belum ada karya favorit</h2>
+
+                <p>
+                    Kamu belum menyimpan karya apa pun.
+                    Yuk jelajahi karya dan tambahkan ke favorit.
+                </p>
+
+                <a
+                    href="index.html#karya"
+                    class="back-button"
+                >
+                    Jelajahi Karya
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
 
 
+    <!-- SCRIPT UTAMA -->
 
-    <!-- FOOTER -->
-
-    <footer class="footer">
-
-        <div>
-
-            <strong>
-                Ruang Aksara
-            </strong>
-
-            <span>
-                Portal Literasi STT Cipasung
-            </span>
-
-        </div>
+    <script src="script.js"></script>
 
 
-        <p>
-            © 2026 Ruang Aksara
-        </p>
+    <!-- SCRIPT FAVORIT -->
 
-    </footer>
+    <script>
 
+        const FAVORITE_KEY = "ruangAksaraFavorites";
 
-</main>
-
+        let currentFilter = "all";
 
 
-<!-- JAVASCRIPT -->
+        /* =========================
+           GET FAVORITES
+        ========================== */
 
-<script>
+        function getFavorites() {
 
-    /* =====================================
-       FILTER
-    ===================================== */
-
-    function filterFavorite(category, button) {
-
-        const cards =
-            document.querySelectorAll(".favorite-card");
-
-        const buttons =
-            document.querySelectorAll(".filter-button");
-
-
-        buttons.forEach(function(btn) {
-
-            btn.classList.remove("active");
-
-        });
-
-
-        button.classList.add("active");
-
-
-        cards.forEach(function(card) {
-
-            if (
-                category === "all" ||
-                card.dataset.category === category
-            ) {
-
-                card.style.display = "block";
-
-            } else {
-
-                card.style.display = "none";
-
-            }
-
-        });
-
-    }
-
-
-
-    /* =====================================
-       REMOVE FAVORITE
-    ===================================== */
-
-    function removeFavorite(button) {
-
-        const card =
-            button.closest(".favorite-card");
-
-        card.style.display = "none";
-
-
-        const visibleCards =
-            document.querySelectorAll(
-                ".favorite-card[style*='display: block']"
-            );
-
-
-        const allCards =
-            document.querySelectorAll(".favorite-card");
-
-
-        let visible = 0;
-
-
-        allCards.forEach(function(item) {
-
-            if (item.style.display !== "none") {
-                visible++;
-            }
-
-        });
-
-
-        if (visible === 0) {
-
-            document
-                .getElementById("emptyFavorite")
-                .classList.add("show");
+            return JSON.parse(
+                localStorage.getItem(FAVORITE_KEY)
+            ) || [];
 
         }
 
-    }
 
-</script>
+        /* =========================
+           SAVE FAVORITES
+        ========================== */
+
+        function saveFavorites(favorites) {
+
+            localStorage.setItem(
+                FAVORITE_KEY,
+                JSON.stringify(favorites)
+            );
+
+        }
 
 
-<script src="script.js"></script>
+        /* =========================
+           ESCAPE HTML
+        ========================== */
+
+        function escapeHTML(value) {
+
+            return String(value || "").replace(
+                /[&<>"']/g,
+                function(char) {
+
+                    const map = {
+                        "&": "&amp;",
+                        "<": "&lt;",
+                        ">": "&gt;",
+                        '"': "&quot;",
+                        "'": "&#039;"
+                    };
+
+                    return map[char];
+
+                }
+            );
+
+        }
+
+
+        /* =========================
+           RENDER FAVORITES
+        ========================== */
+
+        function renderFavorites() {
+
+            const favoriteList =
+                document.getElementById("favoriteList");
+
+            const emptyFavorite =
+                document.getElementById("emptyFavorite");
+
+            const favoriteCount =
+                document.getElementById("favoriteCount");
+
+            if (!favoriteList) return;
+
+
+            const favorites = getFavorites();
+
+
+            /* COUNT */
+
+            favoriteCount.textContent =
+                favorites.length + " karya tersimpan";
+
+
+            /* FILTER */
+
+            let filteredFavorites = favorites;
+
+            if (currentFilter !== "all") {
+
+                filteredFavorites =
+                    favorites.filter(function(item) {
+
+                        return String(item.category || "")
+                            .toLowerCase()
+                            .includes(currentFilter);
+
+                    });
+
+            }
+
+
+            /* CLEAR */
+
+            favoriteList.innerHTML = "";
+
+
+            /* EMPTY */
+
+            if (filteredFavorites.length === 0) {
+
+                emptyFavorite.classList.add("show");
+
+                return;
+
+            }
+
+
+            emptyFavorite.classList.remove("show");
+
+
+            /* CREATE CARD */
+
+            filteredFavorites.forEach(function(item) {
+
+                const card =
+                    document.createElement("article");
+
+                card.className = "favorite-card";
+
+
+                const image =
+                    item.image || "images/hero.jpg";
+
+
+                card.innerHTML = `
+
+                    <img
+                        src="${escapeHTML(image)}"
+                        class="favorite-image"
+                        alt="${escapeHTML(item.title)}"
+                        onerror="this.src='images/hero.jpg'"
+                    >
+
+                    <div class="favorite-content">
+
+                        <span class="favorite-category">
+                            ${escapeHTML(item.category)}
+                        </span>
+
+                        <h3>
+                            ${escapeHTML(item.title)}
+                        </h3>
+
+                        <p>
+                            ${escapeHTML(item.description)}
+                        </p>
+
+                        <div class="favorite-actions">
+
+                            <button
+                                class="read-button"
+                                onclick="alert('Fitur membaca karya akan kita sambungkan berikutnya.')"
+                            >
+                                Baca Karya
+                            </button>
+
+                            <button
+                                class="remove-button"
+                                onclick="removeFavorite('${escapeHTML(item.title).replace(/'/g, "\\'")}')"
+                                title="Hapus dari favorit"
+                            >
+                                ♥
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+
+                favoriteList.appendChild(card);
+
+            });
+
+        }
+
+
+        /* =========================
+           REMOVE FAVORITE
+        ========================== */
+
+        function removeFavorite(title) {
+
+            let favorites = getFavorites();
+
+
+            favorites =
+                favorites.filter(function(item) {
+
+                    return item.title !== title;
+
+                });
+
+
+            saveFavorites(favorites);
+
+
+            renderFavorites();
+
+        }
+
+
+        /* =========================
+           FILTER BUTTON
+        ========================== */
+
+        document
+            .querySelectorAll(".filter-button")
+            .forEach(function(button) {
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+                        document
+                            .querySelectorAll(".filter-button")
+                            .forEach(function(btn) {
+
+                                btn.classList.remove("active");
+
+                            });
+
+
+                        this.classList.add("active");
+
+
+                        currentFilter =
+                            this.dataset.filter;
+
+
+                        renderFavorites();
+
+                    }
+                );
+
+            });
+
+
+        /* =========================
+           FIRST LOAD
+        ========================== */
+
+        renderFavorites();
+
+    </script>
 
 </body>
 </html>
