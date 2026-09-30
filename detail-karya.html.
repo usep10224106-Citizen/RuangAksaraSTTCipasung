@@ -1,254 +1,1219 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Detail Karya - Ruang Aksara</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Detail Karya | Ruang Aksara</title>
+
   <style>
-    * { box-sizing: border-box; }
-    body {
+
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
       background: #f5f7fb;
       color: #1f2937;
-      transition: .2s;
+      transition: 0.3s;
     }
-    body.dark { background: #111827; color: #f3f4f6; }
-    header {
+
+    body.dark {
+      background: #111827;
+      color: #f3f4f6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* ================= TOPBAR ================= */
+
+    .topbar {
+      height: 70px;
       background: white;
       border-bottom: 1px solid #e5e7eb;
-      padding: 18px 5%;
+
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 12px;
+      justify-content: space-between;
+
+      padding: 0 6%;
+
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    body.dark header, body.dark .article {
+
+    body.dark .topbar {
       background: #1f2937;
       border-color: #374151;
     }
-    .brand { font-size: 20px; font-weight: bold; }
-    .header-actions { display: flex; gap: 8px; }
-    button, .button {
-      border: 0;
-      border-radius: 9px;
-      padding: 11px 15px;
-      cursor: pointer;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 18px;
       font-weight: bold;
-      text-decoration: none;
-      font-size: 14px;
+
+      color: #4f46e5;
     }
-    .secondary { background: #e5e7eb; color: #1f2937; }
-    .primary { background: #3157d5; color: white; }
-    body.dark .secondary { background: #374151; color: white; }
-    main { max-width: 850px; margin: 32px auto; padding: 0 20px; }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 10px;
+
+      background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+      );
+
+      color: white;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-button {
+      border: 1px solid #d1d5db;
+      background: white;
+
+      padding: 9px 13px;
+
+      border-radius: 9px;
+
+      cursor: pointer;
+
+      color: #374151;
+
+      transition: 0.2s;
+    }
+
+    .top-button:hover {
+      background: #eef2ff;
+      color: #4f46e5;
+    }
+
+    body.dark .top-button {
+      background: #374151;
+      border-color: #4b5563;
+      color: white;
+    }
+
+    /* ================= MAIN ================= */
+
+    .container {
+      width: min(1000px, 92%);
+      margin: 35px auto 60px;
+    }
+
+    /* ================= BACK ================= */
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-bottom: 22px;
+
+      color: #4f46e5;
+
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      text-decoration: underline;
+    }
+
+    /* ================= ARTICLE ================= */
+
     .article {
       background: white;
-      border-radius: 18px;
-      padding: 32px;
-      box-shadow: 0 8px 28px #0000000c;
+
+      border: 1px solid #e5e7eb;
+
+      border-radius: 22px;
+
+      overflow: hidden;
     }
+
+    body.dark .article {
+      background: #1f2937;
+      border-color: #374151;
+    }
+
+    /* ================= COVER ================= */
+
+    .cover {
+      width: 100%;
+      height: 360px;
+
+      object-fit: cover;
+
+      display: block;
+
+      background: #e5e7eb;
+    }
+
+    /* ================= ARTICLE CONTENT ================= */
+
+    .article-content {
+      padding: 40px;
+    }
+
     .category {
       display: inline-block;
-      color: #3157d5;
+
+      padding: 6px 11px;
+
+      border-radius: 8px;
+
       background: #eef2ff;
-      border-radius: 20px;
-      padding: 7px 12px;
-      font-size: 12px;
+
+      color: #4f46e5;
+
+      font-size: 11px;
+
       font-weight: bold;
+
+      text-transform: uppercase;
     }
-    h1 { font-size: clamp(27px, 5vw, 40px); line-height: 1.2; margin: 18px 0 12px; }
-    .meta { color: #7b8494; font-size: 13px; line-height: 1.8; }
-    .cover {
-      display: block;
-      width: 100%;
-      max-height: 420px;
-      object-fit: cover;
-      border-radius: 13px;
-      margin: 25px 0;
+
+    body.dark .category {
+      background: #374151;
+      color: #a5b4fc;
     }
-    .description {
-      font-size: 17px;
-      line-height: 1.8;
-      color: #64748b;
-      border-left: 3px solid #3157d5;
-      padding-left: 15px;
-      margin: 22px 0;
+
+    .title {
+      font-size: 36px;
+
+      line-height: 1.2;
+
+      margin: 18px 0 14px;
     }
-    body.dark .description, body.dark .meta { color: #cbd5e1; }
-    .content {
-      font-size: 17px;
-      line-height: 1.95;
-      overflow-wrap: anywhere;
-      white-space: pre-wrap;
+
+    .meta {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 18px;
+
+      color: #6b7280;
+
+      font-size: 13px;
+
+      margin-bottom: 25px;
     }
+
+    body.dark .meta {
+      color: #9ca3af;
+    }
+
+    /* ================= ACTION ================= */
+
     .actions {
       display: flex;
-      gap: 10px;
+
       flex-wrap: wrap;
-      border-top: 1px solid #e5e7eb;
-      padding-top: 22px;
-      margin-top: 30px;
+
+      gap: 10px;
+
+      padding-bottom: 25px;
+
+      margin-bottom: 28px;
+
+      border-bottom: 1px solid #e5e7eb;
     }
-    body.dark .actions { border-color: #374151; }
-    .empty { text-align: center; padding: 55px 25px; }
-    .empty h2 { margin-bottom: 8px; }
-    .empty p { color: #7b8494; line-height: 1.6; }
-    footer { text-align: center; color: #8490a0; padding: 25px; font-size: 12px; }
-    @media(max-width: 600px) {
-      header { padding: 15px; }
-      .brand { font-size: 16px; }
-      main { margin: 18px auto; padding: 0 12px; }
-      .article { padding: 22px 17px; }
-      .content { font-size: 16px; }
+
+    body.dark .actions {
+      border-color: #374151;
     }
+
+    .action-button {
+      border: 1px solid #d1d5db;
+
+      background: white;
+
+      padding: 10px 16px;
+
+      border-radius: 10px;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+      color: #374151;
+
+      transition: 0.2s;
+    }
+
+    .action-button:hover {
+      transform: translateY(-2px);
+    }
+
+    body.dark .action-button {
+      background: #374151;
+      border-color: #4b5563;
+      color: white;
+    }
+
+    .favorite-button.active {
+      color: #ef4444;
+      border-color: #fca5a5;
+    }
+
+    /* ================= DESCRIPTION ================= */
+
+    .description-box {
+      background: #f9fafb;
+
+      border-left: 4px solid #4f46e5;
+
+      padding: 18px 20px;
+
+      border-radius: 8px;
+
+      margin-bottom: 30px;
+
+      line-height: 1.7;
+
+      color: #4b5563;
+    }
+
+    body.dark .description-box {
+      background: #111827;
+      color: #d1d5db;
+    }
+
+    /* ================= CONTENT ================= */
+
+    .content-title {
+      font-size: 20px;
+
+      margin-bottom: 18px;
+    }
+
+    .work-content {
+      font-size: 16px;
+
+      line-height: 2;
+
+      color: #374151;
+
+      white-space: pre-wrap;
+
+      overflow-wrap: anywhere;
+    }
+
+    body.dark .work-content {
+      color: #e5e7eb;
+    }
+
+    /* ================= NOT FOUND ================= */
+
+    .not-found {
+      text-align: center;
+
+      background: white;
+
+      border: 1px solid #e5e7eb;
+
+      border-radius: 20px;
+
+      padding: 70px 25px;
+    }
+
+    body.dark .not-found {
+      background: #1f2937;
+      border-color: #374151;
+    }
+
+    .not-found-icon {
+      font-size: 60px;
+
+      margin-bottom: 15px;
+    }
+
+    .not-found h2 {
+      margin-bottom: 10px;
+    }
+
+    .not-found p {
+      color: #6b7280;
+
+      line-height: 1.6;
+
+      margin-bottom: 25px;
+    }
+
+    body.dark .not-found p {
+      color: #9ca3af;
+    }
+
+    .home-button {
+      display: inline-block;
+
+      background: #4f46e5;
+
+      color: white;
+
+      padding: 11px 18px;
+
+      border-radius: 10px;
+
+      font-weight: bold;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      text-align: center;
+
+      color: #6b7280;
+
+      font-size: 12px;
+
+      padding: 25px;
+    }
+
+    body.dark footer {
+      color: #9ca3af;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 650px) {
+
+      .topbar {
+        padding: 0 18px;
+      }
+
+      .brand span:last-child {
+        display: none;
+      }
+
+      .container {
+        width: 94%;
+        margin-top: 20px;
+      }
+
+      .cover {
+        height: 230px;
+      }
+
+      .article-content {
+        padding: 25px 20px;
+      }
+
+      .title {
+        font-size: 28px;
+      }
+
+      .work-content {
+        font-size: 15px;
+        line-height: 1.9;
+      }
+
+      .meta {
+        flex-direction: column;
+        gap: 7px;
+      }
+
+    }
+
   </style>
 </head>
+
 <body>
-  <header>
-    <a href="index.html" class="brand" style="text-decoration:none;color:inherit">📚 Ruang Aksara</a>
-    <div class="header-actions">
-      <button class="secondary" id="themeBtn" type="button">🌙</button>
-      <a class="button secondary" href="index.html">Beranda</a>
+
+  <!-- ================= TOPBAR ================= -->
+
+  <header class="topbar">
+
+    <a href="index.html" class="brand">
+
+      <span class="brand-icon">
+        A
+      </span>
+
+      <span>
+        Ruang Aksara
+      </span>
+
+    </a>
+
+
+    <div class="top-actions">
+
+      <a
+        href="favorit.html"
+        class="top-button"
+      >
+        ❤️ Favorit
+      </a>
+
+      <button
+        class="top-button"
+        onclick="toggleDarkMode()"
+        id="themeButton"
+      >
+        🌙
+      </button>
+
     </div>
+
   </header>
 
-  <main>
-    <article class="article" id="article">
-      <div class="empty">
-        <h2>Memuat karya...</h2>
+
+  <!-- ================= MAIN ================= -->
+
+  <main class="container">
+
+    <a
+      href="index.html"
+      class="back-button"
+    >
+      ← Kembali ke Beranda
+    </a>
+
+
+    <!-- ================= ARTICLE ================= -->
+
+    <article
+      class="article"
+      id="article"
+      style="display:none;"
+    >
+
+      <img
+        id="workImage"
+        class="cover"
+        src=""
+        alt="Cover karya"
+      >
+
+
+      <div class="article-content">
+
+        <span
+          class="category"
+          id="workCategory"
+        >
+        </span>
+
+
+        <h1
+          class="title"
+          id="workTitle"
+        >
+        </h1>
+
+
+        <div class="meta">
+
+          <span>
+            👤
+            <strong>Penulis:</strong>
+            <span id="workAuthor">
+            </span>
+          </span>
+
+          <span>
+            📅
+            <strong>Dibuat:</strong>
+            <span id="workDate">
+            </span>
+          </span>
+
+        </div>
+
+
+        <!-- ACTION -->
+
+        <div class="actions">
+
+          <button
+            class="action-button favorite-button"
+            id="favoriteButton"
+            onclick="toggleFavorite()"
+          >
+            ♡ Tambah ke Favorit
+          </button>
+
+
+          <button
+            class="action-button"
+            onclick="shareWork()"
+          >
+            🔗 Bagikan
+          </button>
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+
+        <div
+          class="description-box"
+          id="descriptionBox"
+        >
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <h2 class="content-title">
+          📖 Isi Karya
+        </h2>
+
+
+        <div
+          class="work-content"
+          id="workContent"
+        >
+        </div>
+
       </div>
+
     </article>
+
+
+    <!-- ================= NOT FOUND ================= -->
+
+    <section
+      class="not-found"
+      id="notFound"
+      style="display:none;"
+    >
+
+      <div class="not-found-icon">
+        📭
+      </div>
+
+      <h2>
+        Karya Tidak Ditemukan
+      </h2>
+
+      <p>
+        Karya yang kamu cari mungkin sudah dihapus,
+        belum tersedia, atau tautannya tidak valid.
+      </p>
+
+      <a
+        href="index.html"
+        class="home-button"
+      >
+        🏠 Kembali ke Beranda
+      </a>
+
+    </section>
+
   </main>
 
-  <footer>© Ruang Aksara STT Cipasung · Ruang Literasi Kampus</footer>
+
+  <footer>
+    © 2026 Ruang Aksara STT Cipasung
+  </footer>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
 
   <script>
-    const WORK_KEY = "ruangAksaraWorks";
-    const FAVORITE_KEY = "ruangAksaraFavorites";
-    const params = new URLSearchParams(location.search);
-    const workId = params.get("id");
 
-    function readStorage(key) {
-      try {
-        const value = JSON.parse(localStorage.getItem(key));
-        return Array.isArray(value) ? value : [];
-      } catch {
-        return [];
+    /* ==========================================
+       KARYA CONTOH
+    ========================================== */
+
+    const sampleWorks = [
+
+      {
+        id: "sample-langit-yang-pulang",
+
+        title: "Langit yang Pulang",
+
+        category: "Puisi",
+
+        description:
+          "Sebuah puisi tentang perjalanan, rindu, dan harapan untuk kembali.",
+
+        content:
+          "Langit menyimpan warna senja,\ndan jalan menyimpan cerita.\n\nAku berjalan membawa rindu,\nmenunggu sebuah rumah yang selalu kupanggil pulang.",
+
+        image: "images/puisi.jpg",
+
+        author: "Ruang Aksara",
+
+        createdAt: "2026-01-10T00:00:00.000Z"
+      },
+
+
+      {
+        id: "sample-langkah-pertama",
+
+        title: "Langkah Pertama",
+
+        category: "Cerita",
+
+        description:
+          "Cerita pendek tentang keberanian memulai sesuatu yang baru.",
+
+        content:
+          "Tidak semua perjalanan dimulai dengan langkah yang besar.\n\nKadang sebuah langkah kecil sudah cukup untuk membawa seseorang menuju perubahan.",
+
+        image: "images/cerita.jpg",
+
+        author: "Ruang Aksara",
+
+        createdAt: "2026-01-12T00:00:00.000Z"
+      },
+
+
+      {
+        id: "sample-teknologi-dan-literasi",
+
+        title: "Teknologi dan Literasi",
+
+        category: "Artikel",
+
+        description:
+          "Membahas hubungan antara perkembangan teknologi dan budaya literasi mahasiswa.",
+
+        content:
+          "Teknologi memberikan banyak kesempatan baru dalam dunia literasi.\n\nMahasiswa dapat membaca, menulis, menyimpan, dan membagikan karya melalui berbagai platform digital.",
+
+        image: "images/artikel.jpg",
+
+        author: "Ruang Aksara",
+
+        createdAt: "2026-01-15T00:00:00.000Z"
       }
+
+    ];
+
+
+    /* ==========================================
+       ID KARYA DARI URL
+    ========================================== */
+
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+    const workId =
+      params.get("id");
+
+
+    /* ==========================================
+       DATA KARYA
+    ========================================== */
+
+    function getSubmittedWorks() {
+
+      try {
+
+        return JSON.parse(
+          localStorage.getItem(
+            "ruangAksaraWorks"
+          )
+        ) || [];
+
+      } catch (error) {
+
+        return [];
+
+      }
+
     }
+
+
+    function getAllWorks() {
+
+      const submittedWorks =
+        getSubmittedWorks();
+
+
+      return [
+        ...submittedWorks,
+        ...sampleWorks
+      ];
+
+    }
+
+
+    /* ==========================================
+       CARI KARYA
+    ========================================== */
+
+    function findWork() {
+
+      const works =
+        getAllWorks();
+
+
+      return works.find(
+        work =>
+          String(work.id) ===
+          String(workId)
+      );
+
+    }
+
+
+    /* ==========================================
+       FORMAT TANGGAL
+    ========================================== */
+
+    function formatDate(date) {
+
+      if (!date) {
+        return "Tanggal tidak tersedia";
+      }
+
+
+      const parsedDate =
+        new Date(date);
+
+
+      if (isNaN(parsedDate.getTime())) {
+        return "Tanggal tidak tersedia";
+      }
+
+
+      return parsedDate.toLocaleDateString(
+        "id-ID",
+        {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        }
+      );
+
+    }
+
+
+    /* ==========================================
+       ESCAPE HTML
+    ========================================== */
 
     function escapeHTML(value) {
-      const div = document.createElement("div");
-      div.textContent = String(value ?? "");
-      return div.innerHTML;
+
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
     }
 
-    function getImage(work) {
-      if (work.image) return work.image;
-      const category = String(work.category || "").toLowerCase();
-      if (category === "cerita") return "images/cerita.jpg";
-      if (category === "artikel") return "images/artikel.jpg";
-      return "images/puisi.jpg";
-    }
+
+    /* ==========================================
+       TAMPILKAN KARYA
+    ========================================== */
 
     function renderWork() {
-      const works = readStorage(WORK_KEY);
-      const work = works.find(item => String(item.id) === String(workId));
-      const article = document.getElementById("article");
+
+      const article =
+        document.getElementById("article");
+
+
+      const notFound =
+        document.getElementById("notFound");
+
+
+      const work =
+        findWork();
+
 
       if (!work) {
-        article.innerHTML = `
-          <div class="empty">
-            <h2>Karya tidak ditemukan</h2>
-            <p>Karya mungkin belum tersimpan di browser ini atau tautannya tidak sesuai.</p>
-            <a class="button primary" href="index.html">Kembali ke Beranda</a>
-          </div>`;
+
+        article.style.display = "none";
+
+        notFound.style.display = "block";
+
         return;
+
       }
 
-      const favorites = readStorage(FAVORITE_KEY);
-      const isFavorite = favorites.some(item =>
-        String(item.id) === String(work.id) ||
-        (item.title === work.title && item.category === work.category)
-      );
 
-      const date = work.createdAt && !isNaN(new Date(work.createdAt))
-        ? new Date(work.createdAt).toLocaleDateString("id-ID", {
-            day: "numeric", month: "long", year: "numeric"
-          })
-        : "Tanggal tidak tersedia";
+      article.style.display = "block";
 
-      article.innerHTML = `
-        <span class="category">${escapeHTML(work.category || "Karya")}</span>
-        <h1>${escapeHTML(work.title || "Tanpa Judul")}</h1>
-        <div class="meta">
-          ✍️ ${escapeHTML(work.author || "Penulis Ruang Aksara")}
-          &nbsp; · &nbsp; 📅 ${date}
-        </div>
-        <img class="cover" src="${escapeHTML(getImage(work))}" alt="Sampul karya"
-          onerror="this.style.display='none'">
-        ${work.description ? `<div class="description">${escapeHTML(work.description)}</div>` : ""}
-        <div class="content">${escapeHTML(work.content || "Isi karya belum tersedia.")}</div>
-        <div class="actions">
-          <button class="primary" id="favoriteBtn" type="button">
-            ${isFavorite ? "♥ Hapus dari Favorit" : "♡ Tambah ke Favorit"}
-          </button>
-          <a class="button secondary" href="index.html#karya">← Kembali ke Karya</a>
-          <a class="button secondary" href="kirim-karya.html">✎ Kirim Karya</a>
-        </div>`;
+      notFound.style.display = "none";
 
-      document.getElementById("favoriteBtn").addEventListener("click", () => {
-        toggleFavorite(work);
-      });
+
+      document.getElementById(
+        "workImage"
+      ).src =
+        work.image ||
+        getCategoryImage(work.category);
+
+
+      document.getElementById(
+        "workImage"
+      ).alt =
+        work.title || "Karya";
+
+
+      document.getElementById(
+        "workCategory"
+      ).textContent =
+        work.category || "Umum";
+
+
+      document.getElementById(
+        "workTitle"
+      ).textContent =
+        work.title || "Tanpa Judul";
+
+
+      document.getElementById(
+        "workAuthor"
+      ).textContent =
+        work.author || "Mahasiswa STT Cipasung";
+
+
+      document.getElementById(
+        "workDate"
+      ).textContent =
+        formatDate(work.createdAt);
+
+
+      document.getElementById(
+        "descriptionBox"
+      ).textContent =
+        work.description ||
+        "Karya ini belum memiliki deskripsi.";
+
+
+      document.getElementById(
+        "workContent"
+      ).textContent =
+        work.content ||
+        "Isi karya belum tersedia.";
+
+
+      updateFavoriteButton();
+
     }
 
-    function toggleFavorite(work) {
-      let favorites = readStorage(FAVORITE_KEY);
-      const exists = favorites.some(item =>
-        String(item.id) === String(work.id) ||
-        (item.title === work.title && item.category === work.category)
+
+    /* ==========================================
+       GAMBAR DEFAULT
+    ========================================== */
+
+    function getCategoryImage(category) {
+
+      const value =
+        String(category || "")
+          .toLowerCase();
+
+
+      if (value === "puisi") {
+        return "images/puisi.jpg";
+      }
+
+
+      if (value === "cerita") {
+        return "images/cerita.jpg";
+      }
+
+
+      return "images/artikel.jpg";
+
+    }
+
+
+    /* ==========================================
+       FAVORIT
+    ========================================== */
+
+    function getFavorites() {
+
+      try {
+
+        return JSON.parse(
+          localStorage.getItem(
+            "ruangAksaraFavorites"
+          )
+        ) || [];
+
+      } catch (error) {
+
+        return [];
+
+      }
+
+    }
+
+
+    function saveFavorites(favorites) {
+
+      localStorage.setItem(
+        "ruangAksaraFavorites",
+        JSON.stringify(favorites)
       );
 
-      if (exists) {
-        favorites = favorites.filter(item =>
-          !(String(item.id) === String(work.id) ||
-            (item.title === work.title && item.category === work.category))
+    }
+
+
+    function isFavorite() {
+
+      const favorites =
+        getFavorites();
+
+
+      return favorites.some(
+        item =>
+          String(item.id) ===
+          String(workId)
+      );
+
+    }
+
+
+    function toggleFavorite() {
+
+      const work =
+        findWork();
+
+
+      if (!work) return;
+
+
+      let favorites =
+        getFavorites();
+
+
+      const index =
+        favorites.findIndex(
+          item =>
+            String(item.id) ===
+            String(work.id)
         );
+
+
+      if (index !== -1) {
+
+        favorites.splice(index, 1);
+
       } else {
-        favorites.unshift({
-          id: work.id,
-          title: work.title,
-          category: work.category,
-          description: work.description || "",
-          content: work.content || "",
-          image: work.image || "",
-          author: work.author || "Penulis Ruang Aksara",
-          createdAt: work.createdAt || ""
+
+        favorites.push({
+          ...work,
+          id: work.id
         });
+
       }
 
-      localStorage.setItem(FAVORITE_KEY, JSON.stringify(favorites));
-      renderWork();
+
+      saveFavorites(favorites);
+
+      updateFavoriteButton();
+
     }
 
-    const themeBtn = document.getElementById("themeBtn");
 
-    function applyTheme() {
-      const dark = localStorage.getItem("ruangAksaraDarkMode") === "true";
-      document.body.classList.toggle("dark", dark);
-      themeBtn.textContent = dark ? "☀️" : "🌙";
+    function updateFavoriteButton() {
+
+      const button =
+        document.getElementById(
+          "favoriteButton"
+        );
+
+
+      if (isFavorite()) {
+
+        button.classList.add("active");
+
+        button.textContent =
+          "♥ Hapus dari Favorit";
+
+      } else {
+
+        button.classList.remove("active");
+
+        button.textContent =
+          "♡ Tambah ke Favorit";
+
+      }
+
     }
 
-    themeBtn.addEventListener("click", () => {
-      const dark = document.body.classList.contains("dark");
-      localStorage.setItem("ruangAksaraDarkMode", String(!dark));
-      applyTheme();
-    });
 
-    applyTheme();
-    renderWork();
+    /* ==========================================
+       BAGIKAN
+    ========================================== */
+
+    async function shareWork() {
+
+      const work =
+        findWork();
+
+
+      if (!work) return;
+
+
+      const shareData = {
+
+        title:
+          work.title ||
+          "Karya Ruang Aksara",
+
+        text:
+          `Baca karya "${work.title}" di Ruang Aksara STT Cipasung.`,
+
+        url:
+          window.location.href
+
+      };
+
+
+      try {
+
+        if (
+          navigator.share
+        ) {
+
+          await navigator.share(
+            shareData
+          );
+
+        } else {
+
+          await navigator.clipboard.writeText(
+            window.location.href
+          );
+
+          alert(
+            "🔗 Link karya berhasil disalin!"
+          );
+
+        }
+
+      } catch (error) {
+
+        console.log(
+          "Share dibatalkan."
+        );
+
+      }
+
+    }
+
+
+    /* ==========================================
+       DARK MODE
+    ========================================== */
+
+    function toggleDarkMode() {
+
+      document.body.classList.toggle(
+        "dark"
+      );
+
+
+      const dark =
+        document.body.classList.contains(
+          "dark"
+        );
+
+
+      localStorage.setItem(
+        "ruangAksaraDarkMode",
+        dark
+          ? "true"
+          : "false"
+      );
+
+
+      updateThemeButton();
+
+    }
+
+
+    function updateThemeButton() {
+
+      const button =
+        document.getElementById(
+          "themeButton"
+        );
+
+
+      if (
+        document.body.classList.contains(
+          "dark"
+        )
+      ) {
+
+        button.textContent =
+          "☀️";
+
+      } else {
+
+        button.textContent =
+          "🌙";
+
+      }
+
+    }
+
+
+    /* ==========================================
+       INIT
+    ========================================== */
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+        const savedDarkMode =
+          localStorage.getItem(
+            "ruangAksaraDarkMode"
+          );
+
+
+        if (
+          savedDarkMode === "true"
+        ) {
+
+          document.body.classList.add(
+            "dark"
+          );
+
+        }
+
+
+        updateThemeButton();
+
+        renderWork();
+
+      }
+    );
+
   </script>
+
 </body>
 </html>
