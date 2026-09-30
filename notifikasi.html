@@ -2,91 +2,366 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Notifikasi - Ruang Aksara</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Notifikasi - Ruang Aksara STT Cipasung</title>
 
     <link rel="stylesheet" href="style.css">
 
     <style>
 
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            transition: 0.3s;
+        }
+
+        body.dark {
+            background: #111827;
+            color: #f3f4f6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
         /* =========================
-           NOTIFICATION PAGE
+           SIDEBAR
         ========================= */
 
-        .notification-page {
-            padding: 30px;
-            max-width: 1100px;
-            margin: auto;
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 250px;
+            height: 100vh;
+            background: #ffffff;
+            border-right: 1px solid #e5e7eb;
+            padding: 20px 15px;
+            z-index: 1000;
+            overflow-y: auto;
         }
 
-        .notification-hero {
-            background: linear-gradient(135deg, #123c2c, #1f6b4d);
+        body.dark .sidebar {
+            background: #1f2937;
+            border-color: #374151;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            transition: 0.25s;
+            color: #444;
+        }
+
+        body.dark .menu-item {
+            color: #ddd;
+        }
+
+        .menu-item:hover,
+        .menu-item.active {
+            background: #e9eefc;
+            color: #3157d5;
+        }
+
+        body.dark .menu-item:hover,
+        body.dark .menu-item.active {
+            background: #374151;
+            color: #93c5fd;
+        }
+
+        .menu-icon {
+            width: 25px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* =========================
+           NOTIFICATION BADGE
+        ========================= */
+
+        .notification-badge {
+            margin-left: auto;
+            min-width: 22px;
+            height: 22px;
+            padding: 0 6px;
+            border-radius: 20px;
+            background: #ef4444;
             color: white;
-            border-radius: 24px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .notification-badge.hidden {
+            display: none;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+            margin-left: 250px;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           TOPBAR
+        ========================= */
+
+        .topbar {
+            height: 70px;
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+        }
+
+        body.dark .topbar {
+            background: #1f2937;
+            border-color: #374151;
+        }
+
+        .topbar-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .topbar-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .topbar-btn {
+            border: none;
+            background: #f1f5f9;
+            padding: 10px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        body.dark .topbar-btn {
+            background: #374151;
+            color: white;
+        }
+
+        .mobile-menu {
+            display: none;
+            border: none;
+            background: #3157d5;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content {
             padding: 35px;
+            max-width: 1100px;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background: linear-gradient(
+                135deg,
+                #3157d5,
+                #7c3aed
+            );
+
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
             margin-bottom: 25px;
-            position: relative;
-            overflow: hidden;
         }
 
-        .notification-hero::after {
-            content: "🔔";
-            position: absolute;
-            right: 40px;
-            bottom: -15px;
-            font-size: 100px;
-            opacity: 0.12;
-        }
-
-        .notification-hero h1 {
-            margin: 0 0 8px;
+        .hero h1 {
+            margin: 0 0 10px;
             font-size: 32px;
         }
 
-        .notification-hero p {
+        .hero p {
             margin: 0;
-            opacity: 0.85;
+            opacity: 0.9;
+            line-height: 1.6;
         }
 
-        .notification-actions {
+        /* =========================
+           TOOLBAR
+        ========================= */
+
+        .notification-toolbar {
+            background: white;
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 20px;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
             gap: 15px;
+            flex-wrap: wrap;
+
+            box-shadow:
+                0 6px 20px rgba(0,0,0,0.05);
         }
 
-        .notification-actions h2 {
-            margin: 0;
+        body.dark .notification-toolbar {
+            background: #1f2937;
         }
 
-        .read-all {
+        .notification-summary {
+            font-weight: bold;
+        }
+
+        .notification-summary span {
+            color: #3157d5;
+        }
+
+        .toolbar-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tool-btn {
             border: none;
-            background: transparent;
-            color: #1f6b4d;
-            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: 9px;
             cursor: pointer;
+            font-weight: bold;
+            background: #e5e7eb;
+            color: #333;
         }
+
+        .tool-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        body.dark .tool-btn {
+            background: #374151;
+            color: white;
+        }
+
+        .tool-btn.primary {
+            background: #3157d5;
+            color: white;
+        }
+
+        .tool-btn.danger {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        body.dark .tool-btn.danger {
+            background: #451a1a;
+            color: #fecaca;
+        }
+
+        /* =========================
+           FILTER
+        ========================= */
+
+        .filter-area {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            border: none;
+            background: white;
+            padding: 10px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #555;
+        }
+
+        body.dark .filter-btn {
+            background: #1f2937;
+            color: #ddd;
+        }
+
+        .filter-btn.active {
+            background: #3157d5;
+            color: white;
+        }
+
+        /* =========================
+           NOTIFICATION LIST
+        ========================= */
 
         .notification-list {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
         }
 
         .notification-card {
             background: white;
-            border-radius: 18px;
+            border-radius: 16px;
             padding: 20px;
+
             display: flex;
             align-items: flex-start;
-            gap: 16px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-            border: 1px solid #eee;
+            gap: 15px;
+
+            box-shadow:
+                0 5px 18px rgba(0,0,0,0.05);
+
+            border-left: 4px solid transparent;
+
             transition: 0.25s;
-            cursor: pointer;
+        }
+
+        body.dark .notification-card {
+            background: #1f2937;
         }
 
         .notification-card:hover {
@@ -94,127 +369,187 @@
         }
 
         .notification-card.unread {
-            border-left: 5px solid #1f6b4d;
-            background: #f5fbf8;
+            border-left-color: #3157d5;
+            background: #f5f8ff;
+        }
+
+        body.dark .notification-card.unread {
+            background: #172554;
         }
 
         .notification-icon {
             min-width: 48px;
+            width: 48px;
             height: 48px;
-            border-radius: 14px;
+
+            border-radius: 50%;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #e7f4ed;
+
+            background: #dbeafe;
+
             font-size: 22px;
         }
 
-        .notification-content {
+        .notification-card.success
+        .notification-icon {
+            background: #dcfce7;
+        }
+
+        .notification-card.info
+        .notification-icon {
+            background: #dbeafe;
+        }
+
+        .notification-card.warning
+        .notification-icon {
+            background: #fef3c7;
+        }
+
+        .notification-body {
             flex: 1;
+            min-width: 0;
         }
 
-        .notification-content h3 {
-            margin: 0 0 6px;
+        .notification-title {
+            font-weight: bold;
             font-size: 16px;
+            margin-bottom: 6px;
         }
 
-        .notification-content p {
-            margin: 0 0 7px;
+        .notification-message {
             color: #666;
             line-height: 1.5;
             font-size: 14px;
         }
 
-        .notification-time {
-            color: #999;
-            font-size: 12px;
+        body.dark .notification-message {
+            color: #cbd5e1;
         }
 
-        .notification-dot {
-            width: 9px;
-            height: 9px;
-            background: #1f6b4d;
-            border-radius: 50%;
+        .notification-date {
             margin-top: 8px;
+            font-size: 12px;
+            color: #888;
         }
 
-        .empty-notification {
-            display: none;
-            text-align: center;
-            padding: 60px 20px;
+        .notification-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .notification-action {
+            border: none;
+            background: #f1f5f9;
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        body.dark .notification-action {
+            background: #374151;
+            color: white;
+        }
+
+        .notification-action:hover {
+            background: #e2e8f0;
+        }
+
+        /* =========================
+           EMPTY
+        ========================= */
+
+        .empty-state {
             background: white;
-            border-radius: 20px;
+            border-radius: 18px;
+            padding: 60px 25px;
+            text-align: center;
+
+            box-shadow:
+                0 6px 20px rgba(0,0,0,0.05);
         }
 
-        .empty-notification.show {
-            display: block;
+        body.dark .empty-state {
+            background: #1f2937;
         }
 
-        .empty-notification-icon {
+        .empty-icon {
             font-size: 60px;
             margin-bottom: 15px;
         }
 
-        .empty-notification h3 {
-            margin-bottom: 8px;
+        .empty-state h2 {
+            margin: 0 0 8px;
         }
 
-        .empty-notification p {
+        .empty-state p {
             color: #777;
+            margin-bottom: 20px;
         }
 
-        /* =========================
-           DARK MODE
-        ========================= */
-
-        body.dark .notification-card,
-        body.dark .empty-notification {
-            background: #1e1e1e;
-            border-color: #333;
-        }
-
-        body.dark .notification-card.unread {
-            background: #18251f;
-        }
-
-        body.dark .notification-content p {
-            color: #bbb;
-        }
-
-        body.dark .notification-actions h2 {
+        .empty-btn {
+            display: inline-block;
+            background: #3157d5;
             color: white;
-        }
-
-        body.dark .notification-icon {
-            background: #263c32;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-weight: bold;
         }
 
         /* =========================
-           RESPONSIVE
+           MOBILE
         ========================= */
 
-        @media (max-width: 768px) {
+        @media (max-width: 800px) {
 
-            .notification-page {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: 0.3s;
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            .main {
+                margin-left: 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .topbar {
+                padding: 0 15px;
+            }
+
+            .content {
                 padding: 20px;
             }
 
-            .notification-hero {
+            .hero {
                 padding: 25px;
             }
 
-            .notification-hero h1 {
-                font-size: 25px;
-            }
-
-            .notification-hero::after {
-                right: 15px;
+            .hero h1 {
+                font-size: 26px;
             }
 
             .notification-card {
-                padding: 16px;
+                padding: 15px;
             }
 
+            .notification-actions {
+                flex-direction: column;
+            }
+
+            .notification-action {
+                width: 32px;
+                height: 32px;
+            }
         }
 
     </style>
@@ -225,103 +560,160 @@
 <body>
 
 
-<!-- =========================
+<!-- ==================================================
      SIDEBAR
-========================= -->
+================================================== -->
 
-<aside class="sidebar">
+<aside class="sidebar" id="sidebar">
 
     <div class="logo">
-        <div class="logo-icon">✒</div>
+        Ruang Aksara
+    </div>
 
-        <div>
-            <strong>Ruang Aksara</strong>
-            <small>STT Cipasung</small>
-        </div>
+    <div class="logo-subtitle">
+        RUANG LITERASI STTCIPASUNG
     </div>
 
 
     <nav class="menu">
 
-        <a href="index.html" class="menu-item">
+        <a href="index.html"
+           class="menu-item">
+
             <span class="menu-icon">🏠</span>
+
             <span>Beranda</span>
+
         </a>
 
-        <a href="index.html#karya" class="menu-item">
+
+        <a href="index.html#karya"
+           class="menu-item">
+
             <span class="menu-icon">📚</span>
+
             <span>Karya</span>
+
         </a>
 
-        <a href="kirim-karya.html" class="menu-item">
+
+        <a href="kirim-karya.html"
+           class="menu-item">
+
             <span class="menu-icon">✎</span>
+
             <span>Kirim Karya</span>
+
         </a>
 
-        <a href="favorit.html" class="menu-item">
+
+        <a href="favorit.html"
+           class="menu-item">
+
             <span class="menu-icon">♡</span>
+
             <span>Favorit</span>
+
         </a>
 
-        <a href="notifikasi.html" class="menu-item active">
+
+        <a href="notifikasi.html"
+           class="menu-item active">
+
             <span class="menu-icon">🔔</span>
+
             <span>Notifikasi</span>
+
+            <span
+                class="notification-badge hidden"
+                id="sidebarBadge">
+                0
+            </span>
+
         </a>
 
-        <a href="profil.html" class="menu-item">
+
+        <a href="profil.html"
+           class="menu-item">
+
             <span class="menu-icon">👤</span>
+
             <span>Profil</span>
+
         </a>
 
-        <a href="index.html#tentang" class="menu-item">
+
+        <a href="index.html#tentang"
+           class="menu-item">
+
             <span class="menu-icon">ℹ</span>
+
             <span>Tentang</span>
+
         </a>
 
-        <a href="index.html#kontak" class="menu-item">
+
+        <a href="index.html#kontak"
+           class="menu-item">
+
             <span class="menu-icon">✉</span>
+
             <span>Kontak</span>
+
         </a>
 
     </nav>
-
-
-    <div class="sidebar-bottom">
-
-        <button id="darkModeBtn">
-            🌙 Mode Gelap
-        </button>
-
-    </div>
 
 </aside>
 
 
 
-<!-- =========================
+<!-- ==================================================
      MAIN
-========================= -->
+================================================== -->
 
-<main class="main-content">
+<main class="main">
 
 
     <!-- TOPBAR -->
 
     <header class="topbar">
 
-        <button id="mobileMenu" class="mobile-menu">
+
+        <button
+            class="mobile-menu"
+            id="mobileMenu">
+
             ☰
+
         </button>
 
+
         <div class="topbar-title">
-            Notifikasi
+
+            🔔 Notifikasi
+
         </div>
 
-        <div class="topbar-profile">
 
-            <div class="avatar-small">
-                M
-            </div>
+        <div class="topbar-actions">
+
+            <button
+                class="topbar-btn"
+                id="darkModeBtn">
+
+                🌙
+
+            </button>
+
+
+            <a
+                href="profil.html"
+                class="topbar-btn">
+
+                👤
+
+            </a>
 
         </div>
 
@@ -329,37 +721,95 @@
 
 
 
-    <!-- NOTIFICATION CONTENT -->
+    <!-- CONTENT -->
 
-    <section class="notification-page">
+    <section class="content">
 
 
         <!-- HERO -->
 
-        <div class="notification-hero">
+        <div class="hero">
 
-            <h1>🔔 Notifikasi</h1>
+            <h1>
+                🔔 Pusat Notifikasi
+            </h1>
 
             <p>
-                Tetap terhubung dengan aktivitas terbaru
-                di Ruang Aksara.
+                Pantau aktivitas dan informasi terbaru
+                dari Ruang Aksara STT Cipasung.
             </p>
 
         </div>
 
 
 
-        <!-- ACTION -->
+        <!-- TOOLBAR -->
 
-        <div class="notification-actions">
+        <div class="notification-toolbar">
 
-            <h2>Aktivitas Terbaru</h2>
+
+            <div class="notification-summary">
+
+                <span id="totalNotifications">
+                    0
+                </span>
+
+                notifikasi
+
+                ·
+
+                <span id="unreadNotifications">
+                    0
+                </span>
+
+                belum dibaca
+
+            </div>
+
+
+            <div class="toolbar-buttons">
+
+                <button
+                    class="tool-btn primary"
+                    id="markAllBtn">
+
+                    ✓ Tandai Semua Dibaca
+
+                </button>
+
+
+                <button
+                    class="tool-btn danger"
+                    id="clearAllBtn">
+
+                    🗑 Hapus Semua
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FILTER -->
+
+        <div class="filter-area">
 
             <button
-                class="read-all"
-                onclick="markAllRead()">
+                class="filter-btn active"
+                data-filter="all">
 
-                Tandai semua dibaca
+                Semua
+
+            </button>
+
+
+            <button
+                class="filter-btn"
+                data-filter="unread">
+
+                Belum Dibaca
 
             </button>
 
@@ -373,287 +823,676 @@
             class="notification-list"
             id="notificationList">
 
-
-            <!-- NOTIFICATION 1 -->
-
-            <div
-                class="notification-card unread"
-                onclick="readNotification(this)">
-
-                <div class="notification-icon">
-                    ✨
-                </div>
-
-                <div class="notification-content">
-
-                    <h3>
-                        Karya berhasil dikirim
-                    </h3>
-
-                    <p>
-                        Karya <strong>
-                        "Langkah di Balik Aksara"
-                        </strong>
-                        berhasil dikirim dan sedang
-                        menunggu proses review.
-                    </p>
-
-                    <span class="notification-time">
-                        Baru saja
-                    </span>
-
-                </div>
-
-                <div class="notification-dot"></div>
-
-            </div>
-
-
-
-            <!-- NOTIFICATION 2 -->
-
-            <div
-                class="notification-card unread"
-                onclick="readNotification(this)">
-
-                <div class="notification-icon">
-                    ❤️
-                </div>
-
-                <div class="notification-content">
-
-                    <h3>
-                        Karya kamu mendapatkan apresiasi
-                    </h3>
-
-                    <p>
-                        Seseorang menyukai karya
-                        <strong>
-                        "Awal Sebuah Perjalanan"
-                        </strong>.
-                    </p>
-
-                    <span class="notification-time">
-                        1 jam yang lalu
-                    </span>
-
-                </div>
-
-                <div class="notification-dot"></div>
-
-            </div>
-
-
-
-            <!-- NOTIFICATION 3 -->
-
-            <div
-                class="notification-card"
-                onclick="readNotification(this)">
-
-                <div class="notification-icon">
-                    💬
-                </div>
-
-                <div class="notification-content">
-
-                    <h3>
-                        Ada komentar baru
-                    </h3>
-
-                    <p>
-                        Seseorang memberikan komentar
-                        pada karya kamu.
-                    </p>
-
-                    <span class="notification-time">
-                        Kemarin
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- NOTIFICATION 4 -->
-
-            <div
-                class="notification-card"
-                onclick="readNotification(this)">
-
-                <div class="notification-icon">
-                    📢
-                </div>
-
-                <div class="notification-content">
-
-                    <h3>
-                        Pengumuman Ruang Aksara
-                    </h3>
-
-                    <p>
-                        Jangan lewatkan kesempatan untuk
-                        membagikan karya terbaikmu di
-                        Ruang Aksara STT Cipasung.
-                    </p>
-
-                    <span class="notification-time">
-                        2 hari yang lalu
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- NOTIFICATION 5 -->
-
-            <div
-                class="notification-card"
-                onclick="readNotification(this)">
-
-                <div class="notification-icon">
-                    📝
-                </div>
-
-                <div class="notification-content">
-
-                    <h3>
-                        Tips menulis hari ini
-                    </h3>
-
-                    <p>
-                        Jangan menunggu tulisan menjadi
-                        sempurna. Mulailah dengan satu
-                        kalimat terlebih dahulu.
-                    </p>
-
-                    <span class="notification-time">
-                        3 hari yang lalu
-                    </span>
-
-                </div>
-
-            </div>
-
-
         </div>
 
 
 
-        <!-- EMPTY STATE -->
+        <!-- EMPTY -->
 
         <div
-            class="empty-notification"
-            id="emptyNotification">
+            class="empty-state"
+            id="emptyState"
+            style="display:none;">
 
-            <div class="empty-notification-icon">
+            <div class="empty-icon">
                 🔕
             </div>
 
-            <h3>
-                Tidak ada notifikasi
-            </h3>
+            <h2>
+                Belum Ada Notifikasi
+            </h2>
 
             <p>
-                Semua notifikasi sudah kamu baca.
+                Notifikasi aktivitas kamu akan muncul
+                di halaman ini.
             </p>
+
+            <a
+                href="kirim-karya.html"
+                class="empty-btn">
+
+                ✎ Kirim Karya
+
+            </a>
 
         </div>
 
 
     </section>
 
-
 </main>
 
 
 
-<script src="script.js"></script>
-
-
 <script>
 
-    /* =========================
-       READ NOTIFICATION
-    ========================= */
+    /* ==================================================
+       STORAGE
+    ================================================== */
 
-    function readNotification(card) {
+    const NOTIFICATION_KEY =
+        "ruangAksaraNotifications";
 
-        card.classList.remove("unread");
 
-        const dot =
-            card.querySelector(".notification-dot");
+    let currentFilter = "all";
 
-        if (dot) {
-            dot.remove();
+
+    /* ==================================================
+       GET NOTIFICATIONS
+    ================================================== */
+
+    function getNotifications() {
+
+        try {
+
+            return JSON.parse(
+                localStorage.getItem(NOTIFICATION_KEY)
+            ) || [];
+
+        } catch (error) {
+
+            return [];
+
         }
 
-        checkEmpty();
+    }
+
+
+    /* ==================================================
+       SAVE NOTIFICATIONS
+    ================================================== */
+
+    function saveNotifications(notifications) {
+
+        localStorage.setItem(
+            NOTIFICATION_KEY,
+            JSON.stringify(notifications)
+        );
 
     }
 
 
-    /* =========================
-       MARK ALL READ
-    ========================= */
+    /* ==================================================
+       ICON
+    ================================================== */
 
-    function markAllRead() {
+    function getNotificationIcon(type) {
 
-        const cards =
-            document.querySelectorAll(
-                ".notification-card"
-            );
+        if (type === "success") {
+            return "✅";
+        }
 
-        cards.forEach(card => {
+        if (type === "warning") {
+            return "⚠️";
+        }
 
-            card.classList.remove("unread");
+        return "🔔";
 
-            const dot =
-                card.querySelector(
-                    ".notification-dot"
-                );
+    }
 
-            if (dot) {
-                dot.remove();
+
+    /* ==================================================
+       FORMAT DATE
+    ================================================== */
+
+    function formatDate(dateString) {
+
+        const date =
+            new Date(dateString);
+
+
+        if (isNaN(date.getTime())) {
+
+            return "Tanggal tidak diketahui";
+
+        }
+
+
+        return date.toLocaleString(
+            "id-ID",
+            {
+                day: "2-digit",
+                month: "long",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit"
             }
-
-        });
-
-        checkEmpty();
+        );
 
     }
 
 
-    /* =========================
-       EMPTY CHECK
-    ========================= */
+    /* ==================================================
+       UPDATE COUNTER
+    ================================================== */
 
-    function checkEmpty() {
+    function updateCounters() {
+
+        const notifications =
+            getNotifications();
+
 
         const unread =
-            document.querySelectorAll(
-                ".notification-card.unread"
-            );
+            notifications.filter(
+                notification =>
+                    !notification.read
+            ).length;
 
-        const empty =
+
+        document.getElementById(
+            "totalNotifications"
+        ).textContent =
+            notifications.length;
+
+
+        document.getElementById(
+            "unreadNotifications"
+        ).textContent =
+            unread;
+
+
+        const badge =
             document.getElementById(
-                "emptyNotification"
+                "sidebarBadge"
             );
 
-        if (unread.length === 0) {
 
-            empty.classList.add("show");
+        if (unread > 0) {
+
+            badge.textContent = unread;
+
+            badge.classList.remove(
+                "hidden"
+            );
 
         } else {
 
-            empty.classList.remove("show");
+            badge.classList.add(
+                "hidden"
+            );
 
         }
 
     }
+
+
+    /* ==================================================
+       RENDER
+    ================================================== */
+
+    function renderNotifications() {
+
+        const allNotifications =
+            getNotifications();
+
+
+        let notifications =
+            [...allNotifications];
+
+
+        /* FILTER */
+
+        if (currentFilter === "unread") {
+
+            notifications =
+                notifications.filter(
+                    notification =>
+                        !notification.read
+                );
+
+        }
+
+
+        const list =
+            document.getElementById(
+                "notificationList"
+            );
+
+
+        const empty =
+            document.getElementById(
+                "emptyState"
+            );
+
+
+        list.innerHTML = "";
+
+
+        /* EMPTY */
+
+        if (notifications.length === 0) {
+
+            list.style.display = "none";
+
+            empty.style.display = "block";
+
+            updateCounters();
+
+            return;
+
+        }
+
+
+        list.style.display = "flex";
+
+        empty.style.display = "none";
+
+
+        /* CREATE CARD */
+
+        notifications.forEach(
+            notification => {
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "notification-card " +
+                    (notification.type || "info") +
+                    (notification.read
+                        ? ""
+                        : " unread");
+
+
+                card.innerHTML = `
+
+                    <div class="notification-icon">
+
+                        ${getNotificationIcon(
+                            notification.type
+                        )}
+
+                    </div>
+
+
+                    <div class="notification-body">
+
+                        <div class="notification-title">
+
+                            ${escapeHTML(
+                                notification.title ||
+                                "Notifikasi"
+                            )}
+
+                        </div>
+
+
+                        <div class="notification-message">
+
+                            ${escapeHTML(
+                                notification.message ||
+                                ""
+                            )}
+
+                        </div>
+
+
+                        <div class="notification-date">
+
+                            🕒
+                            ${formatDate(
+                                notification.date
+                            )}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="notification-actions">
+
+                        ${
+                            !notification.read
+                            ? `
+                                <button
+                                    class="notification-action"
+                                    title="Tandai sudah dibaca"
+                                    onclick="markAsRead('${notification.id}')">
+
+                                    ✓
+
+                                </button>
+                              `
+                            : ""
+                        }
+
+
+                        <button
+                            class="notification-action"
+                            title="Hapus"
+                            onclick="deleteNotification('${notification.id}')">
+
+                            🗑
+
+                        </button>
+
+                    </div>
+
+                `;
+
+
+                list.appendChild(card);
+
+            }
+        );
+
+
+        updateCounters();
+
+    }
+
+
+    /* ==================================================
+       ESCAPE HTML
+    ================================================== */
+
+    function escapeHTML(value) {
+
+        const div =
+            document.createElement(
+                "div"
+            );
+
+        div.textContent =
+            value;
+
+        return div.innerHTML;
+
+    }
+
+
+    /* ==================================================
+       MARK AS READ
+    ================================================== */
+
+    function markAsRead(id) {
+
+        const notifications =
+            getNotifications();
+
+
+        const notification =
+            notifications.find(
+                item =>
+                    item.id === id
+            );
+
+
+        if (notification) {
+
+            notification.read = true;
+
+        }
+
+
+        saveNotifications(
+            notifications
+        );
+
+
+        renderNotifications();
+
+    }
+
+
+    /* ==================================================
+       MARK ALL
+    ================================================== */
+
+    document.getElementById(
+        "markAllBtn"
+    ).addEventListener(
+        "click",
+        function () {
+
+            const notifications =
+                getNotifications();
+
+
+            if (notifications.length === 0) {
+
+                return;
+
+            }
+
+
+            notifications.forEach(
+                notification => {
+
+                    notification.read = true;
+
+                }
+            );
+
+
+            saveNotifications(
+                notifications
+            );
+
+
+            renderNotifications();
+
+        }
+    );
+
+
+    /* ==================================================
+       DELETE ONE
+    ================================================== */
+
+    function deleteNotification(id) {
+
+        const notifications =
+            getNotifications();
+
+
+        const filtered =
+            notifications.filter(
+                notification =>
+                    notification.id !== id
+            );
+
+
+        saveNotifications(
+            filtered
+        );
+
+
+        renderNotifications();
+
+    }
+
+
+    /* ==================================================
+       DELETE ALL
+    ================================================== */
+
+    document.getElementById(
+        "clearAllBtn"
+    ).addEventListener(
+        "click",
+        function () {
+
+            const notifications =
+                getNotifications();
+
+
+            if (notifications.length === 0) {
+
+                return;
+
+            }
+
+
+            const confirmDelete =
+                confirm(
+                    "Hapus semua notifikasi?"
+                );
+
+
+            if (!confirmDelete) {
+
+                return;
+
+            }
+
+
+            localStorage.removeItem(
+                NOTIFICATION_KEY
+            );
+
+
+            renderNotifications();
+
+        }
+    );
+
+
+    /* ==================================================
+       FILTER
+    ================================================== */
+
+    const filterButtons =
+        document.querySelectorAll(
+            ".filter-btn"
+        );
+
+
+    filterButtons.forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    filterButtons.forEach(
+                        btn =>
+                            btn.classList.remove(
+                                "active"
+                            )
+                    );
+
+
+                    this.classList.add(
+                        "active"
+                    );
+
+
+                    currentFilter =
+                        this.dataset.filter;
+
+
+                    renderNotifications();
+
+                }
+            );
+
+        }
+    );
+
+
+    /* ==================================================
+       DARK MODE
+    ================================================== */
+
+    const darkModeBtn =
+        document.getElementById(
+            "darkModeBtn"
+        );
+
+
+    function applyDarkMode() {
+
+        const darkMode =
+            localStorage.getItem(
+                "ruangAksaraDarkMode"
+            ) === "true";
+
+
+        if (darkMode) {
+
+            document.body.classList.add(
+                "dark"
+            );
+
+            darkModeBtn.textContent =
+                "☀️";
+
+        } else {
+
+            document.body.classList.remove(
+                "dark"
+            );
+
+            darkModeBtn.textContent =
+                "🌙";
+
+        }
+
+    }
+
+
+    darkModeBtn.addEventListener(
+        "click",
+        function () {
+
+            const isDark =
+                document.body.classList.contains(
+                    "dark"
+                );
+
+
+            localStorage.setItem(
+                "ruangAksaraDarkMode",
+                (!isDark).toString()
+            );
+
+
+            applyDarkMode();
+
+        }
+    );
+
+
+    applyDarkMode();
+
+
+    /* ==================================================
+       MOBILE MENU
+    ================================================== */
+
+    const mobileMenu =
+        document.getElementById(
+            "mobileMenu"
+        );
+
+
+    const sidebar =
+        document.getElementById(
+            "sidebar"
+        );
+
+
+    mobileMenu.addEventListener(
+        "click",
+        function () {
+
+            sidebar.classList.toggle(
+                "show"
+            );
+
+        }
+    );
+
+
+    /* ==================================================
+       INITIAL RENDER
+    ================================================== */
+
+    renderNotifications();
 
 </script>
 
